@@ -38,27 +38,27 @@ if (VerifierConnection()) {
                         <table> 
                             <tr>
                                 <td>Pseudo*</td> 
-                                <td><input id="pseudo" type="text" value="" maxlength="25" required name="Pseudo" /></td>          
+                                <td><input id="pseudo" type="text" value="" maxlength="25" required name="Pseudo" placeholder="Pseudo"/></td>          
                             </tr>
                             <tr>
                                 <td> Nom*</td>
-                                <td><input id="nom" type="text" value="" required name="Nom" /></td>  
+                                <td><input id="nom" type="text" value="" required name="Nom" placeholder="Nom"/></td>  
                             </tr>
                             <tr>
                                 <td>Prenom*</td>
-                                <td> <input id="prenom" type="text" value="" required name="Prenom" /></td>
+                                <td> <input id="prenom" type="text" value="" required name="Prenom" placeholder="Prenom" /></td>
                             </tr>
                             <tr>
                                 <td>Email*</td>
-                                <td><input id="text" type="text" value="" required name="Email"  /></td>
+                                <td><input id="text" type="text" value="" required name="Email" placeholder="Email" /></td>
                             </tr> 
                             <tr> 
                                 <td>Mot de passe*</td>
-                                <td><input id="password" type="password" required value="" name="Mdp" /></td>
+                                <td><input id="password" type="password" required value="" name="Mdp" placeholder="Mot de passe"/></td>
                             </tr> 
                             <tr>
                                 <td>Retapez mot de passe*</td>
-                                <td><input id="password2" type="password" required value="" name="Mdp2" /></td>
+                                <td><input id="password2" type="password" required value="" name="Mdp2" placeholder="Retapez le mot de passe" /></td>
                             </tr> 
                              
                         </table> 
