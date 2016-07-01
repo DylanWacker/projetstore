@@ -66,27 +66,44 @@ session_start();
 
 
                                     /* on renvoie sur la page d'accueil */
-                                    header('Location: index.php');
-                                }
-                            } else {
-                                echo "Il faut remplir tous les champs";
-                                echo('<br/> <a href="connexion.php"><input type="submit" value="ok"/></a> ');
-                            }
-                        } else {
-                            echo "Une erreur s'est produite";
-                            echo('<br/> <a href="connexion.php"><input type="submit" value="ok"/></a> ');
-                        }
-                    } else {
-                        echo "Connexion déjà établie";
-                        echo('<br/> <a href="index.php"><input type="submit" value="ok"/></a> ');
-                    }
-                    ?>
-                </article>
-            </article>
-        </section>
-        <?php
-        include 'Footer.php';
-        ?>
+                                    ?>   
+                                    <SCRIPT LANGUAGE="JavaScript">
+                                        document.location.href = "index.php"
+                                    </SCRIPT>
+                                    <?php 
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    }
+                                    } else {
+                                    echo "Il faut remplir tous les champs";
+                                    echo('<br/> <a href="connexion.php"><input type="submit" value="ok"/></a> ');
+                                    }
+                                    } else {
+                                    echo "Une erreur s'est produite";
+                                    echo('<br/> <a href="connexion.php"><input type="submit" value="ok"/></a> ');
+                                    }
+                                    } else {
+                                    echo "Connexion déjà établie";
+                                    echo('<br/> <a href="index.php"><input type="submit" value="ok"/></a> ');
+                                    }
+                                    ?>
+                                </article>
+                            </article>
+                        </section>
+                        <?php
+                        include 'Footer.php';
+                        ?>
     </body>
 
 </html>
