@@ -39,9 +39,9 @@ if($action !== null)
    $erreur=true;
 
    //récuperation des variables en POST ou GET
-   $N = (isset($_POST['N'])? $_POST['N']:  (isset($_GET['l'])? $_GET['N']:null )) ;
+   $N = (isset($_POST['N'])? $_POST['N']:  (isset($_GET['N'])? $_GET['N']:null )) ;
    $P = (isset($_POST['p'])? $_POST['P']:  (isset($_GET['P'])? $_GET['P']:null )) ;
-   $Q = (isset($_POST['Q'])? $_POST['Q']:  (isset($_GET['q'])? $_GET['Q']:null )) ;
+   $Q = (isset($_POST['Q'])? $_POST['Q']:  (isset($_GET['Q'])? $_GET['Q']:null )) ;
 
    //Suppression des espaces verticaux
    $N = preg_replace('#\v#', '',$N);

@@ -31,7 +31,7 @@ dbConnect();
             $NomProduit="Store 5.0 V9";
             $QteProduit=2;
             $PrixProduit=300;
-         function AjouterArticle($NomProduit,$QteProduit,$PrixProduit){};
+            AjouterArticle($NomProduit,$QteProduit,$PrixProduit);
              ?> 
          
         </section>

@@ -225,6 +225,9 @@ function SupprimePanier(){
 
 
 
+
+
+
 //--------------------------------------------------------------------------
 function ModifierUtilisateur($UtilisateurDonnees) {
 //met à jours touts les champs de la table utilisateurs
