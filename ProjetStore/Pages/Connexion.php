@@ -15,9 +15,6 @@ session_start();
     include 'Head.php';
     ?>
     <body>  
-        <?php
-        include './Header.php';
-        ?> 
         <!-- jQuery (Necessaire pour Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!-- Ajoute les fichiers bootstrap -->
