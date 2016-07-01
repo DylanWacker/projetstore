@@ -26,7 +26,7 @@ if (VerifierConnection()) {
 			</div>
 		  </div></li>';
 
-
+//Formulaire Inscription
     echo'<li> <a href="#" data-toggle="modal"  data-target="#Inscription-modal">Inscription</a>
 
 <div class="modal fade" id="Inscription-modal" tabindex="-1" role="dialog" aria-labelledby="mymodalLabel" aria-hidden="true" style="display: none;">
