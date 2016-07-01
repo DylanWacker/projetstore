@@ -16,7 +16,7 @@ if (VerifierConnection()) {
 				    <form method="post" action="connexion.php" enctype="multipart/form-data">
 					<input type="text" name="Pseudo" placeholder="Pseudo">
 					<input type="password" name="Mdp" placeholder="Mot de passe">
-					<input type="button" class="btn btn-primary btn-block" name="Login" class="Login Loginmodal-submit" value="Connexion">
+					<button type="submit" class="btn btn-primary btn-block">Connexion</button>
 				  </form>
 					
 				  <div class="Login-help">
