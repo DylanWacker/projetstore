@@ -176,7 +176,7 @@ if (isset($_SESSION['User']['Statut'])) {
                     ?>
 
                 </li>
-                <li><a href="#">My cart (0) items</a></li>
+                <li><a href="Panier.php">My cart (0) items</a></li>
             </ul>
         </div><!-- /.nav-collapse -->
     </nav>

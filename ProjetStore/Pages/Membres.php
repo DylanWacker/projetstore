@@ -7,7 +7,7 @@
 include 'Mysql.php';
 include 'Fonction.php';
 session_start();
-//dbConnect();
+dbConnect();
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -7,7 +7,7 @@
 include 'Mysql.php';
 include 'Fonction.php';
 session_start();
-//dbConnect();
+dbConnect();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +27,13 @@ session_start();
             ?> 
         </nav>
         <section>
-            asdasdjhbnsafjkhbsadfhb
+            <?php
+            $NomProduit="Store 5.0 V9";
+            $QteProduit=2;
+            $PrixProduit=300;
+         function AjouterArticle($NomProduit,$QteProduit,$PrixProduit){};
+             ?> 
+         
         </section>
         <?php
         include 'Footer.php';
