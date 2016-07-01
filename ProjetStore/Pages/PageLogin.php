@@ -65,7 +65,7 @@ if (VerifierConnection()) {
 
 
                        
-                        <input type="submit" value="Envoyer" /><input type="reset" value="Reset" />
+                       <button type="submit" class="btn btn-primary btn-block">Envoyer</button><button type="reset" class="btn btn-warning btn-block">Reset</button>
                     </form>
 
 
