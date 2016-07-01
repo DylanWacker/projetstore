@@ -42,8 +42,8 @@ function VerifierPseudo($Pseudo) {
 function VerifierConnection() {
 //Vérifie si un utilisateur est connecter
 //--------------------------------------------------------------------------
-    if (isset($_SESSION['User']['IdUser'])) {
-        if ($_SESSION['User']['IdUser'] != "" || $_SESSION['User']['Pseudo'] != "") {
+    if (isset($_SESSION['User']['IdClient'])) {
+        if ($_SESSION['User']['IdClient'] != "" || $_SESSION['User']['Pseudo'] != "") {
             return true;
         }
     } else

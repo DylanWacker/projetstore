@@ -33,7 +33,7 @@ session_start();
             <article>
                 <article>
                     <?php
-                    if (empty($_SESSION['User']['IdUser'])) { //les membres connectes ne peuvent pas s'inscrire
+                    if (empty($_SESSION['User']['IdClient'])) { //les membres connectes ne peuvent pas s'inscrire
                         //il faut que toutes les variables du formulaire existent 
                         if (isset($_POST['Pseudo']) && isset($_POST['Mdp'])) {
                             // il faut que tous les champs soient renseignes 
@@ -44,7 +44,7 @@ session_start();
                                 $passhache = md5($_POST['Mdp']);
 
                                 //on verifie qu'un membre a bien ce pseudo et ce mot de passe
-                                $req = $dbc->prepare('SELECT * FROM utilisateurs WHERE Pseudo = :Pseudo AND MotDePasse= :Mdp ');
+                                $req = $dbc->prepare('SELECT * FROM client WHERE Pseudo = :Pseudo AND MotDePasse= :Mdp ');
                                 $req->execute(array('Pseudo' => $_POST['Pseudo'], 'Mdp' => $passhache));
                                 $resultat = $req->fetch();
 

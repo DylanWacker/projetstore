@@ -7,7 +7,7 @@
 
 /* il faut demarrer la session */
 session_start();
-if (isset($_SESSION['User']['IdUser'])) //les membres non connectes ne peuvent pas se deconnecter
+if (isset($_SESSION['User']['IdClient'])) //les membres non connectes ne peuvent pas se deconnecter
 {
 
 /* on vire toutes la variables de session */

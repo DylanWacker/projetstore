@@ -1,7 +1,7 @@
 <?php
 //déclare les variables
-if (isset($_SESSION['User']['IdUser'])) {
-    $IdUtilisateur = $_SESSION['User']['IdUser'];
+if (isset($_SESSION['User']['IdClient'])) {
+    $IdUtilisateur = $_SESSION['User']['IdClient'];
 } else {
     $IdUtilisateur = 0;
 };
