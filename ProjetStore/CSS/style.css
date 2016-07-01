@@ -11,10 +11,10 @@ header {
     height: 20%;
     margin-left: 20%;
     margin-right: 20%;
-    border-radius: 10px;
     display:block;  
-    margin-bottom: 0.5%;
     border:5px solid #223645;
+    border-radius: 10px 10px 0px 0px;
+    border-bottom: none;
 }
 
 
@@ -22,12 +22,13 @@ section {
     background-color: white; 
     width: 60%;
     height: 68.5%;
-    border-radius: 10px 10px 0px 0px;
+    //border-radius: 0px 0px 0px 0px;
     display:block;
     overflow: auto;
     color:black;
     border:5px solid #223645;
     border-bottom: none;
+    border-top: none;
     margin-left: 20%;
     margin-right: 20%;
 }

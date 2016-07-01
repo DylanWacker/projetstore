@@ -1,3 +1,20 @@
+<?php
+
+//déclare les variables
+if (isset($_SESSION['User']['IdUser'])) {
+    $IdUtilisateur = $_SESSION['User']['IdUser'];
+} else {
+    $IdUtilisateur = 0;
+};
+if (isset($_SESSION['User']['Statut'])) {
+    $Statut = $_SESSION['User']['Statut'];
+} else {
+    $Statut = "invité";
+};
+$Admin = VerifierAdmin($IdUtilisateur);
+$Statut = $Admin['Statut'];
+
+?>
 <div class="container">
   <nav class="navbar navbar-inverse">
     <div class="navbar-header">
@@ -158,13 +175,26 @@
 		</ul>
         <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My account <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php
+        /* si le membre est connecte */
+        if (VerifierConnection()) {
+            echo '<li><a href="Membres.php"><span>' . $_SESSION['User']['Pseudo'] . '</span></a></li> ';
+            /* si le membre est Admin */
+            if ($Statut == 'Administrateur') {
+                echo'<li><a href="Administration.php"><span>Administration</span></a></li> ';
+            }
+            echo'<li><a href="Deconnexion.php"><span>Déconnexion</span></a></li>';
+        } else {
+            echo'<li><a href="Connexion.php"><span>Connexion</span></a></li>';
+            echo'<li><a href="Inscription.php"><span>Inscription</span></a></li>';
+        };
+        ?><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="#">Déconnexion</a></li>
           </ul>
         </li>
         <li><a href="#">My cart (0) items</a></li>
