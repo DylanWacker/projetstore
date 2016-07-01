@@ -171,21 +171,21 @@ if (isset($_SESSION['User']['Statut'])) {
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                        <?php
-                        /* si le membre est connecte */
-                        if (VerifierConnection()) {
-                            echo '<li><a href="Membres.php"><span>' . $_SESSION['User']['Pseudo'] . '</span></a></li> ';
-                            echo'<li><a href="Deconnexion.php"><span>Déconnexion</span></a></li>';
-                        } else {
-                            echo'<li> <a href="#" data-toggle="modal" data-target="#login-modal">Connexion</a>
+                    <?php
+                    /* si le membre est connecte */
+                    if (VerifierConnection()) {
+                        echo '<li><a href="Membres.php"><span>' . $_SESSION['User']['Pseudo'] . '</span></a></li> ';
+                        echo'<li><a href="Deconnexion.php"><span>Déconnexion</span></a></li>';
+                    } else {
+                        echo'<li> <a href="#" data-toggle="modal"  data-target="#login-modal">Connexion</a>
 
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     	  <div class="modal-dialog">
 				<div class="loginmodal-container">
 					<h1>Connexion</h1><br>
-				  <form>
-					<input type="text" name="user" placeholder="Pseudo">
-					<input type="password" name="pass" placeholder="Mot de passe">
+				    <form method="post" action="connexion.php" enctype="multipart/form-data">
+					<input type="text" name="Pseudo" placeholder="Pseudo">
+					<input type="password" name="Mdp" placeholder="Mot de passe">
 					<input type="submit" name="login" class="login loginmodal-submit" value="Connexion">
 				  </form>
 					
@@ -195,11 +195,11 @@ if (isset($_SESSION['User']['Statut'])) {
 				</div>
 			</div>
 		  </div></li>';
-                            
-                                        
-                            echo'<li><a href="Inscription.php"><span>Inscription</span></a></li>';
-                        };
-                        ?>
+
+
+                        echo'<li><a href="Inscription.php"><span>Inscription</span></a></li>';
+                    };
+                    ?>
 
                 </li>
                 <li><a href="#">My cart (0) items</a></li>
