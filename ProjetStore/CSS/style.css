@@ -12,7 +12,7 @@ header {
     margin-left: 20%;
     margin-right: 20%;
     display:block;  
-    border:5px solid #223645;
+    border:5px solid #999;
     border-radius: 10px 10px 0px 0px;
     border-bottom: none;
 }
@@ -26,7 +26,7 @@ section {
     display:block;
     overflow: auto;
     color:black;
-    border:5px solid #223645;
+    border:5px solid #999;
     border-bottom: none;
     border-top: none;
     margin-left: 20%;
@@ -50,7 +50,7 @@ footer {
     height: 10%;
     border-radius: 0px 0px 10px 10px;
     display:block;
-    border:5px solid #223645;
+    border:5px solid #999;
     border-top: none;
     font-weight: bold;
     font-family: 'Verdana', 'Geneva', 'sans-serif';  
