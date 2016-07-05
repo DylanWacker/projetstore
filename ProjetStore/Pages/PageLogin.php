@@ -20,7 +20,7 @@ if (VerifierConnection()) {
 				  </form>
 					
 				  <div class="Login-help">
-					<a href="#">Inscription</a> - <a href="#">Mot de passe oublier</a>
+					<a href="#" data-toggle="modal"  data-target="#Inscription-modal" >Inscription</a> - <a href="#">Mot de passe oublier</a>
 				  </div>
 				</div>
 			</div>
@@ -88,7 +88,7 @@ if (VerifierConnection()) {
                     
 					
 				  <div class="Inscription-help">
-					<a href="#">Inscription</a> - <a href="#">Mot de passe oublier</a>
+					<a href="#" data-toggle="modal"  data-target="#Login-modal"   >Déjà un compte ? Connexion </a>
 				  </div>
 				</div>
 			</div>
