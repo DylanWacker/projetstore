@@ -162,11 +162,11 @@ function ModifierQTeArticle($NomProduit,$QteProduit){
 
          if ($PositionProduit !== false)
          {
-            $_SESSION['Panier']['QteProduit'][$positionProduit] = $QteProduit ;
+            $_SESSION['Panier']['QteProduit'][$PositionProduit] = $QteProduit ;
          }
       }
       else
-      supprimerArticle($NomProduit);
+      SupprimerArticle($NomProduit);
    }
    else
    echo "Un problème est survenu veuillez contacter l'administrateur du site.";
@@ -201,8 +201,8 @@ function CompterArticles()
 //Compte les articles
 //--------------------------------------------------------------------------
 {
-   if (isset($_SESSION['panier']))
-   return count($_SESSION['panier']['libelleProduit']);
+   if (isset($_SESSION['Panier']))
+   return count($_SESSION['Panier']['NomProduit']);
    else
    return 0;
 
@@ -306,13 +306,14 @@ function CountUtilisateurs() {
     return $req->fetch();
 };
 
-function CalculePoidsGramme($Achat, $Poids) {
-    $Somme = $Achat / $Poids;
-    return $Somme;
+//--------------------------------------------------------------------------
+function AfficherStore() {
+//affiche tout les stores
+//--------------------------------------------------------------------------
+    global $dbc;
+    $req = $dbc->prepare('SELECT * FROM  Store  order by IdStore');
+    $req->execute();
+    return $req->fetchall(PDO::FETCH_ASSOC);
 };
 
-function CalculeNombreJoin($Poids, $Quantitee) {
-    $Somme = $Poids / $Quantitee;
-    return $Somme;
-};
 ?>

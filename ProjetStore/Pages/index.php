@@ -28,12 +28,30 @@ dbConnect();
         </nav>
         <section>
             <?php
-            $NomProduit="Store 5.0 V9";
-            $QteProduit=2;
-            $PrixProduit=300;
-            AjouterArticle($NomProduit,$QteProduit,$PrixProduit);
-             ?> 
-         
+            foreach (AfficherStore() as $Store) {
+                       echo '<form enctype="multipart/form-data" action="#" method="post">'; 
+                        echo  'id: '.$Store['IdStore'].'<br/>';
+                        echo 'nom: '.$Store['Nom'].'<br/>';
+                         echo 'prix: '.$Store['PrixStore'].'<br/>';
+                          echo'poids: '. $Store['Poids'].'<br/>';
+                          echo '<button type="submit" name="Store'.$Store['IdStore'].'"class="btn btn-primary btn-block">Acheter</button>';
+                          echo '</form>';
+                    }
+                   // if AjouterArticle($NomProduit,$QteProduit,$PrixProduit){
+                        
+                        
+                        if(isset($_POST['Store2']))
+	{
+		
+			 AjouterArticle($Store['Nom'],1,$Store['PrixStore']);
+
+                        
+                        
+                        
+                    }
+            ?> 
+          
+
         </section>
         <?php
         include 'Footer.php';

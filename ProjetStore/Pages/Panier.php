@@ -26,63 +26,15 @@ dbConnect();
             include './MenuNavigation.php';
             ?> 
         </nav>
-        <section>
-           <?php
+ 
+    </head>
+<body>
 
-
-$erreur = false;
-
-$action = (isset($_POST['action'])? $_POST['action']:  (isset($_GET['action'])? $_GET['action']:null )) ;
-if($action !== null)
-{
-   if(!in_array($action,array('Ajout', 'Suppression', 'Refresh')))
-   $erreur=true;
-
-   //récuperation des variables en POST ou GET
-   $N = (isset($_POST['N'])? $_POST['N']:  (isset($_GET['N'])? $_GET['N']:null )) ;
-   $P = (isset($_POST['p'])? $_POST['P']:  (isset($_GET['P'])? $_GET['P']:null )) ;
-   $Q = (isset($_POST['Q'])? $_POST['Q']:  (isset($_GET['Q'])? $_GET['Q']:null )) ;
-
-   //Suppression des espaces verticaux
-   $N = preg_replace('#\v#', '',$N);
-   //On verifie que $p soit un float
-   $P = floatval($P);
-
-   //On traite $q qui peut etre un entier simple ou un tableau d'entier
-    
-   if (is_array($Q)){
-      $QteArticle = array();
-      $i=0;
-      foreach ($Q as $contenu){
-         $QteArticle[$i++] = intval($contenu);
-      }
-   }
-   else
-   $Q = intval($Q);
-    
-}
-
-if (!$erreur){
-   switch($action){
-      Case "Ajout":
-         AjouterArticle($N,$Q,$P);
-         break;
-
-      Case "suppression":
-         SupprimerArticle($N);
-         break;
-
-      Case "Refresh" :
-         for ($i = 0 ; $i < count($QteArticle) ; $i++)
-         {
-            ModifierQTeArticle($_SESSION['Panier']['NomProduit'][$i],round($QteArticle[$i]));
-         }
-         break;
-
-      Default:
-         break;
-   }
-}
+    <section>
+        <article >
+<?php
+session_start();
+include_once("fonctions-panier.php");
 
 echo '<?xml version="1.0" encoding="utf-8"?>';?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
@@ -92,13 +44,13 @@ echo '<?xml version="1.0" encoding="utf-8"?>';?>
 </head>
 <body>
 
-<form method="post" action="Panier.php">
+<form method="post" action="panier.php">
 <table style="width: 400px">
 	<tr>
-		<td colspan="4">Votre Panier</td>
+		<td colspan="4">Votre panier</td>
 	</tr>
 	<tr>
-		<td>Nom</td>
+		<td>Libellé</td>
 		<td>Quantité</td>
 		<td>Prix Unitaire</td>
 		<td>Action</td>
@@ -106,43 +58,44 @@ echo '<?xml version="1.0" encoding="utf-8"?>';?>
 
 
 	<?php
-	if (CreationPanier())
+	if (creationPanier())
 	{
-	   $NbArticles=count($_SESSION['Panier']['NomProduit']);
-	   if ($NbArticles <= 0)
-	   echo "<tr><td>Votre panier est vide </ td></tr>";
-	   else
-	   {
-	      for ($i=0 ;$i < $NbArticles ; $i++)
-	      {
-	         echo "<tr>";
-	         echo "<td>".htmlspecialchars($_SESSION['Panier']['NomProduit'][$i])."</ td>";
-	         echo "<td><input type=\"text\" size=\"4\" name=\"q[]\" value=\"".htmlspecialchars($_SESSION['Panier']['QteProduit'][$i])."\"/></td>";
-	         echo "<td>".htmlspecialchars($_SESSION['Panier']['PrixProduit'][$i])."</td>";
-	         echo "<td><a href=\"".htmlspecialchars("Panier.php?action=suppression&l=".rawurlencode($_SESSION['Panier']['NomProduit'][$i]))."\">XX</a></td>";
-	         echo "</tr>";
-	      }
+		$nbArticles=count($_SESSION['panier']['libelleProduit']);
+		if ($nbArticles <= 0)
+		echo "<tr><td>Votre panier est vide </ td></tr>";
+		else
+		{
+			for ($i=0 ;$i < $nbArticles ; $i++)
+			{
+				echo "<tr>";
+				echo "<td>".htmlspecialchars($_SESSION['panier']['libelleProduit'][$i])."</ td>";
+				echo "<td><input type=\"text\" size=\"4\" name=\"q[]\" value=\"".htmlspecialchars($_SESSION['panier']['qteProduit'][$i])."\"/></td>";
+				echo "<td>".htmlspecialchars($_SESSION['panier']['prixProduit'][$i])."</td>";
+				echo "<td><a href=\"".htmlspecialchars("panier.php?action=suppression&l=".rawurlencode($_SESSION['panier']['libelleProduit'][$i]))."\">XX</a></td>";
+				echo "</tr>";
+			}
 
-	      echo "<tr><td colspan=\"2\"> </td>";
-	      echo "<td colspan=\"2\">";
-	      echo "Total : ".MontantGlobal();
-	      echo "</td></tr>";
+			echo "<tr><td colspan=\"2\"> </td>";
+			echo "<td colspan=\"2\">";
+			echo "Total : ".MontantGlobal();
+			echo "</td></tr>";
 
-	      echo "<tr><td colspan=\"4\">";
-	      echo "<input type=\"submit\" value=\"Rafraichir\"/>";
-	      echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
+			echo "<tr><td colspan=\"4\">";
+			echo "<input type=\"submit\" value=\"Rafraichir\"/>";
+			echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
 
-	      echo "</td></tr>";
-	   }
+			echo "</td></tr>";
+		}
 	}
 	?>
 </table>
 </form>
 </body>
 </html>
-        </section>
-        <?php
-        include 'Footer.php';
-        ?>
-    </body>
+        </article>
+    </section>
+    <?php
+    include 'Footer.php';
+    ?>
+</body>
 </html>
