@@ -14,8 +14,8 @@ if (VerifierConnection()) {
 				<div class="Loginmodal-container">
 					<h1>Connexion</h1><br>
 				    <form method="post" action="connexion.php" enctype="multipart/form-data">
-					<input type="text" name="Pseudo" placeholder="Pseudo" style="margin-bottom: 10px">
-					<input type="password" name="Mdp" placeholder="Mot de passe" style="margin-bottom: 10px">
+					<input type="text" name="Pseudo"  required placeholder="Pseudo" style="margin-bottom: 10px">
+					<input type="password" name="Mdp" required placeholder="Mot de passe" style="margin-bottom: 10px">
                                         <a href="#" style="margin-bottom: 10px">Mot de passe oublié?</a>
 					<button type="submit" class="btn btn-primary btn-block">Connexion</button>
 				  </form>					
