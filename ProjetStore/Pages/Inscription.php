@@ -63,26 +63,26 @@ dbConnect();
                                         }
                                     } else {
                                         echo "Un membre possede deja ce pseudo";
-                                        echo('<br/> <a href="index.php"><input type="submit" value="ok"/></a> ');
+                                        echo('<br/> <a data-toggle="modal" data-target="#Inscription-modal"  href="index.php"><input type="submit" value="ok"/></a> ');
                                     }
                                 } else {
                                     echo "les mot de passe ne correspondent pas";
-                                    echo('<br/> <a href="index.php"><input type="submit" value="ok"/></a> ');
+                                    echo('<br/> <a data-toggle="modal" data-target="#Inscription-modal"  href="index.php"><input type="submit" value="ok"/></a> ');
                                 }
                             } else {
                                 echo "Email non valide";
-                                echo('<br/> <a href="index.php"><input type="submit" value="ok"/></a> ');
+                                echo('<br/> <a data-toggle="modal" data-target="#Inscription-modal"  href="index.php"><input type="submit" value="ok"/></a> ');
                             }
                         } else {
                             echo "Il faut remplir tous les champs";
-                            echo('<br/> <a href="index.php"><input type="submit" value="ok"/></a> ');
+                            echo('<br/> <a data-toggle="modal" data-target="#Inscription-modal"  href="index.php"><input type="submit" value="ok"/></a> ');
                         }
                     } else {
                         echo "Une erreur s'est produite";
                     }
                 } else {
                     echo "Vous n'avez pas le droit d'acceder a cette page";
-                    echo('<br/> <a href="index.php"><input type="submit" value="ok"/></a> ');
+                    echo('<br/> <a data-toggle="modal" data-target="#Inscription-modal" href="index.php"><input type="submit" value="ok"/></a> ');
                 }
                 ?>
             </article>

@@ -71,15 +71,15 @@ dbConnect();
                                 }
                             } else {
                                 echo "Il faut remplir tous les champs";
-                                echo('<br/> <a href="connexion.php"><input type="submit" value="ok"/></a> ');
+                                echo('<br/> <a href="index.php"  data-toggle="modal" data-target="#Login-modal"><input type="submit" value="ok"/></a> ');
                             }
                         } else {
                             echo "Une erreur s'est produite";
-                            echo('<br/> <a href="connexion.php"><input type="submit" value="ok"/></a> ');
+                            echo('<br/> <a   data-toggle="modal" data-target="#Login-modal" href="index.php"><input type="submit" value="ok"/></a> ');
                         }
                     } else {
                         echo "Connexion déjà établie";
-                        echo('<br/> <a href="index.php"><input type="submit" value="ok"/></a> ');
+                        echo('<br/> <a href="index.php"  data-toggle="modal" data-target="#Login-modal"><input type="submit" value="ok"/></a> ');
                     }
                     ?>
                 </article>
