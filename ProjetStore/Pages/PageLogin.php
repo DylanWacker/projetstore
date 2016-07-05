@@ -39,58 +39,58 @@ if (VerifierConnection()) {
                     <form enctype="multipart/form-data" action="inscription.php" method="post">
                         <table> 
                             <tr>
-                                <td>Pseudo</td> 
-                                <td><input id="pseudo" type="text" value="" maxlength="25" required name="Pseudo" placeholder="Pseudo"/></td>          
+                                <td><b>Pseudo</b></td> 
+                                <td><input id="pseudo" type="text" value="" maxlength="25" required name="Pseudo" placeholder="Pseudo" style="margin-bottom: 10px"/></td>          
+                            </tr >
+                            <tr>
+                                <td><b>Nom</b></td>
+                                <td><input id="nom" type="text" value="" required name="Nom" placeholder="Nom" style="margin-bottom: 10px"/></td>  
                             </tr>
                             <tr>
-                                <td> Nom</td>
-                                <td><input id="nom" type="text" value="" required name="Nom" placeholder="Nom"/></td>  
+                                <td><b>Prenom</b></td>
+                                <td> <input id="prenom" type="text" value="" required name="Prenom" placeholder="Prenom" style="margin-bottom: 10px"/></td>
                             </tr>
                             <tr>
-                                <td>Prenom</td>
-                                <td> <input id="prenom" type="text" value="" required name="Prenom" placeholder="Prenom" /></td>
-                            </tr>
-                            <tr>
-                                <td>Adresse</td>
-                                <td><input id="text" type="text" value="" required name="Adresse" placeholder="Adresse" /></td>
+                                <td><b>Adresse</b></td>
+                                <td><input id="text" type="text" value="" required name="Adresse" placeholder="Adresse" style="margin-bottom: 10px"/></td>
                             </tr> 
                             <tr>
-                                <td>Npa</td>
-                                <td><input id="text" type="text" value="" required name="Npa" placeholder="Npa" /></td>
+                                <td><b>Npa</b></td>
+                                <td><input id="text" type="text" value="" required name="Npa" placeholder="Npa" style="margin-bottom: 10px"/></td>
                             </tr> 
                                <tr>
-                                <td>Ville</td>
-                                <td><input id="text" type="text" value="" required name="Ville" placeholder="Ville" /></td>
+                                <td><b>Ville</b></td>
+                                <td><input id="text" type="text" value="" required name="Ville" placeholder="Ville" style="margin-bottom: 10px"/></td>
                             </tr> 
                                                         <tr>
-                                <td>Email</td>
-                                <td><input id="text" type="text" value="" required name="Email" placeholder="Email" /></td>
+                                <td><b>Email</b></td>
+                                <td><input id="text" type="text" value="" required name="Email" placeholder="Email" style="margin-bottom: 10px"/></td>
                             </tr> 
                                                         <tr>
-                                <td>Téléphone</td>
-                                <td><input id="text" type="text" value="" required name="Telephone" placeholder="Telephone" /></td>
+                                <td><b>Téléphone</b></td>
+                                <td><input id="text" type="text" value="" required name="Telephone" placeholder="Telephone" style="margin-bottom: 10px"/></td>
                             </tr> 
                             <tr> 
-                                <td>Mot de passe</td>
-                                <td><input id="password" type="password" required value="" name="Mdp" placeholder="Mot de passe"/></td>
+                                <td><b>Mot de passe</b></td>
+                                <td><input id="password" type="password" required value="" name="Mdp" placeholder="Mot de passe" style="margin-bottom: 10px"/></td>
                             </tr> 
                             <tr>
-                                <td>Retapez le mot de passe</td>
-                                <td><input id="password2" type="password" required value="" name="Mdp2" placeholder="Retapez le mot de passe" /></td>
+                                <td><b>Retapez le mot de passe</b></td>
+                                <td><input id="password2" type="password" required value="" name="Mdp2" placeholder="Retapez le mot de passe" style="margin-bottom: 10px"/></td>
                             </tr> 
                              
                         </table> 
 
 
                        
-                       <button type="submit" class="btn btn-primary btn-block">Envoyer</button><button type="reset" class="btn btn-warning btn-block">Reset</button>
+                       <button type="submit" class="btn btn-primary btn-block">S\'inscrire</button><button type="reset" class="btn btn-warning btn-block">Réinitialiser</button>
                     </form>
 
 
                     
 					
 				  <div class="Inscription-help">
-					</br><b>Vous n\'avez pas de compte ? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b><a href="#" class="btn btn-success"   data-toggle="modal"   data-dismiss="modal" data-target="#Login-modal">Inscription</a>
+					</br><b>Vous avez un compte ? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b><a href="#" class="btn btn-success"   data-toggle="modal"   data-dismiss="modal" data-target="#Login-modal">Connexion</a>
 				  </div>
 				</div>
 			</div>
