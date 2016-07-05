@@ -21,9 +21,7 @@ if (VerifierConnection()) {
 				  </form>					
 				  <div class="Login-help">
 
-					</br>Vous n\'avez pas de compte ? <a href="#" class="btn btn-success" role="button"  data-target="#Inscription-modal">Inscription</a>
-
-					<a href="#" data-toggle="modal"   data-dismiss="modal" data-target="#Inscription-modal" >Inscription</a> - <a href="#">Mot de passe oublier</a>
+					</br><b> Vous n\'avez pas de compte ? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b> <a href="#" class="btn btn-success"   data-toggle="modal"   data-dismiss="modal" data-target="#Inscription-modal">Inscription</a>
 
 				  </div>
 				</div>
@@ -92,7 +90,7 @@ if (VerifierConnection()) {
                     
 					
 				  <div class="Inscription-help">
-					<a href="#" data-toggle="modal"  data-dismiss="modal" data-target="#Login-modal" ">Déjà un compte ? Connexion </a>
+					</br><b>Vous n\'avez pas de compte ? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b><a href="#" class="btn btn-success"   data-toggle="modal"   data-dismiss="modal" data-target="#Login-modal">Inscription</a>
 				  </div>
 				</div>
 			</div>
