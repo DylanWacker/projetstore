@@ -48,7 +48,7 @@ dbConnect();
                                 //s'il n'y a pas de resultat, on renvoie a la page de connexion
                                 if (!$resultat) {
                                     echo "Identifiants incorrecte";
-                                    echo('<br/> <a href="connexion.php"><input type="submit" value="ok"/></a> ');
+                                    echo('<br/> <a href="index.php"  data-toggle="modal" data-target="#Login-modal""><input type="submit" value="Réessayer"/></a> ');
                                 } else {
 
 
@@ -71,15 +71,15 @@ dbConnect();
                                 }
                             } else {
                                 echo "Il faut remplir tous les champs";
-                                echo('<br/> <a href="index.php"  data-toggle="modal" data-target="#Login-modal"><input type="submit" value="ok"/></a> ');
+                                echo('<br/> <a href="index.php"  data-toggle="modal" data-target="#Login-modal"><input type="submit" value="Réessayer"/></a> ');
                             }
                         } else {
                             echo "Une erreur s'est produite";
-                            echo('<br/> <a   data-toggle="modal" data-target="#Login-modal" href="index.php"><input type="submit" value="ok"/></a> ');
+                            echo('<br/> <a   data-toggle="modal" data-target="#Login-modal" href="index.php"><input type="submit" value="Réessayer"/></a> ');
                         }
                     } else {
                         echo "Connexion déjà établie";
-                        echo('<br/> <a href="index.php"  data-toggle="modal" data-target="#Login-modal"><input type="submit" value="ok"/></a> ');
+                        echo('<br/> <a href="index.php"  data-toggle="modal" data-target="#Login-modal"><input type="submit" value="Réessayer"/></a> ');
                     }
                     ?>
                 </article>
