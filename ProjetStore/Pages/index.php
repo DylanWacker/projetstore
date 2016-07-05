@@ -31,9 +31,9 @@ dbConnect();
             foreach (AfficherStore() as $Store) {
                        echo '<form enctype="multipart/form-data" action="#" method="post">'; 
                         echo  'id: '.$Store['IdStore'].'<br/>';
-                        echo 'nom: '.$Store['Nom'].'<br/>';
-                         echo 'prix: '.$Store['PrixStore'].'<br/>';
-                          echo'poids: '. $Store['Poids'].'<br/>';
+                        echo 'nom: '.$Store['NomStore'].'<br/>';
+                         echo 'prix: '.$Store['PrixStore'].'.-<br/>';
+                          echo'poids: '. $Store['PoidStore'].' Kg<br/>';
                           echo '<button type="submit" name="Store'.$Store['IdStore'].'"class="btn btn-primary btn-block">Acheter</button>';
                           echo '</form>';
                     }
