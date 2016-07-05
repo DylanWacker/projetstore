@@ -14,13 +14,13 @@ if (VerifierConnection()) {
 				<div class="Loginmodal-container">
 					<h1>Connexion</h1><br>
 				    <form method="post" action="connexion.php" enctype="multipart/form-data">
-					<input type="text" name="Pseudo" placeholder="Pseudo">
-					<input type="password" name="Mdp" placeholder="Mot de passe">
+					<input type="text" name="Pseudo" placeholder="Pseudo" style="margin-bottom: 10px">
+					<input type="password" name="Mdp" placeholder="Mot de passe" style="margin-bottom: 10px">
+                                        <a href="#" style="margin-bottom: 10px">Mot de passe oublié?</a>
 					<button type="submit" class="btn btn-primary btn-block">Connexion</button>
-				  </form>
-					
+				  </form>					
 				  <div class="Login-help">
-					<a href="#">Inscription</a> - <a href="#">Mot de passe oublier</a>
+					Vous n\'avez pas de compte ? <a href="#" class="btn btn-success btn-lg disabled" role="button" data-target="#Inscription-modal">Inscription</a>
 				  </div>
 				</div>
 			</div>
