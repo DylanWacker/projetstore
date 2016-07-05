@@ -21,9 +21,9 @@ if (VerifierConnection()) {
 				  </form>					
 				  <div class="Login-help">
 
-					Vous n\'avez pas de compte ? <a href="#" class="btn btn-success" role="button"  data-target="#Inscription-modal">Inscription</a>
+					</br>Vous n\'avez pas de compte ? <a href="#" class="btn btn-success" role="button"  data-target="#Inscription-modal">Inscription</a>
 
-					<a href="#" data-toggle="modal"  data-target="#Inscription-modal" >Inscription</a> - <a href="#">Mot de passe oublier</a>
+					<a href="#" data-toggle="modal"   data-dismiss="modal" data-target="#Inscription-modal" >Inscription</a> - <a href="#">Mot de passe oublier</a>
 
 				  </div>
 				</div>
@@ -31,7 +31,7 @@ if (VerifierConnection()) {
 		  </div></li>';
 
 //Formulaire Inscription
-    echo'<li> <a href="#" data-toggle="modal"  data-target="#Login-modal" data-target="#Inscription-modal">Inscription</a>
+    echo'<li> <a href="#" data-toggle="modal" data-target="#Inscription-modal">Inscription</a>
 
 <div class="modal fade" id="Inscription-modal" tabindex="-1" role="dialog" aria-labelledby="mymodalLabel" aria-hidden="true" style="display: none;">
     	  <div class="modal-dialog">
@@ -92,7 +92,7 @@ if (VerifierConnection()) {
                     
 					
 				  <div class="Inscription-help">
-					<a href="#" data-toggle="modal"   data-target="#Inscription-modal" data-target="#Login-modal" >Déjà un compte ? Connexion </a>
+					<a href="#" data-toggle="modal"  data-dismiss="modal" data-target="#Login-modal" ">Déjà un compte ? Connexion </a>
 				  </div>
 				</div>
 			</div>
