@@ -34,7 +34,7 @@ if (VerifierConnection()) {
 				<div class="Inscriptionmodal-container">
 					<h1>Inscription</h1><br>
 				    
-                    <form enctype="multipart/form-data" action="inscriptionok.php" method="post">
+                    <form enctype="multipart/form-data" action="inscription.php" method="post">
                         <table> 
                             <tr>
                                 <td>Pseudo</td> 
@@ -49,8 +49,24 @@ if (VerifierConnection()) {
                                 <td> <input id="prenom" type="text" value="" required name="Prenom" placeholder="Prenom" /></td>
                             </tr>
                             <tr>
+                                <td>Adresse</td>
+                                <td><input id="text" type="text" value="" required name="Adresse" placeholder="Adresse" /></td>
+                            </tr> 
+                            <tr>
+                                <td>Npa</td>
+                                <td><input id="text" type="text" value="" required name="Npa" placeholder="Npa" /></td>
+                            </tr> 
+                               <tr>
+                                <td>Ville</td>
+                                <td><input id="text" type="text" value="" required name="Ville" placeholder="Ville" /></td>
+                            </tr> 
+                                                        <tr>
                                 <td>Email</td>
                                 <td><input id="text" type="text" value="" required name="Email" placeholder="Email" /></td>
+                            </tr> 
+                                                        <tr>
+                                <td>Téléphone</td>
+                                <td><input id="text" type="text" value="" required name="Telephone" placeholder="Telephone" /></td>
                             </tr> 
                             <tr> 
                                 <td>Mot de passe</td>
