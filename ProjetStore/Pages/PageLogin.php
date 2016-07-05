@@ -20,11 +20,11 @@ if (VerifierConnection()) {
 					<button type="submit" class="btn btn-primary btn-block">Connexion</button>
 				  </form>					
 				  <div class="Login-help">
-<<<<<<< HEAD
-					Vous n\'avez pas de compte ? <a href="#" class="btn btn-success btn-lg disabled" role="button" data-target="#Inscription-modal">Inscription</a>
-=======
+
+					Vous n\'avez pas de compte ? <a href="#" class="btn btn-success" role="button"  data-target="#Inscription-modal">Inscription</a>
+
 					<a href="#" data-toggle="modal"  data-target="#Inscription-modal" >Inscription</a> - <a href="#">Mot de passe oublier</a>
->>>>>>> origin/master
+
 				  </div>
 				</div>
 			</div>
