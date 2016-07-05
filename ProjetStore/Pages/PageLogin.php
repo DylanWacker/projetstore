@@ -31,7 +31,7 @@ if (VerifierConnection()) {
 		  </div></li>';
 
 //Formulaire Inscription
-    echo'<li> <a href="#" data-toggle="modal"  data-target="#Inscription-modal">Inscription</a>
+    echo'<li> <a href="#" data-toggle="modal"  data-target="#Login-modal" data-target="#Inscription-modal">Inscription</a>
 
 <div class="modal fade" id="Inscription-modal" tabindex="-1" role="dialog" aria-labelledby="mymodalLabel" aria-hidden="true" style="display: none;">
     	  <div class="modal-dialog">
@@ -92,7 +92,7 @@ if (VerifierConnection()) {
                     
 					
 				  <div class="Inscription-help">
-					<a href="#" data-toggle="modal"  data-target="#Login-modal"   >Déjà un compte ? Connexion </a>
+					<a href="#" data-toggle="modal"   data-target="#Inscription-modal" data-target="#Login-modal" >Déjà un compte ? Connexion </a>
 				  </div>
 				</div>
 			</div>
