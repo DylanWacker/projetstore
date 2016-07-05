@@ -20,12 +20,12 @@ function dbConnect() {
 };
 
 //--------------------------------------------------------------------------
-function InscriptionUser($Pseudo, $Nom, $Prenom, $Email, $Mdp, $Statut, $Avatar) {
+function InscriptionUser($Pseudo, $Nom, $Prenom, $Email, $Mdp,  $Statut, $Adresse, $Npa, $Ville, $Telephone) {
 //Inscription des utilisateurs
 //--------------------------------------------------------------------------
     global $dbc;
-    $req = $dbc->prepare('INSERT INTO utilisateurs(Nom,Prenom,Pseudo,MotDePasse,Email,Avatar,Statut) VALUES( :Nom,:Prenom,:Pseudo,:MotDePasse,:Email,:Avatar,:Statut)');
-    return $req->execute(array('Nom' => $Nom, 'Prenom' => $Prenom, 'Pseudo' => $Pseudo, 'MotDePasse' => $Mdp, 'Email' => $Email, 'Avatar' => $Avatar, 'Statut' => $Statut));
+    $req = $dbc->prepare('INSERT INTO client(Nom,Prenom,Pseudo,MotDePasse,Adresse,Npa,Ville,Telephone,Email,Statut) VALUES( :Nom,:Prenom,:Pseudo,:MotDePasse,:Adresse,:Npa,:Ville,:Telephone,:Email,:Statut)');
+    return $req->execute(array('Nom' => $Nom, 'Prenom' => $Prenom, 'Pseudo' => $Pseudo, 'MotDePasse' => $Mdp, 'Adresse' => $Adresse, 'Npa' => $Npa, 'Ville' => $Ville, 'Telephone' => $Telephone, 'Email' => $Email, 'Statut' => $Statut));
 };
 
 //--------------------------------------------------------------------------
@@ -33,7 +33,7 @@ function VerifierPseudo($Pseudo) {
 //Vérifie si un utilisateur possede déjà ce pseudo
 //--------------------------------------------------------------------------
     global $dbc;
-    $req = $dbc->prepare('SELECT IdUser FROM Utilisateurs WHERE Pseudo = :Pseudo');
+    $req = $dbc->prepare('SELECT IdClient FROM client WHERE Pseudo = :Pseudo');
     $req->execute(array('Pseudo' => $Pseudo));
     return $nb_resultats_recherche_membre = $req->fetch();
 };
