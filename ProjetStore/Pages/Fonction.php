@@ -170,7 +170,7 @@ function AfficherStoreById($IdStore) {
     global $dbc;
     $req = $dbc->prepare('SELECT *  FROM  Store WHERE IdStore = :IdStore');
     $req->execute(array('IdStore' => $IdStore));
-    return $req->fetchAll();
+    return $req->fetch();
 }
 
 ;
@@ -216,6 +216,43 @@ function AfficherTypeCommande() {
    global $dbc;
     $req = $dbc->prepare('SELECT * FROM  TypeCommande');
     $req->execute();
+    return $req->fetchall(PDO::FETCH_ASSOC);
+}
+
+;
+
+//--------------------------------------------------------------------------
+function AfficherTypeCommandeById($IdStore) {
+//Affiche le type de commande des stores
+//--------------------------------------------------------------------------
+    global $dbc;
+    $req = $dbc->prepare('SELECT tc.Commande FROM store s  join typecommande tc  WHERE s.IdStore = :IdStore');
+    $req->execute(array('IdStore' => $IdStore));
+    return $req->fetchall(PDO::FETCH_ASSOC);
+}
+
+;
+
+
+//--------------------------------------------------------------------------
+function AfficherTypeStoreById($IdStore) {
+//Affiche le type de commande des stores
+//--------------------------------------------------------------------------
+    global $dbc;
+    $req = $dbc->prepare('SELECT ts.NomType FROM store s  join typestore ts  WHERE s.IdStore = :IdStore');
+    $req->execute(array('IdStore' => $IdStore));
+    return $req->fetchall(PDO::FETCH_ASSOC);
+}
+
+;
+
+//--------------------------------------------------------------------------
+function AfficherCouleurStoreById($IdStore) {
+//Affiche le type de commande des stores
+//--------------------------------------------------------------------------
+    global $dbc;
+    $req = $dbc->prepare('SELECT c.IdCouleur, c.NomCouleur  FROM store s  join couleurstore cs join couleur c WHERE s.IdStore = :IdStore AND cs.IdStore=s.IdStore group by c.NomCouleur;');
+    $req->execute(array('IdStore' => $IdStore));
     return $req->fetchall(PDO::FETCH_ASSOC);
 }
 

@@ -45,7 +45,8 @@ dbConnect();
                 <?php echo $Produit->NomStore; ?>
                 <a href="#"><?= $Produit->PrixStore?> .-</a><br>
 
-                 <?php include 'FormulaireProduit.php';?>
+                 <?php $IdStore=$Produit->IdStore;
+                 include 'FormulaireProduit.php';?>
                </th>
 
             </tr>
