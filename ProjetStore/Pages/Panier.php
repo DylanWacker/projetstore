@@ -4,9 +4,9 @@
   Auteur   : Dylan's
   Fonction : Index
  */
+require '_header.php';
 include 'Mysql.php';
 include 'Fonction.php';
-session_start();
 dbConnect();
 ?>
 <!DOCTYPE html>
@@ -55,16 +55,16 @@ dbConnect();
 			if(empty($ids)){
 				$products = array();
 			}else{
-				$products = $DB->query('SELECT * FROM products WHERE id IN ('.implode(',',$ids).')');
+				$products = $DB->query('SELECT * FROM store WHERE IdStore IN ('.implode(',',$ids).')');
 			}
 			foreach($products as $product):
 			?>
 			<div class="row">
-				<a href="#" class="img"> <img src="img/<?= $product->id; ?>.jpg" height="53"></a>
-				<span class="name"><?= $product->name; ?></span>
-				<span class="price"><?= number_format($product->price,2,',',' '); ?> €</span>
-				<span class="quantity"><input type="text" name="panier[quantity][<?= $product->id; ?>]" value="<?= $_SESSION['panier'][$product->id]; ?>"></span>
-				<span class="subtotal"><?= number_format($product->price * 1.196,2,',',' '); ?> €</span>
+				<a href="#" class="img"> <img src="../Images/Store/Store<?= $product->IdStore; ?>.jpg" height="53"></a>
+				<span class="name"><?= $product->NomStore; ?></span>
+				<span class="price"><?= number_format($product->PrixStore,2,',',' '); ?> .-</span>
+				<span class="quantity"><input type="text" name="panier[quantity][<?= $product->id; ?>]" value="<?= $_SESSION['panier'][$product->IdStore]; ?>"></span>
+				<span class="subtotal"><?= number_format($product->PrixStore,2,',',' '); ?> .-</span>
 				<span class="action">
 					<a href="panier.php?delPanier=<?= $product->id; ?>" class="del"><img src="img/del.png"></a>
 				</span>

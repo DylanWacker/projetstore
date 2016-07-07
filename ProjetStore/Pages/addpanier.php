@@ -4,9 +4,9 @@
   Auteur   : Dylan's
   Fonction : Index
  */
+require '_header.php';
 include 'Mysql.php';
 include 'Fonction.php';
-session_start();
 dbConnect();
 ?>
 <!DOCTYPE html>

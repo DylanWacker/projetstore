@@ -4,9 +4,10 @@
   Auteur   : Dylan's
   Fonction : Index
  */
+require '_header.php';
+
 include 'Mysql.php';
 include 'Fonction.php';
-session_start();
 dbConnect();
 ?>
 <!DOCTYPE html>
@@ -15,7 +16,6 @@ dbConnect();
     include 'Head.php';
     ?>
     <body>  
-
         <!-- jQuery (Necessaire pour Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!-- Ajoute les fichiers bootstrap -->
