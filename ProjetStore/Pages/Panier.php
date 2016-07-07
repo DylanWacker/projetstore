@@ -63,7 +63,7 @@ dbConnect();
 				<a href="#" class="img"> <img src="../Images/Store/Store<?= $product->IdStore; ?>.jpg" height="53"></a>
 				<span class="name"><?= $product->NomStore; ?></span>
 				<span class="price"><?= number_format($product->PrixStore,2,',',' '); ?> .-</span>
-				<span class="quantity"><input type="text" name="panier[quantity][<?= $product->id; ?>]" value="<?= $_SESSION['panier'][$product->IdStore]; ?>"></span>
+                                <span class="quantity"><input type="number" min="0" max="100" name="panier[quantity][<?= $product->IdStore; ?>]" value="<?= $_SESSION['panier'][$product->IdStore]; ?>"></span>
 				<span class="subtotal"><?= number_format($product->PrixStore*$_SESSION['panier'][$product->IdStore],2,',',' '); ?> .-</span>
 				<span class="action">
                                     <a href="panier.php?delPanier=<?= $product->IdStore; ?>" class="del"><img src="../Images/Icone/del.png"></a>

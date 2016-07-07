@@ -35,20 +35,13 @@ dbConnect();
                     ?>
 
                     <?php
-                    $Info = AfficheInformation($Pseudo);
-                    //si l'avatar existe pas sa met une photo inconnu
-                    if (empty($Info['Avatar'])) {
-                        $Avatar = 'inconnu.jpg';
-                    } else {
-                        $Avatar = $Info['Avatar'];
-                    };
+                    $Info = AfficheInformation($Pseudo);          
                     echo '  <table>';
-                    echo '<tr><td>Avatar</td><td> <img src="../IMAGES/AVATAR/' . $Avatar . '" alt="Avatar" width="75" height="75">   </td></tr>';
                     echo '<tr><td>Pseudo:</td><td>' . $Info['Pseudo'] . '</td></tr>';
                     echo '<tr><td>Nom:</td><td>' . $Info['Nom'] . '</td></tr>';
                     echo '<tr><td>Prenom:</td><td>' . $Info['Prenom'] . '</td></tr>';
                     echo '<tr><td>Email:</td><td>' . $Info['Email'] . '</td></tr>';
-                    echo '<tr><td></td><td><a href="./Modifier.php?IdUser=' . $Info['IdUser'] . '"><input type="button"  name="modifier" value="Modifier"> </a></td></tr>';
+                    echo '<tr><td></td><td><a href="./Modifier.php?IdUser=' . $Info['IdClient'] . '"><input type="button"  name="modifier" value="Modifier"> </a></td></tr>';
                     echo '  </table>';
                 } else {
                     echo "connectez vous pour pouvoir acceder à cette page";

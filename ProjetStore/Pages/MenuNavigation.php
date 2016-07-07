@@ -26,7 +26,7 @@ if (isset($_SESSION['User']['Statut'])) {
         <div class="collapse navbar-collapse js-navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="dropdown mega-dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Men <span class="caret"></span></a>				
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Store <span class="caret"></span></a>				
                     <ul class="dropdown-menu mega-dropdown-menu">
                         <li class="col-sm-3">
                             <ul>
@@ -65,15 +65,21 @@ if (isset($_SESSION['User']['Statut'])) {
                         </li>
                         <li class="col-sm-3">
                             <ul>
-                                <li class="dropdown-header">Features</li>
-                                <li><a href="#">Auto Carousel</a></li>
-                                <li><a href="#">Carousel Control</a></li>
-                                <li><a href="#">Left & Right Navigation</a></li>
-                                <li><a href="#">Four Columns Grid</a></li>
+                                <li class="dropdown-header">Type de Store</li>
+                                <?php
+                                foreach (AfficherTypeStore() as $TypeStore) {
+                                    echo '<li><a href="#">' . $TypeStore['NomType'] . '</a></li>';
+                                }
+                                ?>
+
                                 <li class="divider"></li>
-                                <li class="dropdown-header">Fonts</li>
-                                <li><a href="#">Glyphicon</a></li>
-                                <li><a href="#">Google Fonts</a></li>
+
+                                <li class="dropdown-header">Type de Commande</li>
+                                <?php
+                                foreach (AfficherTypeCommande() as $TypeCommande) {
+                                    echo '<li><a href="#">' . $TypeCommande['Commande'] . '</a></li>';
+                                }
+                                ?>
                             </ul>
                         </li>
                         <li class="col-sm-3">
@@ -176,7 +182,7 @@ if (isset($_SESSION['User']['Statut'])) {
                     ?>
 
                 </li>
-                <li><a href="Panier.php"><img src="../Images/Icone/caddie.png" >(<span id="count"><?php echo $panier->count();?></span>) Produits <span id="total"><?php echo number_format($panier->total() ,2,',',' ').'.-';?></span></a></li>
+                <li><a href="Panier.php"><img src="../Images/Icone/caddie.png" >(<span id="count"><?php echo $panier->count(); ?></span>) Produits <span id="total"><?php echo number_format($panier->total(), 2, ',', ' ') . '.-'; ?></span></a></li>
             </ul>
         </div><!-- /.nav-collapse -->
     </nav>

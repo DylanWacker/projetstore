@@ -27,7 +27,7 @@ function InscriptionUser($Pseudo, $Nom, $Prenom, $Email, $Mdp, $Statut, $Adresse
 //--------------------------------------------------------------------------
     global $dbc;
     $req = $dbc->prepare('INSERT INTO client(Nom,Prenom,Pseudo,MotDePasse,Adresse,Npa,Ville,Telephone,Email,Statut,Confirmation_token) VALUES( :Nom,:Prenom,:Pseudo,:MotDePasse,:Adresse,:Npa,:Ville,:Telephone,:Email,:Statut,:Confirmation_token)');
-    return $req->execute(array('Nom' => $Nom, 'Prenom' => $Prenom, 'Pseudo' => $Pseudo, 'MotDePasse' => $Mdp, 'Adresse' => $Adresse, 'Npa' => $Npa, 'Ville' => $Ville, 'Telephone' => $Telephone, 'Email' => $Email, 'Statut' => $Statut,'Confirmation_token' => $Token));
+    return $req->execute(array('Nom' => $Nom, 'Prenom' => $Prenom, 'Pseudo' => $Pseudo, 'MotDePasse' => $Mdp, 'Adresse' => $Adresse, 'Npa' => $Npa, 'Ville' => $Ville, 'Telephone' => $Telephone, 'Email' => $Email, 'Statut' => $Statut, 'Confirmation_token' => $Token));
 }
 
 ;
@@ -58,17 +58,6 @@ function VerifierConnection() {
 
 ;
 
-//--------------------------------------------------------------------------
-function AfficheInformation($Pseudo) {
-//affiche les toutes informations des utilisateur
-//--------------------------------------------------------------------------
-    global $dbc;
-    $req = $dbc->prepare('SELECT * FROM  Utilisateurs  WHERE  Pseudo = :Pseudo');
-    $req->execute(array('Pseudo' => $Pseudo));
-    return $req->fetch(PDO::FETCH_ASSOC);
-}
-
-;
 
 //--------------------------------------------------------------------------
 function ModifierUtilisateur($UtilisateurDonnees) {
@@ -182,15 +171,53 @@ function AfficherStoreById($IdStore) {
     $req = $dbc->prepare('SELECT *  FROM  Store WHERE IdStore = :IdStore');
     $req->execute(array('IdStore' => $IdStore));
     return $req->fetchAll();
-};
+}
 
+;
 
 //--------------------------------------------------------------------------
-function Str_random($Length){
+function Str_random($Length) {
 //Affiche le store choisis
 //--------------------------------------------------------------------------
     $Alphabet = "0123456789azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN";
     return substr(str_shuffle(str_repeat($Alphabet, $Length)), 0, $Length);
 }
 
+;
+
+//--------------------------------------------------------------------------
+function AfficheInformation($Pseudo) {
+//affiche les toutes informations des utilisateur
+//--------------------------------------------------------------------------
+    global $dbc;
+    $req = $dbc->prepare('SELECT * FROM  client  WHERE  Pseudo = :Pseudo');
+    $req->execute(array('Pseudo' => $Pseudo));
+    return $req->fetch(PDO::FETCH_ASSOC);
+}
+
+;
+
+//--------------------------------------------------------------------------
+function AfficherTypeStore() {
+//Affiche le type de store
+//--------------------------------------------------------------------------
+   global $dbc;
+    $req = $dbc->prepare('SELECT * FROM  TypeStore');
+    $req->execute();
+    return $req->fetchall(PDO::FETCH_ASSOC);
+}
+
+;
+
+//--------------------------------------------------------------------------
+function AfficherTypeCommande() {
+//Affiche le type de commande des stores
+//--------------------------------------------------------------------------
+   global $dbc;
+    $req = $dbc->prepare('SELECT * FROM  TypeCommande');
+    $req->execute();
+    return $req->fetchall(PDO::FETCH_ASSOC);
+}
+
+;
 ?>
