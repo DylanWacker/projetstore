@@ -5,7 +5,6 @@
   Fonction : Index
  */
 require '_header.php';
-
 include 'Mysql.php';
 include 'Fonction.php';
 dbConnect();
