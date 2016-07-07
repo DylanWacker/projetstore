@@ -45,9 +45,8 @@ dbConnect();
                 <?php echo $Produit->NomStore; ?>
                 <a href="#"><?= $Produit->PrixStore?> .-</a><br>
 
-                <a class="addPanier" href="addpanier.php?IdStore=<?= $Produit->IdStore; ?>  ">
-                    <img src="../Images/Icone/plus.png">
-                </a><br></th>
+                 <?php include 'FormulaireProduit.php';?>
+               </th>
 
             </tr>
             <?php endforeach ?>

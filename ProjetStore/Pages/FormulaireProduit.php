@@ -1,5 +1,5 @@
 <?php
-$Store = AfficherStoreByID($Produit['IdStore']);
+//$Store = AfficherStoreByID($Produit['IdStore']);
 //Formulaire Produit
 echo'<a href="#" data-toggle="modal" data-target="#Produit-modal"><img src="../Images/Icone/plus.png"></a>       
 <div class="modal fade" id="Produit-modal" tabindex="-1" role="dialog" aria-labelledby="mymodalLabel" aria-hidden="true" style="display: none;">
