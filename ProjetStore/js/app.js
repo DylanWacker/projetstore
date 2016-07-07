@@ -1,8 +1,7 @@
 (function($){
 	$('.addPanier').click(function(event){
-		//event.preventDefault();
+		event.preventDefault();
 		$.get($(this).attr('href'),{},function(data){
-                    alert('salut');
 			if(data.error){
 				alert(data.message);
 			}else{

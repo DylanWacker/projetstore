@@ -34,19 +34,18 @@ dbConnect();
             .tg .tg-yw4l{vertical-align:top}
             </style>              
             <table class="tg">
-            <?php $Produits = AfficherStore(); ?>
+            <?php $Produits = $DB->query('SELECT * FROM store'); ?>
             <?php foreach ($Produits as $Produit): ?>
                 
                 <tr><th class="tg-yw4l">
                 <a href="#">
-                    <img src="../Images/Store/Store<?= $Produit['IdStore']; ?>.jpg" width="200px" height="200px">
+                    <img src="../Images/Store/Store<?= $Produit->IdStore; ?>.jpg" width="200px" height="200px">
                 </a><br>
 
-                <?php echo $Produit['NomStore']; ?>
-                <a href="#"><?= $Produit['PrixStore']?> .-</a><br>
+                <?php echo $Produit->NomStore; ?>
+                <a href="#"><?= $Produit->PrixStore?> .-</a><br>
 
-               
-                <a class="addPanier" href="addpanier.php?IdStore=<?= $Produit['IdStore']; ?>  ">
+                <a class="addPanier" href="addpanier.php?IdStore=<?= $Produit->IdStore; ?>  ">
                     <img src="../Images/Icone/plus.png">
                 </a><br></th>
 
