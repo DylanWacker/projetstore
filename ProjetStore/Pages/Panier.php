@@ -64,14 +64,14 @@ dbConnect();
 				<span class="name"><?= $product->NomStore; ?></span>
 				<span class="price"><?= number_format($product->PrixStore,2,',',' '); ?> .-</span>
 				<span class="quantity"><input type="text" name="panier[quantity][<?= $product->id; ?>]" value="<?= $_SESSION['panier'][$product->IdStore]; ?>"></span>
-				<span class="subtotal"><?= number_format($product->PrixStore,2,',',' '); ?> .-</span>
+				<span class="subtotal"><?= number_format($product->PrixStore*$_SESSION['panier'][$product->IdStore],2,',',' '); ?> .-</span>
 				<span class="action">
-					<a href="panier.php?delPanier=<?= $product->id; ?>" class="del"><img src="img/del.png"></a>
+                                    <a href="panier.php?delPanier=<?= $product->id; ?>" class="del"><img src="../Images/Icone/del.png"></a>
 				</span>
 			</div>
 			<?php endforeach; ?>
 			<div class="rowtotal">
-				Grand Total : <span class="total"><?= number_format($panier->total() * 1.196,2,',',' '); ?> € </span>
+				Grand Total : <span class="total"><?= number_format($panier->total() ,2,',',' '); ?> .- </span>
 			</div>
 			<input type="submit" value="Recalculer">
 		</div>
