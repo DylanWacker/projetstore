@@ -178,7 +178,7 @@ if (isset($_SESSION['User']['Statut'])) {
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <?php
-                    include 'PageLogin.php';
+                    include 'FormulaireCompte.php';
                     ?>
 
                 </li>
