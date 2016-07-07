@@ -184,4 +184,13 @@ function AfficherStoreById($IdStore) {
     return $req->fetchAll();
 };
 
+
+//--------------------------------------------------------------------------
+function Str_random($Length){
+//Affiche le store choisis
+//--------------------------------------------------------------------------
+    $Alphabet = "0123456789azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN";
+    return substr(str_shuffle(str_repeat($Alphabet, $Length)), 0, $Length);
+}
+
 ?>
