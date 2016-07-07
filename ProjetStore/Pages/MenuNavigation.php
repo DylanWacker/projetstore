@@ -176,7 +176,7 @@ if (isset($_SESSION['User']['Statut'])) {
                     ?>
 
                 </li>
-                <li><a href="Panier.php"><img src="../Images/Icone/caddie.png" >(0) Produits</a></li>
+                <li><a href="Panier.php"><img src="../Images/Icone/caddie.png" >(<span id="count"><?php echo $panier->count();?></span>) Produits <span id="total"><?php echo number_format($panier->total() ,2,',',' ').'.-';?></span></a></li>
             </ul>
         </div><!-- /.nav-collapse -->
     </nav>

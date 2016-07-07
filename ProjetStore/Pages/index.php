@@ -38,7 +38,7 @@ dbConnect();
                 <a href="#"><?= $Produit['PrixStore']?> .-</a><br>
 
                
-                <a href="addpanier.php?IdStore=<?= $Produit['IdStore']; ?>">
+                <a class="add addPanier" href="addpanier.php?IdStore=<?= $Produit['IdStore']; ?>">
                     add
                 </a><br>
 

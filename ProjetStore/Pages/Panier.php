@@ -66,7 +66,7 @@ dbConnect();
 				<span class="quantity"><input type="text" name="panier[quantity][<?= $product->id; ?>]" value="<?= $_SESSION['panier'][$product->IdStore]; ?>"></span>
 				<span class="subtotal"><?= number_format($product->PrixStore*$_SESSION['panier'][$product->IdStore],2,',',' '); ?> .-</span>
 				<span class="action">
-                                    <a href="panier.php?delPanier=<?= $product->id; ?>" class="del"><img src="../Images/Icone/del.png"></a>
+                                    <a href="panier.php?delPanier=<?= $product->IdStore; ?>" class="del"><img src="../Images/Icone/del.png"></a>
 				</span>
 			</div>
 			<?php endforeach; ?>
