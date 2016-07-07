@@ -35,8 +35,8 @@ if(isset($_GET['IdStore'])){
 	}else{
 		$panier->add($product[0]['IdStore']);
 		$json['error']  = false;
-		$json['Total']  = $panier->total();
-		$json['Count']  = $panier->count();
+		$json['total']  = $panier->total();
+		$json['count']  = $panier->count();
 		$json['message'] = 'Le produit a bien été ajouté à votre panier';
 	}
 }else{
