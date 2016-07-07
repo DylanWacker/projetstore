@@ -32,66 +32,52 @@ dbConnect();
 
     <section>
         <article >
-<?php
-session_start();
-include_once("fonctions-panier.php");
+<div class="checkout">
+	<div class="title">
+		<div class="wrap">
+		<h2 class="first">Shopping Cart</h2>
+		</div>
+	</div>
+	<form method="post" action="panier.php">
+	<div class="table">
+		<div class="wrap">
 
-echo '<?xml version="1.0" encoding="utf-8"?>';?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
-<head>
-<title>Votre panier</title>
-</head>
-<body>
+			<div class="rowtitle">
+				<span class="name">Product name</span>
+				<span class="price">Price</span>
+				<span class="quantity">Quantity</span>
+				<span class="subtotal">Prix avec TVA</span>
+				<span class="action">Actions</span>
+			</div>
 
-<form method="post" action="panier.php">
-<table style="width: 400px">
-	<tr>
-		<td colspan="4">Votre panier</td>
-	</tr>
-	<tr>
-		<td>Libellé</td>
-		<td>Quantité</td>
-		<td>Prix Unitaire</td>
-		<td>Action</td>
-	</tr>
-
-
-	<?php
-	if (creationPanier())
-	{
-		$nbArticles=count($_SESSION['panier']['libelleProduit']);
-		if ($nbArticles <= 0)
-		echo "<tr><td>Votre panier est vide </ td></tr>";
-		else
-		{
-			for ($i=0 ;$i < $nbArticles ; $i++)
-			{
-				echo "<tr>";
-				echo "<td>".htmlspecialchars($_SESSION['panier']['libelleProduit'][$i])."</ td>";
-				echo "<td><input type=\"text\" size=\"4\" name=\"q[]\" value=\"".htmlspecialchars($_SESSION['panier']['qteProduit'][$i])."\"/></td>";
-				echo "<td>".htmlspecialchars($_SESSION['panier']['prixProduit'][$i])."</td>";
-				echo "<td><a href=\"".htmlspecialchars("panier.php?action=suppression&l=".rawurlencode($_SESSION['panier']['libelleProduit'][$i]))."\">XX</a></td>";
-				echo "</tr>";
+			<?php
+			$ids = array_keys($_SESSION['panier']);
+			if(empty($ids)){
+				$products = array();
+			}else{
+				$products = $DB->query('SELECT * FROM products WHERE id IN ('.implode(',',$ids).')');
 			}
-
-			echo "<tr><td colspan=\"2\"> </td>";
-			echo "<td colspan=\"2\">";
-			echo "Total : ".MontantGlobal();
-			echo "</td></tr>";
-
-			echo "<tr><td colspan=\"4\">";
-			echo "<input type=\"submit\" value=\"Rafraichir\"/>";
-			echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
-
-			echo "</td></tr>";
-		}
-	}
-	?>
-</table>
-</form>
-</body>
-</html>
+			foreach($products as $product):
+			?>
+			<div class="row">
+				<a href="#" class="img"> <img src="img/<?= $product->id; ?>.jpg" height="53"></a>
+				<span class="name"><?= $product->name; ?></span>
+				<span class="price"><?= number_format($product->price,2,',',' '); ?> €</span>
+				<span class="quantity"><input type="text" name="panier[quantity][<?= $product->id; ?>]" value="<?= $_SESSION['panier'][$product->id]; ?>"></span>
+				<span class="subtotal"><?= number_format($product->price * 1.196,2,',',' '); ?> €</span>
+				<span class="action">
+					<a href="panier.php?delPanier=<?= $product->id; ?>" class="del"><img src="img/del.png"></a>
+				</span>
+			</div>
+			<?php endforeach; ?>
+			<div class="rowtotal">
+				Grand Total : <span class="total"><?= number_format($panier->total() * 1.196,2,',',' '); ?> € </span>
+			</div>
+			<input type="submit" value="Recalculer">
+		</div>
+	</div>
+	</form>
+</div>
         </article>
     </section>
     <?php

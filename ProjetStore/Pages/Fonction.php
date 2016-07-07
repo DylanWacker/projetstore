@@ -17,16 +17,20 @@ function dbConnect() {
         echo 'N° : ' . $e->getCode();
         die('Could not connect to MySQL');
     }
-};
+}
+
+;
 
 //--------------------------------------------------------------------------
-function InscriptionUser($Pseudo, $Nom, $Prenom, $Email, $Mdp,  $Statut, $Adresse, $Npa, $Ville, $Telephone) {
+function InscriptionUser($Pseudo, $Nom, $Prenom, $Email, $Mdp, $Statut, $Adresse, $Npa, $Ville, $Telephone) {
 //Inscription des utilisateurs
 //--------------------------------------------------------------------------
     global $dbc;
     $req = $dbc->prepare('INSERT INTO client(Nom,Prenom,Pseudo,MotDePasse,Adresse,Npa,Ville,Telephone,Email,Statut) VALUES( :Nom,:Prenom,:Pseudo,:MotDePasse,:Adresse,:Npa,:Ville,:Telephone,:Email,:Statut)');
     return $req->execute(array('Nom' => $Nom, 'Prenom' => $Prenom, 'Pseudo' => $Pseudo, 'MotDePasse' => $Mdp, 'Adresse' => $Adresse, 'Npa' => $Npa, 'Ville' => $Ville, 'Telephone' => $Telephone, 'Email' => $Email, 'Statut' => $Statut));
-};
+}
+
+;
 
 //--------------------------------------------------------------------------
 function VerifierPseudo($Pseudo) {
@@ -36,7 +40,9 @@ function VerifierPseudo($Pseudo) {
     $req = $dbc->prepare('SELECT IdClient FROM client WHERE Pseudo = :Pseudo');
     $req->execute(array('Pseudo' => $Pseudo));
     return $nb_resultats_recherche_membre = $req->fetch();
-};
+}
+
+;
 
 //--------------------------------------------------------------------------
 function VerifierConnection() {
@@ -48,7 +54,9 @@ function VerifierConnection() {
         }
     } else
         return false;
-};
+}
+
+;
 
 //--------------------------------------------------------------------------
 function AfficheInformation($Pseudo) {
@@ -58,175 +66,9 @@ function AfficheInformation($Pseudo) {
     $req = $dbc->prepare('SELECT * FROM  Utilisateurs  WHERE  Pseudo = :Pseudo');
     $req->execute(array('Pseudo' => $Pseudo));
     return $req->fetch(PDO::FETCH_ASSOC);
-};
+}
 
-
-
-
-
-//--------------------------------------------------------------------------
-//
-//
-//PANIER
-//
-//
-//--------------------------------------------------------------------------
-
-//--------------------------------------------------------------------------
- function CreationPanier(){
-//Crée le panier d'achats
-//--------------------------------------------------------------------------
-   if (!isset($_SESSION['Panier'])){
-      $_SESSION['Panier']=array();
-      $_SESSION['Panier']['NomProduit'] = array();
-      $_ESSION['Panier']['QteProduit'] = array();
-      $_SSESSION['Panier']['PrixProduit'] = array();
-      $_SESSION['Panier']['verrou'] = false;
-   }   return true;
-
-};
-
-//--------------------------------------------------------------------------
-function AjouterArticle($NomProduit,$QteProduit,$PrixProduit){
-//Ajouter un Article
-//--------------------------------------------------------------------------
-//Si le panier existe
-   if (CreationPanier() && !IsVerrouille())
-   {
-      //Si le produit existe déjà on ajoute seulement la quantité
-      $PositionProduit = array_search($NomProduit,  $_SESSION['Panier']['NomProduit']);
-
-      if ($PositionProduit !== false)
-      {
-         $_SESSION['Panier']['QteProduit'][$PositionProduit] += $QteProduit ;
-      }
-      else
-      {
-         //Sinon on ajoute le produit
-         array_push( $_SESSION['Panier']['NomProduit'],$NomProduit);
-         array_push( $_SESSION['Panier']['QteProduit'],$QteProduit);
-         array_push( $_SESSION['Panier']['PrixProduit'],$PrixProduit);
-      }
-   }
-   else
-   echo "Un problème est survenu veuillez contacter l'administrateur du site.";
-};
-
-
-//--------------------------------------------------------------------------
-function SupprimerArticle($NomProduit){
-//Supprime un article du panier
-//--------------------------------------------------------------------------
-    //Si le panier existe
-   if (CreationPanier() && !isVerrouille())
-   {
-      //Nous allons passer par un panier temporaire
-      $tmp=array();
-      $tmp['NomProduit'] = array();
-      $tmp['QteProduit'] = array();
-      $tmp['PrixProduit'] = array();
-      $tmp['verrou'] = $_SESSION['Panier']['verrou'];
-
-      for($i = 0; $i < count($_SESSION['Panier']['NomProduit']); $i++)
-      {
-         if ($_SESSION['Panier']['NomProduit'][$i] !== $NomProduit)
-         {
-            array_push( $tmp['NomProduit'],$_SESSION['Panier']['NomProduit'][$i]);
-            array_push( $tmp['QteProduit'],$_SESSION['Panier']['QteProduit'][$i]);
-            array_push( $tmp['PrixProduit'],$_SESSION['Panier']['PrixProduit'][$i]);
-         }
-
-      }
-      //On remplace le panier en session par notre panier temporaire à jour
-      $_SESSION['Panier'] =  $tmp;
-      //On efface notre panier temporaire
-      unset($tmp);
-   }
-   else
-   echo "Un problème est survenu veuillez contacter l'administrateur du site.";
-};
-
-
-//--------------------------------------------------------------------------
-function ModifierQTeArticle($NomProduit,$QteProduit){
-//Modifie la quantité d'un article dans le panier
-//--------------------------------------------------------------------------
-//Si le panier éxiste
-   if (creationPanier() && !isVerrouille())
-   {
-      //Si la quantité est positive on modifie sinon on supprime l'article
-      if ($QteProduit > 0)
-      {
-         //Recharche du produit dans le panier
-         $PositionProduit = array_search($NomProduit,  $_SESSION['Panier']['NomProduit']);
-
-         if ($PositionProduit !== false)
-         {
-            $_SESSION['Panier']['QteProduit'][$PositionProduit] = $QteProduit ;
-         }
-      }
-      else
-      SupprimerArticle($NomProduit);
-   }
-   else
-   echo "Un problème est survenu veuillez contacter l'administrateur du site.";
-};
-
-
-//--------------------------------------------------------------------------
-function MontantGlobal(){
-//Calcule le montant totale du panier
-//--------------------------------------------------------------------------
-  $total=0;
-   for($i = 0; $i < count($_SESSION['Panier']['NomProduit']); $i++)
-   {
-      $total += $_SESSION['Panier']['QteProduit'][$i] * $_SESSION['Panier']['PrixProduit'][$i];
-   }
-   return $total;
-};
-
-//--------------------------------------------------------------------------
-function IsVerrouille(){
-//Verifie le verrou
-//--------------------------------------------------------------------------
-if (isset($_SESSION['Panier']) && $_SESSION['Panier']['verrou'])
-   return true;
-   else
-   return false;
-};
-
-
-//--------------------------------------------------------------------------
-function CompterArticles()
-//Compte les articles
-//--------------------------------------------------------------------------
-{
-   if (isset($_SESSION['Panier']))
-   return count($_SESSION['Panier']['NomProduit']);
-   else
-   return 0;
-
-};
-
-//--------------------------------------------------------------------------
-function SupprimePanier(){
-//Supprimer le panier
-//--------------------------------------------------------------------------
-  unset($_SESSION['Panier']);
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
+;
 
 //--------------------------------------------------------------------------
 function ModifierUtilisateur($UtilisateurDonnees) {
@@ -235,7 +77,9 @@ function ModifierUtilisateur($UtilisateurDonnees) {
     global $dbc;
     $req = $dbc->prepare('UPDATE utilisateurs set Nom = :Nom, Prenom = :Prenom, Email = :Email ,MotDePasse = :MotDePasse,Avatar = :Avatar WHERE IdUser = :IdUser;');
     $req->execute($UtilisateurDonnees);
-};
+}
+
+;
 
 //--------------------------------------------------------------------------
 function ModifierUtilisateurSansMdp($UtilisateurDonneesSansMdp) {
@@ -244,7 +88,9 @@ function ModifierUtilisateurSansMdp($UtilisateurDonneesSansMdp) {
     global $dbc;
     $req = $dbc->prepare('UPDATE utilisateurs set Nom = :Nom, Prenom = :Prenom, Email = :Email ,Avatar = :Avatar,Statut = :Statut WHERE IdUser = :IdUser;');
     $req->execute($UtilisateurDonneesSansMdp);
-};
+}
+
+;
 
 //--------------------------------------------------------------------------
 function AfficherUser() {
@@ -254,7 +100,9 @@ function AfficherUser() {
     $req = $dbc->prepare('SELECT * FROM  Utilisateurs  order by Pseudo');
     $req->execute();
     return $req->fetchall(PDO::FETCH_ASSOC);
-};
+}
+
+;
 
 //--------------------------------------------------------------------------
 function AfficheInformationById($IdUser) {
@@ -264,7 +112,9 @@ function AfficheInformationById($IdUser) {
     $req = $dbc->prepare('SELECT * FROM   Utilisateurs  WHERE  IdUser = :IdUser');
     $req->execute(array('IdUser' => $IdUser));
     return $req->fetch(PDO::FETCH_ASSOC);
-};
+}
+
+;
 
 //--------------------------------------------------------------------------
 function SupprimerMembre($IdUser) {
@@ -274,7 +124,9 @@ function SupprimerMembre($IdUser) {
     $req = $dbc->prepare('delete from Utilisateurs where IdUser = :IdUser');
     $req->execute(array('IdUser' => $IdUser));
     return $req->fetch(PDO::FETCH_ASSOC);
-};
+}
+
+;
 
 //--------------------------------------------------------------------------
 function VerifierAdmin($IdUtilisateur) {
@@ -284,7 +136,10 @@ function VerifierAdmin($IdUtilisateur) {
     $req = $dbc->prepare('SELECT IdUser,Statut FROM Utilisateurs WHERE IdUser=:IdUser');
     $req->execute(array('IdUser' => $IdUtilisateur));
     return $req->fetch();
-};
+}
+
+;
+
 //--------------------------------------------------------------------------
 function AfficherCahier($IdUser) {
 //Affiche la photo associée a son exercice
@@ -295,7 +150,6 @@ function AfficherCahier($IdUser) {
     return $req->fetchAll();
 }
 
-
 //--------------------------------------------------------------------------
 function CountUtilisateurs() {
 //compte combien d'utilisateur exsite dans la table utilisateurs
@@ -304,16 +158,109 @@ function CountUtilisateurs() {
     $req = $dbc->prepare('SELECT count(IdUser) Utilisateurs FROM utilisateurs');
     $req->execute(array());
     return $req->fetch();
-};
+}
+
+;
 
 //--------------------------------------------------------------------------
 function AfficherStore() {
 //affiche tout les stores
 //--------------------------------------------------------------------------
     global $dbc;
-    $req = $dbc->prepare('SELECT * FROM  Store  order by IdStore');
+    $req = $dbc->prepare('SELECT * FROM  Store order by IdStore');
     $req->execute();
     return $req->fetchall(PDO::FETCH_ASSOC);
-};
+}
+
+;
+
+//--------------------------------------------------------------------------
+function AfficherStoreById($IdStore) {
+//Affiche le store choisis
+//--------------------------------------------------------------------------
+    global $dbc;
+    $req = $dbc->prepare('SELECT *  FROM  Store WHERE IdStore = :IdStore');
+    $req->execute(array('IdStore' => $IdStore));
+    return $req->fetchAll();
+}
+
+;
+
+//--------------------------------------------------------------------------
+//
+//
+//PANIER
+//
+//
+//--------------------------------------------------------------------------
+//--------------------------------------------------------------------------
+function __construct($dbc) {
+//Ajoute un store au panier
+//--------------------------------------------------------------------------
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    if (!isset($_SESSION['panier'])) {
+        $_SESSION['panier'] = array();
+    }
+    $this->DB = $dbc;
+
+    if (isset($_GET['delPanier'])) {
+        $this->del($_GET['delPanier']);
+    }
+    if (isset($_POST['panier']['quantity'])) {
+        $this->recalc();
+    }
+}
+
+//--------------------------------------------------------------------------
+function Add($IdStore) {
+//Ajoute un store au panier
+//--------------------------------------------------------------------------
+    if (isset($_SESSION['Panier'][$IdStore])) {
+        $_SESSION['Panier'][$IdStore] ++;
+    } else {
+        $_SESSION['Panier'][$IdStore] = 1;
+    }
+}
+
+//--------------------------------------------------------------------------
+function Total() {
+//Ajoute un store au panier
+//--------------------------------------------------------------------------
+    $Total = 0;
+    $ids = array_keys($_SESSION['Panier']);
+    if (empty($ids)) {
+        $products = array();
+    } else {
+        $products = $this->DB->query('SELECT id, price FROM products WHERE id IN (' . implode(',', $ids) . ')');
+    }
+    foreach ($products as $product) {
+        $Total += $product->price * $_SESSION['Panier'][$product->IdStore];
+    }
+    return $Total;
+}
+
+
+//--------------------------------------------------------------------------
+function recalc() {
+//Ajoute un store au panier
+//--------------------------------------------------------------------------
+    foreach ($_SESSION['Panier'] as $IdStore => $quantity) {
+        if (isset($_POST['Panier']['quantity'][$IdStore])) {
+            $_SESSION['Panier'][$product_id] = $_POST['Panier']['quantity'][$IdStore];
+        }
+    }
+}
+
+//--------------------------------------------------------------------------
+function Del($IdStore) {
+//Ajoute un store au panier
+//--------------------------------------------------------------------------
+    unset($_SESSION['Panier'][$IdStore]);
+}
+
+//--------------------------------------------------------------------------
+
 
 ?>

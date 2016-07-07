@@ -27,30 +27,32 @@ dbConnect();
             ?> 
         </nav>
         <section>
-            <?php
-            foreach (AfficherStore() as $Store) {
-                       echo '<form enctype="multipart/form-data" action="#" method="post">'; 
-                        echo  'id: '.$Store['IdStore'].'<br/>';
-                        echo 'nom: '.$Store['NomStore'].'<br/>';
-                         echo 'prix: '.$Store['PrixStore'].'.-<br/>';
-                          echo'poids: '. $Store['PoidStore'].' Kg<br/>';
-                          echo '<button type="submit" name="Store'.$Store['IdStore'].'"class="btn btn-primary btn-block">Acheter</button>';
-                          echo '</form>';
-                    }
-                   // if AjouterArticle($NomProduit,$QteProduit,$PrixProduit){
-                        
-                        
-                        if(isset($_POST['Store2']))
-	{
-		
-			 AjouterArticle($Store['Nom'],1,$Store['PrixStore']);
 
-                        
-                        
-                        
-                    }
-            ?> 
-          
+            <?php $Produits = AfficherStore(); ?>
+            <?php foreach ($Produits as $Produit): ?>
+
+                <a href="#">
+                    <img src="../Images/Store/Store<?= $Produit['IdStore']; ?>.jpg" width="200px" height="200px">
+                </a><br>
+
+                <?php echo $Produit['NomStore']; ?>
+                <a href="#"><?= $Produit['PrixStore']?> .-</a><br>
+
+               
+                <a href="addpanier.php?IdStore=<?= $Produit['IdStore']; ?>">
+                    add
+                </a><br>
+
+
+            <?php endforeach ?>
+
+
+            <ul >
+                <li><a href="#"> Prev </a></li>
+                <li> Page : <a href="#">2</a> of 3</li>
+                <li><a href="#"> Next</a></li>
+            </ul>
+
 
         </section>
         <?php
