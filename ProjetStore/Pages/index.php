@@ -26,10 +26,18 @@ dbConnect();
             ?> 
         </nav>
         <section>
-
+            
+            <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;border:none;}
+            .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
+            .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
+            .tg .tg-yw4l{vertical-align:top}
+            </style>              
+            <table class="tg">
             <?php $Produits = AfficherStore(); ?>
             <?php foreach ($Produits as $Produit): ?>
-
+                
+                <tr><th class="tg-yw4l">
                 <a href="#">
                     <img src="../Images/Store/Store<?= $Produit['IdStore']; ?>.jpg" width="200px" height="200px">
                 </a><br>
@@ -38,13 +46,13 @@ dbConnect();
                 <a href="#"><?= $Produit['PrixStore']?> .-</a><br>
 
                
-                <a class="add addPanier" href="addpanier.php?IdStore=<?= $Produit['IdStore']; ?>">
-                    add
-                </a><br>
+                <a class="addPanier" href="addpanier.php?IdStore=<?= $Produit['IdStore']; ?>  ">
+                    <img src="../Images/Icone/plus.png">
+                </a><br></th>
 
-
+            </tr>
             <?php endforeach ?>
-
+            </table>
 
             <ul >
                 <li><a href="#"> Prev </a></li>

@@ -14,6 +14,7 @@ dbConnect();
     <?php
     include 'Head.php';
     ?>
+    <script type="text/javascript" src="../js/app.js"></script>
     <body>  
    <section><?php
 $json = array('error' => true);
@@ -34,8 +35,5 @@ if(isset($_GET['IdStore'])){
 echo json_encode($json);
   ?>
         </section>
-        <?php
-        include 'Footer.php';
-        ?>
     </body>
 </html>
