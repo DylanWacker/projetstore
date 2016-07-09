@@ -4,9 +4,9 @@
   Auteur   : Carluccio Dylan
   Fonction : Page qui gere la connexion.
  */
+require '_header.php';
 include 'Mysql.php';
 include 'Fonction.php';
-session_start();
 dbConnect();
 ?>
 <!DOCTYPE html>

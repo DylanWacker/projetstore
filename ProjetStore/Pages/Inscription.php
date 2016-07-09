@@ -4,11 +4,10 @@
   Auteur   : Carluccio Dylan
   Fonction : Page qui gere la connexion.
  */
+require '_header.php';
 include 'Mysql.php';
 include 'Fonction.php';
-session_start();
 dbConnect();
-
 
 ?>
 <!DOCTYPE html>
@@ -59,6 +58,7 @@ if (empty($_SESSION['User']['IdUser'])) { //les membres connectes ne peuvent pas
                         $Telephone = $_POST['Telephone'];
                         $Statut = 'Utilisateur';
                         if (InscriptionUser($Pseudo, $Nom, $Prenom, $Email, $Mdp, $Statut, $Adresse, $Npa, $Ville, $Telephone, $Token)) {
+                       
                             echo " Merci de votre inscription";
                             $IdClient = $dbc->lastInsertId();
                             mail($_POST['Email'], 'Confirmation de votre compte', "Afin de valider votre compte merci de cliquer sur ce lien\n\nhttp://local.dev/Lab/Comptes/confirm.php?id=$IdClient&token=$Token");
@@ -68,28 +68,35 @@ if (empty($_SESSION['User']['IdUser'])) { //les membres connectes ne peuvent pas
                             echo "Une erreur s'est produite dans l'insertion des données utilisateurs";
                         }
                     } else {
+                      
                         echo "Un membre possede deja ce pseudo";
                         echo('<br/> <a data-toggle="modal" data-target="#Inscription-modal"  href="index.php"><input type="submit" value="Réessayer"/></a> ');
                     }
                 } else {
+              
                     echo "les mot de passe ne correspondent pas";
                     echo('<br/> <a data-toggle="modal" data-target="#Inscription-modal"  href="index.php"><input type="submit" value="Réessayer"/></a> ');
                 }
-            } else {
-                echo "Email non valide";
+            } else {   
+   
+                echo "Email non valide";            
                 echo('<br/> <a data-toggle="modal" data-target="#Inscription-modal"  href="index.php"><input type="submit" value="Réessayer"/></a> ');
+
             }
         } else {
+;
             echo "Il faut remplir tous les champs";
             echo('<br/> <a data-toggle="modal" data-target="#Inscription-modal"  href="index.php"><input type="submit" value="Réessayer"/></a> ');
         }
     } else {
+
         echo "Une erreur s'est produite";
     }
 } else {
     echo "Vous n'avez pas le droit d'acceder a cette page";
     echo('<br/> <a data-toggle="modal" data-target="#Inscription-modal" href="index.php"><input type="submit" value="Réessayer"/></a> ');
 }
+
 ?>
             </article>
         </section>

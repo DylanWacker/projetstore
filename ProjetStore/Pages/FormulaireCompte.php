@@ -1,5 +1,16 @@
+<script>
+    function changerCouleur(elm) {
+        elm.setAttribute('style', 'border-color:none;margin-bottom: 10px;');
+    }
+    function surligne(champ, erreur)
+{
+   if(erreur)
+      champ.style.backgroundColor = "#fba";
+   else
+      champ.style.backgroundColor = "";
+}
+</script>
 <?php
-
 /* si le membre est connecte */
 if (VerifierConnection()) {
     echo '<li><a href="Membres.php"><span>' . $_SESSION['User']['Pseudo'] . '</span></a></li> ';
@@ -40,43 +51,72 @@ if (VerifierConnection()) {
                         <table> 
                             <tr>
                                 <td><b>Pseudo</b></td> 
-                                <td><input id="pseudo" type="text" value="" maxlength="25" required name="Pseudo" placeholder="Pseudo" style="margin-bottom: 10px"/></td>          
+                                <td><input  ';
+
+    echo'id="pseudo" type="text" value="';
+    if (isset($_POST['Pseudo'])and $_SESSION['InscriptionError'] != 'Pseudo') {
+        echo$_POST['Pseudo'];
+    } echo'" maxlength="25" required name="Pseudo" placeholder="Pseudo" style="margin-bottom: 10px"/></td>          
                             </tr >
                             <tr>
                                 <td><b>Nom</b></td>
-                                <td><input id="nom" type="text" value="" required name="Nom" placeholder="Nom" style="margin-bottom: 10px"/></td>  
+                                <td><input  id="nom" type="text" value="';
+    if (isset($_POST['Nom'])) {
+        echo$_POST['Nom'];
+    } echo'" required name="Nom" placeholder="Nom" style="margin-bottom: 10px"/></td>  
                             </tr>
                             <tr>
                                 <td><b>Prenom</b></td>
-                                <td> <input id="prenom" type="text" value="" required name="Prenom" placeholder="Prenom" style="margin-bottom: 10px"/></td>
+                                <td> <input  id="prenom" type="text" value="';
+    if (isset($_POST['Prenom'])) {
+        echo$_POST['Prenom'];
+    } echo'" required name="Prenom" placeholder="Prenom" style="margin-bottom: 10px"/></td>
                             </tr>
                             <tr>
                                 <td><b>Adresse</b></td>
-                                <td><input id="text" type="text" value="" required name="Adresse" placeholder="Adresse" style="margin-bottom: 10px"/></td>
+                                <td><input  id="text" type="text" value="';
+    if (isset($_POST['Adresse'])) {
+        echo$_POST['Adresse'];
+    } echo'" required name="Adresse" placeholder="Adresse" style="margin-bottom: 10px"/></td>
                             </tr> 
                             <tr>
                                 <td><b>Npa</b></td>
-                                <td><input id="text" type="text" value="" required name="Npa" placeholder="Npa" style="margin-bottom: 10px"/></td>
+                                <td><input  id="text" type="text" value="';
+    if (isset($_POST['Npa'])) {
+        echo$_POST['Npa'];
+    } echo'" required name="Npa" placeholder="Npa" style="margin-bottom: 10px"/></td>
                             </tr> 
                                <tr>
                                 <td><b>Ville</b></td>
-                                <td><input id="text" type="text" value="" required name="Ville" placeholder="Ville" style="margin-bottom: 10px"/></td>
+                                <td><input  id="text" type="text" value="';
+    if (isset($_POST['Ville'])) {
+        echo$_POST['Ville'];
+    } echo'" required name="Ville" placeholder="Ville" style="margin-bottom: 10px"/></td>
                             </tr> 
-                                                        <tr>
+                                               <tr>
                                 <td><b>Email</b></td>
-                                <td><input id="text" type="text" value="" required name="Email" placeholder="Email" style="margin-bottom: 10px"/></td>
-                            </tr> 
+                                
+                                <td><input  onclick="changerCouleur(this)" ';
+    
+    echo' id="text" type="text"   value="';
+    if (isset($_POST['Email'])) {
+        echo$_POST['Email'];
+    } echo'" required name="Email" placeholder="Email" style="margin-bottom: 10px"/></td>
+                            </tr>
                                                         <tr>
                                 <td><b>Téléphone</b></td>
-                                <td><input id="text" type="text" value="" required name="Telephone" placeholder="Telephone" style="margin-bottom: 10px"/></td>
+                                <td><input  id="Telephone" type="text" value="';
+    if (isset($_POST['Telephone'])) {
+        echo$_POST['Telephone'];
+    } echo'" required name="Telephone" placeholder="Telephone" style="margin-bottom: 10px"/></td>
                             </tr> 
                             <tr> 
                                 <td><b>Mot de passe</b></td>
-                                <td><input id="password" type="password" required value="" name="Mdp" placeholder="Mot de passe" style="margin-bottom: 10px"/></td>
+                                <td><input  id="password" type="password" required value="" name="Mdp" placeholder="Mot de passe" style="margin-bottom: 10px"/></td>
                             </tr> 
                             <tr>
                                 <td><b>Retapez le mot de passe</b></td>
-                                <td><input id="password2" type="password" required value="" name="Mdp2" placeholder="Retapez le mot de passe" style="margin-bottom: 10px"/></td>
+                                <td><input  id="password2" type="password" required value="" name="Mdp2" placeholder="Retapez le mot de passe" style="margin-bottom: 10px"/></td>
                             </tr> 
                              
                         </table> 
