@@ -32,9 +32,10 @@ dbConnect();
             ?> 
         </nav>
         <section>
-            <h1>Inscription</h1>
-            <article>
+            <h1 style='text-align:center;'>Inscription</h1>
+            <article style='text-align:center;'>
                 <?php
+                $MessageErreur = "";
                 if (empty($_SESSION['User']['IdUser'])) { //les membres connectes ne peuvent pas s'inscrire
                     /* il faut que toutes les variables du formulaire existent */
                     if (isset($_POST['Pseudo']) && isset($_POST['Mdp']) && isset($_POST['Mdp2']) && isset($_POST['Nom']) && isset($_POST['Prenom']) && isset($_POST['Email']) && isset($_POST['Adresse']) && isset($_POST['Npa']) && isset($_POST['Ville']) && isset($_POST['Telephone'])) {
@@ -70,31 +71,32 @@ dbConnect();
                                             $_SESSION['Flash']['Success'] = 'Un email de confirmation vous a été envoyé pour valider votre compte';
                                             echo('<br/> <a href="connexion.php"><input type="submit" value="se connecter"/></a> ');
                                         } else {
-                                            echo "Une erreur s'est produite dans l'insertion des données utilisateurs";
+                                            $MessageErreur = "Une erreur s'est produite dans l'insertion des données utilisateurs";
                                         }
                                     } else {
                                         $InscriptionError = 'Pseudo';
-                                        echo "Un membre possede deja ce pseudo";
+                                        $MessageErreur = "Un membre possede deja ce pseudo";
                                     }
                                 } else {
                                     $InscriptionError = 'Mdp';
-                                    echo "les mot de passe ne correspondent pas";
+                                    $MessageErreur = "les mot de passe ne correspondent pas";
                                 }
                             } else {
                                 $InscriptionError = 'Email';
-                                echo "Email non valide";
+                               $MessageErreur = "Email non valide";
                             }
                         } else {
                             $InscriptionError = 'Champs';
-                            echo "Il faut remplir tous les champs";
+                            $MessageErreur =  "Il faut remplir tous les champs";
                         }
                     } else {
 
-                        echo "Une erreur s'est produite";
+                        $MessageErreur =  "Une erreur s'est produite";
                     }
                 } else {
-                    echo "Vous n'avez pas le droit d'acceder a cette page";
+                    $MessageErreur =  "Vous n'avez pas le droit d'acceder a cette page";
                 }
+                echo "<span style=\" color: red; \">".$MessageErreur."</span>";
                 ?>
             </article>
             <article>
@@ -107,9 +109,9 @@ dbConnect();
 //Formulaire Inscription
 
                     echo' <form enctype="multipart/form-data" action="inscription.php" method="post">
+                        <center>
                         <table> 
                             <tr>
-                                <td><b>Pseudo</b></td> 
                                 <td><input  ';
 
                     echo'id="pseudo" type="text" value="';
@@ -127,42 +129,36 @@ dbConnect();
                     echo'/></td>          
                             </tr >
                             <tr>
-                                <td><b>Nom</b></td>
                                 <td><input  id="nom" type="text" value="';
                     if (isset($_POST['Nom'])) {
                         echo$_POST['Nom'];
                     } echo'" required name="Nom" placeholder="Nom" style="margin-bottom: 10px" /></td>  
                             </tr>
                             <tr>
-                                <td><b>Prenom</b></td>
                                 <td> <input  id="prenom" type="text" value="';
                     if (isset($_POST['Prenom'])) {
                         echo$_POST['Prenom'];
                     } echo'" required name="Prenom" placeholder="Prenom" style="margin-bottom: 10px"/></td>
                             </tr>
                             <tr>
-                                <td><b>Adresse</b></td>
                                 <td><input  id="text" type="text" value="';
                     if (isset($_POST['Adresse'])) {
                         echo$_POST['Adresse'];
                     } echo'" required name="Adresse" placeholder="Adresse" style="margin-bottom: 10px"/></td>
                             </tr> 
                             <tr>
-                                <td><b>Npa</b></td>
                                 <td><input  id="text" type="text" value="';
                     if (isset($_POST['Npa'])) {
                         echo$_POST['Npa'];
                     } echo'" required name="Npa" placeholder="Npa" style="margin-bottom: 10px"/></td>
                             </tr> 
                                <tr>
-                                <td><b>Ville</b></td>
                                 <td><input  id="text" type="text" value="';
                     if (isset($_POST['Ville'])) {
                         echo$_POST['Ville'];
                     } echo'" required name="Ville" placeholder="Ville" style="margin-bottom: 10px"/></td>
                             </tr> 
                                                <tr>
-                                <td><b>Email</b></td>
                                 
                                 <td><input ';
 
@@ -181,14 +177,12 @@ dbConnect();
                     echo'/></td>
                             </tr>
                                                         <tr>
-                                <td><b>Téléphone</b></td>
                                 <td><input  id="Telephone" type="text" value="';
                     if (isset($_POST['Telephone'])) {
                         echo$_POST['Telephone'];
                     } echo'" required name="Telephone" placeholder="Telephone" style="margin-bottom: 10px"/></td>
                             </tr> 
                             <tr> 
-                                <td><b>Mot de passe</b></td>
                                 <td><input  id="password" type="password" required value="" name="Mdp" placeholder="Mot de passe" ';
                     if ($InscriptionError == 'Mdp') {
                         echo 'style="border-color: red;margin-bottom: 10px;"';
@@ -198,15 +192,14 @@ dbConnect();
                     echo'/></td>
                             </tr> 
                             <tr>
-                                <td><b>Retapez le mot de passe</b></td>
                                 <td><input  id="password2" type="password" required value="" name="Mdp2" placeholder="Retapez le mot de passe" onclick="changerCouleur(this)" style="margin-bottom: 10px"/></td>
                             </tr> 
-                             
+                        </center>     
                         </table> 
 
 
                        
-                       <button type="submit" class="btn btn-primary btn-block">S\'inscrire</button><button type="reset" class="btn btn-warning btn-block">Réinitialiser</button>
+                       <button type="submit" class="btn btn-primary ">S\'inscrire</button>&nbsp;<button type="reset" class="btn btn-warning">Réinitialiser</button>
                     </form>
 
 
