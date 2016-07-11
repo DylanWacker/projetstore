@@ -38,7 +38,7 @@ dbConnect();
             <?php foreach ($Produits as $Produit): ?>
                 <tr><th class="tg-yw4l">
                     <div class="panel panel-success">
-                        <div class="panel-heading"> <?php echo $Produit->NomStore; ?></div>
+                        <div class="panel-heading"> <h2><?php echo $Produit->NomStore; ?></h2></div>
                         <div class="panel-body">
                           <a href="#">
                           <img src="../Images/Store/Store<?= $Produit->IdStore; ?>.jpg" width="200px" height="200px">
