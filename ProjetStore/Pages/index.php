@@ -36,20 +36,22 @@ dbConnect();
             <table class="tg">
             <?php $Produits = $DB->query('SELECT * FROM store'); ?>
             <?php foreach ($Produits as $Produit): ?>
-                
                 <tr><th class="tg-yw4l">
-                <a href="#">
-                    <img src="../Images/Store/Store<?= $Produit->IdStore; ?>.jpg" width="200px" height="200px">
-                </a><br>
-
-                <?php echo $Produit->NomStore; ?>
-                <a href="#"><?= $Produit->PrixStore?> .-</a><br>
-
-                 <?php $IdStore=$Produit->IdStore;
-                 include 'FormulaireProduit.php';?>
+                    <div class="panel panel-success">
+                        <div class="panel-heading"> <?php echo $Produit->NomStore; ?></div>
+                        <div class="panel-body">
+                          <a href="#">
+                          <img src="../Images/Store/Store<?= $Produit->IdStore; ?>.jpg" width="200px" height="200px">
+                          </a></br>
+                         <a href="#"><?= $Produit->PrixStore?> .-</a><br>
+                         <?php $IdStore=$Produit->IdStore;
+                        include 'FormulaireProduit.php';?>                
+                        </div>
+                   </div>
                </th>
 
             </tr>
+            
             <?php endforeach ?>
             </table>
 

@@ -2,12 +2,12 @@
 <?php
 /* si le membre est connecte */
 if (VerifierConnection()) {
-    echo '<li><a href="Membres.php"><span>' . $_SESSION['User']['Pseudo'] . '</span></a></li> ';
-    echo'<li><a href="Deconnexion.php"><span>Déconnexion</span></a></li>';
+    echo '<li><a href="Membres.php"><i class="glyphicon glyphicon-user"></i>&nbsp;<span>' . $_SESSION['User']['Pseudo'] . '</span></a></li> ';
+    echo'<li><a href="Deconnexion.php"><i class="glyphicon glyphicon-off"></i>&nbsp;<span>Déconnexion</span></a></li>';
 } else {
 
     //Formulaire de Login
-    echo'<li> <a href="#" data-toggle="modal"  data-target="#Login-modal">Connexion</a>
+    echo'<li> <a href="#" data-toggle="modal"  data-target="#Login-modal"><i class="glyphicon glyphicon-user"></i>&nbsp;Connexion</a>
 
 <div class="modal fade" id="Login-modal" tabindex="-1" role="dialog" aria-labelledby="mymodalLabel" aria-hidden="true" style="display: none;">
     	  <div class="modal-dialog">
@@ -29,7 +29,7 @@ if (VerifierConnection()) {
 		  </div></li>';
 
 //Formulaire Inscription
-    echo'<li> <a href="#" data-toggle="modal" data-target="#Inscription-modal">Inscription</a>
+    echo'<li> <a href="#" data-toggle="modal" data-target="#Inscription-modal"><i class="glyphicon glyphicon-pencil"></i>&nbsp;Inscription</a>
 
 <div class="modal fade" id="Inscription-modal" tabindex="-1" role="dialog" aria-labelledby="mymodalLabel" aria-hidden="true" style="display: none;">
     	  <div class="modal-dialog">
