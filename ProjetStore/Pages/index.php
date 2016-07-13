@@ -25,41 +25,33 @@ dbConnect();
             include './MenuNavigation.php';
             ?> 
         </nav>
-        <section>
-            
-            <style type="text/css">
-            .tg  {border-collapse:collapse;border-spacing:0;border:none;}
-            .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
-            .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
-            .tg .tg-yw4l{vertical-align:top}
-            </style>              
-            <table class="tg">
-            <?php $Produits = $DB->query('SELECT * FROM store'); ?>
-            <?php foreach ($Produits as $Produit): ?>
-                <tr><th class="tg-yw4l">
-                    <div class="panel panel-success">
-                        <div class="panel-heading"> <?php echo $Produit->NomStore; ?></div>
-                        <div class="panel-body">
-                          <a href="#">
-                          <img src="../Images/Store/Store<?= $Produit->IdStore; ?>.jpg" width="200px" height="200px">
-                          </a></br>
-                         <a href="#"><?= $Produit->PrixStore?> .-</a><br>
-                         <?php $IdStore=$Produit->IdStore;
-                        include 'FormulaireProduit.php';?>                
-                        </div>
-                   </div>
-               </th>
+        <section>          
 
-            </tr>
-            
-            <?php endforeach ?>
-            </table>
 
-            <ul >
-                <li><a href="#"> Prev </a></li>
-                <li> Page : <a href="#">2</a> of 3</li>
-                <li><a href="#"> Next</a></li>
-            </ul>
+            <div class="home">
+                <div class="row">
+                    <div class="wrap">
+                        <?php $Produits = $DB->query('SELECT * FROM store'); ?>
+                        <?php foreach ($Produits as $Produit): ?>
+                            <div class="box">
+                                <div class="product full">
+                                    <a href="#">
+                                        <img width="250px"src="../Images/Store/Store<?= $Produit->IdStore; ?>.jpg">
+                                    </a>
+                                    <div class="description">
+                                        <?= $Produit->NomStore; ?>
+                                        <a href="#" class="price"><?= number_format($Produit->PrixStore, 2, ',', ' '); ?> €</a>
+                                    </div>
+                                    <a class="add addPanier" href="addpanier.php?IdStore=<?php echo $Produit->IdStore; ?>">
+                                        add
+                                    </a>
+                                </div>
+                            </div>
+                        <?php endforeach ?>
+                    </div>
+                </div>
+            </div>
+
 
 
         </section>
