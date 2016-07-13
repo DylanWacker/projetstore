@@ -8,24 +8,15 @@ require '_header.php';
 include 'Mysql.php';
 include 'Fonction.php';
 dbConnect();
-?>
-<!DOCTYPE html>
-<html lang="en">
-    <?php
-    include 'Head.php';
-    ?>
-    <script type="text/javascript" src="../js/app.js"></script>
-    <body>  
-   <section><?php
 $json = array('error' => true);
 if(isset($_GET['IdStore'])){
-	$product = AfficherStoreById($_GET['IdStore']);
+	$product = $DB->query('SELECT IdStore FROM store WHERE IdStore=:IdStore', array('IdStore' => $_GET['IdStore']));
 	if(empty($product)){
 		$json['message'] = "Ce produit n'existe pas";
 	}else{
-		$panier->add($product[0]['IdStore']);
+		$panier->add($product[0]->IdStore);
 		$json['error']  = false;
-		$json['total']  = $panier->total();
+		$json['total']  = number_format($panier->total(),2,',',' ');
 		$json['count']  = $panier->count();
 		$json['message'] = 'Le produit a bien été ajouté à votre panier';
 	}
@@ -34,6 +25,3 @@ if(isset($_GET['IdStore'])){
 }
 echo json_encode($json);
   ?>
-        </section>
-    </body>
-</html>

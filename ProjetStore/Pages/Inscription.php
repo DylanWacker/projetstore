@@ -54,7 +54,6 @@ dbConnect();
                                         /* on crypte le mot de passe */
                                         $Mdp = md5($_POST['Mdp']);
                                         //variable non déclaré
-                                        $Token = Str_random(60);
                                         $Nom = $_POST['Nom'];
                                         $Prenom = $_POST['Prenom'];
                                         $Email = $_POST['Email'];
@@ -63,156 +62,49 @@ dbConnect();
                                         $Ville = $_POST['Ville'];
                                         $Telephone = $_POST['Telephone'];
                                         $Statut = 'Utilisateur';
-                                        if (InscriptionUser($Pseudo, $Nom, $Prenom, $Email, $Mdp, $Statut, $Adresse, $Npa, $Ville, $Telephone, $Token)) {
-
+                                        if (InscriptionUser($Pseudo, $Nom, $Prenom, $Email, $Mdp, $Statut, $Adresse, $Npa, $Ville, $Telephone)) {
                                             echo " Merci de votre inscription";
-                                            $IdClient = $dbc->lastInsertId();
-                                            mail($_POST['Email'], 'Confirmation de votre compte', "Afin de valider votre compte merci de cliquer sur ce lien\n\nhttp://local.dev/Lab/Comptes/confirm.php?id=$IdClient&token=$Token");
-                                            $_SESSION['Flash']['Success'] = 'Un email de confirmation vous a été envoyé pour valider votre compte';
                                             echo('<br/> <a href="connexion.php"><input type="submit" value="se connecter"/></a> ');
                                         } else {
+                                            $InscriptionError = 'Insertion';
                                             $MessageErreur = "Une erreur s'est produite dans l'insertion des données utilisateurs";
+                                            include 'FormulaireProduitPHP.php';
                                         }
                                     } else {
                                         $InscriptionError = 'Pseudo';
                                         $MessageErreur = "Un membre possede deja ce pseudo";
+                                        include 'FormulaireProduitPHP.php';
                                     }
                                 } else {
                                     $InscriptionError = 'Mdp';
                                     $MessageErreur = "les mot de passe ne correspondent pas";
+                                    include 'FormulaireProduitPHP.php';
                                 }
                             } else {
                                 $InscriptionError = 'Email';
-                               $MessageErreur = "Email non valide";
+                                $MessageErreur = "Email non valide";
+                                include 'FormulaireProduitPHP.php';
                             }
                         } else {
                             $InscriptionError = 'Champs';
-                            $MessageErreur =  "Il faut remplir tous les champs";
+                            $MessageErreur = "Il faut remplir tous les champs";
+                            include 'FormulaireProduitPHP.php';
                         }
                     } else {
-
-                        $MessageErreur =  "Une erreur s'est produite";
+                        $InscriptionError = 'Erreur';
+                        $MessageErreur = "Une erreur s'est produite";
+                        include 'FormulaireProduitPHP.php';
                     }
                 } else {
-                    $MessageErreur =  "Vous n'avez pas le droit d'acceder a cette page";
+                    $InscriptionError = 'Interdit';
+                    $MessageErreur = "Vous n'avez pas le droit d'acceder a cette page";
+                    
                 }
-                echo "<span style=\" color: red; \">".$MessageErreur."</span>";
+                echo "<span style=\" color: red; \">" . $MessageErreur . "</span>";
                 ?>
             </article>
-            <article>
-                <?php
-                /* si le membre est connecte */
-                if (VerifierConnection()) {
-                    echo '<li><a href="Membres.php"><span>' . $_SESSION['User']['Pseudo'] . '</span></a></li> ';
-                    echo'<li><a href="Deconnexion.php"><span>Déconnexion</span></a></li>';
-                } else {
-//Formulaire Inscription
-
-                    echo' <form enctype="multipart/form-data" action="inscription.php" method="post">
-                        <center>
-                        <table> 
-                            <tr>
-                                <td><input  ';
-
-                    echo'id="pseudo" type="text" value="';
-                    if ($InscriptionError != 'Pseudo') {
-                        if (isset($_POST['Pseudo'])) {
-                            echo$_POST['Pseudo'];
-                        }
-                    };
-                    echo'" maxlength="25" required name="Pseudo" placeholder="Pseudo" onclick="changerCouleur(this)"';
-                    if ($InscriptionError == 'Pseudo') {
-                        echo 'style="border-color: red;margin-bottom: 10px;"';
-                    } else {
-                        echo 'style="margin-bottom: 10px;"';
-                    }
-                    echo'/></td>          
-                            </tr >
-                            <tr>
-                                <td><input  id="nom" type="text" value="';
-                    if (isset($_POST['Nom'])) {
-                        echo$_POST['Nom'];
-                    } echo'" required name="Nom" placeholder="Nom" style="margin-bottom: 10px" /></td>  
-                            </tr>
-                            <tr>
-                                <td> <input  id="prenom" type="text" value="';
-                    if (isset($_POST['Prenom'])) {
-                        echo$_POST['Prenom'];
-                    } echo'" required name="Prenom" placeholder="Prenom" style="margin-bottom: 10px"/></td>
-                            </tr>
-                            <tr>
-                                <td><input  id="text" type="text" value="';
-                    if (isset($_POST['Adresse'])) {
-                        echo$_POST['Adresse'];
-                    } echo'" required name="Adresse" placeholder="Adresse" style="margin-bottom: 10px"/></td>
-                            </tr> 
-                            <tr>
-                                <td><input  id="text" type="text" value="';
-                    if (isset($_POST['Npa'])) {
-                        echo$_POST['Npa'];
-                    } echo'" required name="Npa" placeholder="Npa" style="margin-bottom: 10px"/></td>
-                            </tr> 
-                               <tr>
-                                <td><input  id="text" type="text" value="';
-                    if (isset($_POST['Ville'])) {
-                        echo$_POST['Ville'];
-                    } echo'" required name="Ville" placeholder="Ville" style="margin-bottom: 10px"/></td>
-                            </tr> 
-                                               <tr>
-                                
-                                <td><input ';
-
-                    echo' id="text" type="text"   value="';
-                    if ($InscriptionError != 'Email') {
-                        if (isset($_POST['Email'])) {
-                            echo$_POST['Email'];
-                        }
-                    };
-                    echo'" required name="Email" placeholder="Email" onclick="changerCouleur(this)" ';
-                    if ($InscriptionError == 'Email') {
-                        echo 'style="border-color: red;margin-bottom: 10px;"';
-                    } else {
-                        echo 'style="margin-bottom: 10px;"';
-                    }
-                    echo'/></td>
-                            </tr>
-                                                        <tr>
-                                <td><input  id="Telephone" type="text" value="';
-                    if (isset($_POST['Telephone'])) {
-                        echo$_POST['Telephone'];
-                    } echo'" required name="Telephone" placeholder="Telephone" style="margin-bottom: 10px"/></td>
-                            </tr> 
-                            <tr> 
-                                <td><input  id="password" type="password" required value="" name="Mdp" placeholder="Mot de passe" ';
-                    if ($InscriptionError == 'Mdp') {
-                        echo 'style="border-color: red;margin-bottom: 10px;"';
-                    } else {
-                        echo 'style="margin-bottom: 10px;"';
-                    }
-                    echo'/></td>
-                            </tr> 
-                            <tr>
-                                <td><input  id="password2" type="password" required value="" name="Mdp2" placeholder="Retapez le mot de passe" onclick="changerCouleur(this)" style="margin-bottom: 10px"/></td>
-                            </tr> 
-                        </center>     
-                        </table> 
 
 
-                       
-                       <button type="submit" class="btn btn-primary ">S\'inscrire</button>&nbsp;<button type="reset" class="btn btn-warning">Réinitialiser</button>
-                    </form>
-
-
-                    
-					
-				  <div class="Inscription-help">
-					</br><b>Vous avez un compte ? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b><a href="#" class="btn btn-success"   data-toggle="modal"   data-dismiss="modal" data-target="#Login-modal">Connexion</a>
-				  </div>
-				</div>
-			</div>
-		  </div></li>';
-                };
-                ?></article>
         </section>
         <?php
         include 'Footer.php';

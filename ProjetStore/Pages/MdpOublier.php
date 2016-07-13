@@ -31,15 +31,18 @@ dbConnect();
         <section>
             <?php
             if (!empty($_POST) && !empty($_POST['Email'])) {
-                $req = $dbc->prepare('SELECT * FROM client WHERE Email = ? AND Confirmed_at IS NOT NULL');
+                $req = $dbc->prepare('SELECT * FROM client WHERE Email = ?');
                 $req->execute([$_POST['Email']]);
                 $Client = $req->fetch();
                 if ($Client) {
                     $Reset_token = Str_random(60);
                     $req = $dbc->prepare('UPDATE client SET Reset_token = ?, Reset_at = NOW() WHERE IdClient = ?');
                     $req->execute([$Reset_token, $Client['IdClient']]);
-                    $_SESSION['Flash']['Success'] = 'Les instructions du rappel de mot de passe vous ont été envoyées par emails';
-                    mail($_POST['Email'], 'Réinitiatilisation de votre mot de passe', "Afin de réinitialiser votre mot de passe merci de cliquer sur ce lien\n\nhttp://local.dev/Lab/Comptes/reset.php?id={$Client['IdClient']}&token=$Reset_token");
+                    //$_SESSION['Flash']['Success'] = 'Les instructions du rappel de mot de passe vous ont été envoyées par emails';
+                    echo 'Les instructions du rappel de mot de passe vous ont été envoyées par emails';
+                    $data = mail($_POST['Email'], 'Réinitiatilisation de votre mot de passe', "Afin de réinitialiser votre mot de passe merci de cliquer sur ce lien\n\nhttp://local.dev/Lab/Comptes/reset.php?id={$Client['IdClient']}&token=$Reset_token");
+                    print_r($data);
+                    die();
                     ?>
                     <SCRIPT LANGUAGE = "JavaScript">
                         //   document.location.href = "index.php"

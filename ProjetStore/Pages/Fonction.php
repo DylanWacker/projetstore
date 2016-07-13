@@ -22,12 +22,12 @@ function dbConnect() {
 ;
 
 //--------------------------------------------------------------------------
-function InscriptionUser($Pseudo, $Nom, $Prenom, $Email, $Mdp, $Statut, $Adresse, $Npa, $Ville, $Telephone, $Token) {
+function InscriptionUser($Pseudo, $Nom, $Prenom, $Email, $Mdp, $Statut, $Adresse, $Npa, $Ville, $Telephone) {
 //Inscription des utilisateurs
 //--------------------------------------------------------------------------
     global $dbc;
-    $req = $dbc->prepare('INSERT INTO client(Nom,Prenom,Pseudo,MotDePasse,Adresse,Npa,Ville,Telephone,Email,Statut,Confirmation_token) VALUES( :Nom,:Prenom,:Pseudo,:MotDePasse,:Adresse,:Npa,:Ville,:Telephone,:Email,:Statut,:Confirmation_token)');
-    return $req->execute(array('Nom' => $Nom, 'Prenom' => $Prenom, 'Pseudo' => $Pseudo, 'MotDePasse' => $Mdp, 'Adresse' => $Adresse, 'Npa' => $Npa, 'Ville' => $Ville, 'Telephone' => $Telephone, 'Email' => $Email, 'Statut' => $Statut, 'Confirmation_token' => $Token));
+    $req = $dbc->prepare('INSERT INTO client(Nom,Prenom,Pseudo,MotDePasse,Adresse,Npa,Ville,Telephone,Email,Statut,DateInscription) VALUES( :Nom,:Prenom,:Pseudo,:MotDePasse,:Adresse,:Npa,:Ville,:Telephone,:Email,:Statut, NOW() )');
+    return $req->execute(array('Nom' => $Nom, 'Prenom' => $Prenom, 'Pseudo' => $Pseudo, 'MotDePasse' => $Mdp, 'Adresse' => $Adresse, 'Npa' => $Npa, 'Ville' => $Ville, 'Telephone' => $Telephone, 'Email' => $Email, 'Statut' => $Statut));
 }
 
 ;
@@ -257,4 +257,51 @@ function AfficherCouleurStoreById($IdStore) {
 }
 
 ;
+
+
+
+function debug($variable){
+    echo '<pre>' . print_r($variable, true) . '</pre>';
+}
+
+function logged_only(){
+    if(session_status() == PHP_SESSION_NONE){
+        session_start();
+    }
+    if(!isset($_SESSION['auth'])){
+        $_SESSION['flash']['danger'] = "Vous n'avez pas le droit d'accéder à cette page";
+        header('Location: login.php');
+        exit();
+    }
+}
+
+function reconnect_from_cookie(){
+    if(session_status() == PHP_SESSION_NONE){
+        session_start();
+    }
+    if(isset($_COOKIE['remember']) && !isset($_SESSION['auth']) ){
+        require_once 'db.php';
+        if(!isset($pdo)){
+            global $pdo;
+        }
+        $remember_token = $_COOKIE['remember'];
+        $parts = explode('==', $remember_token);
+        $user_id = $parts[0];
+        $req = $pdo->prepare('SELECT * FROM users WHERE id = ?');
+        $req->execute([$user_id]);
+        $user = $req->fetch();
+        if($user){
+            $expected = $user_id . '==' . $user->remember_token . sha1($user_id . 'ratonlaveurs');
+            if($expected == $remember_token){
+                session_start();
+                $_SESSION['auth'] = $user;
+                setcookie('remember', $remember_token, time() + 60 * 60 * 24 * 7);
+            } else{
+                setcookie('remember', null, -1);
+            }
+        }else{
+            setcookie('remember', null, -1);
+        }
+    }
+}
 ?>
