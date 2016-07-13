@@ -247,6 +247,19 @@ function AfficherTypeStoreById($IdStore) {
 ;
 
 //--------------------------------------------------------------------------
+function CompterNombreStoreParType($IdStore) {
+//Compter le nombre de store du type choisis
+//--------------------------------------------------------------------------
+    global $dbc;
+    $req = $dbc->prepare('SELECT Count(IdType) FROM `typestore` natural join store WHERE IdStore = :IdStore;');
+    $req->execute(array('IdStore' => $IdStore));
+    return $req->fetch();
+}
+
+;
+
+
+//--------------------------------------------------------------------------
 function AfficherCouleurStoreById($IdStore) {
 //Affiche le type de commande des stores
 //--------------------------------------------------------------------------
