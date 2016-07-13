@@ -40,12 +40,11 @@ dbConnect();
              <td><input  id="sujet" type="text" value="" required name="Sujet" placeholder="Sujet" style="margin-bottom: 10px"/></td>
          </tr> 
          <tr>    
-                <td> Message: </td>
+                <td> Message: </td><br/>
          </tr>
-         <tr>
-             <td><textarea rows="4" cols="50"  id="message" required name="Message" placeholder="Message" style="margin-bottom: 10px"></textarea></td>
-         </tr>
-        </table> 
+         </table> 
+         <textarea rows="4" cols="50"  id="message" required name="Message" placeholder="Message" style="margin-bottom: 10px"></textarea>
+        
         </section></center>
         <?php
         include 'Footer.php';
