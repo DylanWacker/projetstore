@@ -173,10 +173,13 @@ footer {
         -moz-box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.2);
         box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.2); }
       .home .row .box .product {
-        background: url("../Images/Icone/boxfull.png") no-repeat;
+        background: url("../Images/Icone/box.png") no-repeat;
         width: 263px;
         height: 340px;
         position: relative;
+        padding-left: 35px;
+        padding-right: 15px;
+        padding-top: 35px;
         -webkit-transition-property: background;
         -moz-transition-property: background;
         -ms-transition-property: background;
@@ -184,7 +187,7 @@ footer {
         transition-property: background;
         -webkit-transition-duration: 2s;
         -moz-transition-duration: 2s;
-        -ms-transition-duration: 2s;
+        -ms-transition-duration: 2s; 
         -o-transition-duration: 2s;
         transition-duration: 2s;
         -webkit-transition-delay: 2s;
@@ -192,16 +195,14 @@ footer {
         -ms-transition-delay: 2s;
         -o-transition-delay: 2s;
         transition-delay: 2s; }
-        .home .row .box .product a img {
-          margin-left: 1px;
-          margin-top: 1px; }
+
         .home .row .box .product .description {
           font-family: 'AllerLightRegular';
           font-size: 16px;
           color: #39414d;
           font-style: italic;
           text-align: center;
-          padding-top: 8px;
+          padding-top: 70px;
           text-shadow: 1px 1px 1px white; }
           .home .row .box .product .description strong {
             font-family: 'AllerRegular';

@@ -34,7 +34,7 @@ dbConnect();
                             <div class="box">
                                 <div class="product full">
                                     <a href="#">
-                                        <img width="250px"src="../Images/Store/Store<?= $Produit->IdStore; ?>.jpg">
+                                        <img width="200px"src="../Images/Store/Store<?= $Produit->IdStore; ?>.jpg">
                                     </a>
                                     <div class="description">
                                         <?= $Produit->NomStore; ?>
