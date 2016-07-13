@@ -45,14 +45,14 @@ dbConnect();
                         <?php foreach ($Produits as $Produit): ?>
                             <div class="box">
                                 <div class="product full">
-                                    <a href="#">
+                                    <a href="StoreOption.php?IdStore=<?php echo $Produit->IdStore; ?>">
                                         <img width="200px"src="../Images/Store/Store<?= $Produit->IdStore; ?>.jpg">
                                     </a>
                                     <div class="description">
                                         <?= $Produit->NomStore; ?> à partir de
                                         <a href="#" class="price"> <?= number_format($Produit->PrixStore, 2, ',', ' '); ?> </a>
                                     </div>
-                                    <a class="add addPanier" href="addpanier.php?IdStore=<?php echo $Produit->IdStore; ?>">
+                                    <a class="add addPanier" href="StoreOption.php?IdStore=<?php echo $Produit->IdStore; ?>">
                                         add
                                     </a>
                                 </div>

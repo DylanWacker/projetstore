@@ -45,8 +45,6 @@ dbConnect();
                                        
                                         <?= ": ".$NombreStore[0]; ?>
                                     </div>
-                                    <a class="add addPanier" href="StoresAfficher.php?IdType=<?php echo $Produit->IdType; ?>">
-                                        add
                                     </a>
                                 </div>
                             </div>

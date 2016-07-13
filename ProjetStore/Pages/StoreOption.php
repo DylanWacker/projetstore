@@ -8,7 +8,7 @@ require '_header.php';
 include 'Mysql.php';
 include 'Fonction.php';
 dbConnect();
-$IdStore = $_GET['IdStore'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +28,11 @@ $IdStore = $_GET['IdStore'];
         </nav>
         <section>
             <?php
+            if(empty($_GET['IdStore'])){
+            echo '<center><h1 style="color:red">Pas de store sélectionné!</h1></center>';
+    
+             } else {                                                  
+            $IdStore = $_GET['IdStore'];
             $Store = AfficherStoreByID($IdStore);
             $TypeCommande = AfficherTypeCommandeById($IdStore);
             $TypeStore = AfficherTypeStoreById($IdStore);
@@ -52,16 +57,7 @@ $IdStore = $_GET['IdStore'];
                         };
                         echo'</SELECT>'
                         . '</FORM><br>';
-
-                        //Liste Type
-                        echo 'Type de Store: <FORM><select name="Type" >';
-                        foreach ($TypeStore as $Type) {
-                            echo'<option value="' . $Type['IdType'] . '">' . $Type['NomType'];
-                            echo'</option>';
-                        };
-                        echo'</SELECT>'
-                        . '</FORM><br>'
-                        ;
+                      
                         //Liste couleurs
                         echo 'Couleur: <FORM><select name="couleurs" >';
                         foreach ($CouleurStore as $Couleur) {
@@ -73,8 +69,10 @@ $IdStore = $_GET['IdStore'];
                     </FORM>
                 </table>
                 <a class="add addPanier" href="addpanier.php?IdStore=<?= $Store['IdStore'] ?>">Acheter</a>
-            </form>          
+            </form>    
+            <?php } ?>
         </section>
+        
         <?php
         include 'Footer.php';
         ?>
