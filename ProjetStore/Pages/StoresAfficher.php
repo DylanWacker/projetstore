@@ -8,6 +8,7 @@ require '_header.php';
 include 'Mysql.php';
 include 'Fonction.php';
 dbConnect();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,28 +30,33 @@ dbConnect();
                <div class="home">
                 <div class="row">
                     <div class="wrap">
-                        <?php $Produits = $DB->query('SELECT * FROM typestore');  
+                        <?php 
+                        if(empty($_GET['IdType'])){
+                            $Produits = $DB->query('SELECT * FROM store');
+    
+                        } else {
+                            $Produits = $DB->query('SELECT * FROM store WHERE IdStore = '.$_GET['IdType']);                            
+                        }
+                        
+                        
+                        
                         ?>
                         
-                        <?php foreach ($Produits as $Produit): ?> 
+                        <?php foreach ($Produits as $Produit): ?>
                             <div class="box">
                                 <div class="product full">
-                                    <a href="StoresAfficher.php?IdType=<?php echo $Produit->IdType; ?>">
-                                        <img width="200px"src="../Images/Store/TypeStore<?= $Produit->IdType; ?>.png">
+                                    <a href="#">
+                                        <img width="200px"src="../Images/Store/Store<?= $Produit->IdStore; ?>.jpg">
                                     </a>
                                     <div class="description">
-                                        <?= $Produit->NomType; 
-                                         $NombreStore = CompterNombreStoreParType($Produit->IdType);
-                                        ?>
-                                       
-                                        <?= ": ".$NombreStore[0]; ?>
+                                        <?= $Produit->NomStore; ?> à partir de
+                                        <a href="#" class="price"> <?= number_format($Produit->PrixStore, 2, ',', ' '); ?> </a>
                                     </div>
-                                    <a class="add addPanier" href="StoresAfficher.php?IdType=<?php echo $Produit->IdType; ?>">
+                                    <a class="add addPanier" href="addpanier.php?IdStore=<?php echo $Produit->IdStore; ?>">
                                         add
                                     </a>
                                 </div>
                             </div>
-                        
                         <?php endforeach ?>
                     </div>
                 </div>

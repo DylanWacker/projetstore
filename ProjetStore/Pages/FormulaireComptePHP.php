@@ -24,7 +24,7 @@
                     }
                     echo'>
                                         <a href="MdpOublier.php" style="margin-bottom: 10px">Mot de passe oublié?</a>
-					<button type="submit" class="btn btn-primary btn-block">Connexion</button>
+					<button type="submit" class="btn btn-primary">Connexion</button>
 				  </form>					
 				  <div class="Login-help">
 
