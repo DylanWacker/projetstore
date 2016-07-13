@@ -37,41 +37,35 @@ if (VerifierConnection()) {
 					<h1>Inscription</h1><br>
 				    
                     <form enctype="multipart/form-data" action="inscription.php" method="post">
-                        <table> 
-                            <tr>
-                                <td><b>Pseudo</b></td> 
+                    <center>
+                        <table>                       
+                            <tr>                             
                                 <td><input  ';
 
     echo'id="pseudo" type="text" value="';
  echo'" maxlength="25" required name="Pseudo" placeholder="Pseudo" style="margin-bottom: 10px"/></td>          
                             </tr >
                             <tr>
-                                <td><b>Nom</b></td>
                                 <td><input  id="nom" type="text" value="';
  echo'" required name="Nom" placeholder="Nom" style="margin-bottom: 10px"/></td>  
                             </tr>
                             <tr>
-                                <td><b>Prenom</b></td>
                                 <td> <input  id="prenom" type="text" value="';
  echo'" required name="Prenom" placeholder="Prenom" style="margin-bottom: 10px"/></td>
                             </tr>
                             <tr>
-                                <td><b>Adresse</b></td>
                                 <td><input  id="text" type="text" value="';
  echo'" required name="Adresse" placeholder="Adresse" style="margin-bottom: 10px"/></td>
                             </tr> 
                             <tr>
-                                <td><b>Npa</b></td>
                                 <td><input  id="text" type="text" value="';
  echo'" required name="Npa" placeholder="Npa" style="margin-bottom: 10px"/></td>
                             </tr> 
                                <tr>
-                                <td><b>Ville</b></td>
                                 <td><input  id="text" type="text" value="';
  echo'" required name="Ville" placeholder="Ville" style="margin-bottom: 10px"/></td>
                             </tr> 
                                                <tr>
-                                <td><b>Email</b></td>
                                 
                                 <td><input ';
     
@@ -79,19 +73,16 @@ if (VerifierConnection()) {
 echo'" required name="Email" placeholder="Email" style="margin-bottom: 10px"/></td>
                             </tr>
                                                         <tr>
-                                <td><b>Téléphone</b></td>
                                 <td><input  id="Telephone" type="text" value="';
    echo'" required name="Telephone" placeholder="Telephone" style="margin-bottom: 10px"/></td>
                             </tr> 
                             <tr> 
-                                <td><b>Mot de passe</b></td>
                                 <td><input  id="password" type="password" required value="" name="Mdp" placeholder="Mot de passe" style="margin-bottom: 10px"/></td>
                             </tr> 
                             <tr>
-                                <td><b>Retapez le mot de passe</b></td>
                                 <td><input  id="password2" type="password" required value="" name="Mdp2" placeholder="Retapez le mot de passe" style="margin-bottom: 10px"/></td>
                             </tr> 
-                             
+                        </center>  
                         </table> 
 
 
