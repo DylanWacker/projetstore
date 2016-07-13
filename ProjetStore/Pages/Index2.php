@@ -41,10 +41,9 @@ dbConnect();
                                     <div class="description">
                                         <?= $Produit->NomType; 
                                          $NombreStore = CompterNombreStoreParType($Produit->IdType);
-                                         print_r($NombreStore);
                                         ?>
                                        
-                                        <a href="#" class="NombreStore"><?= $NombreStore[0]; ?></a>
+                                        <a href="#" class="NombreStore"><?= ": ".$NombreStore[0]; ?></a>
                                     </div>
                                     <a class="add addPanier" href="addpanier.php?IdStore=<?php echo $Produit->IdStore; ?>">
                                         add
