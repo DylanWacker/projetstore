@@ -46,7 +46,7 @@ dbConnect();
                             <div class="box">
                                 <div class="product full">
                                     <a href="StoreOption.php?IdStore=<?php echo $Produit->IdStore; ?>">
-                                        <img width="200px"src="../Images/Store/Store<?= $Produit->IdStore; ?>.jpg">
+                                        <img width="200px"src="../Images/Store/<?= $Produit->Photo; ?>">
                                     </a>
                                     <div class="description">
                                         <?= $Produit->NomStore; ?> à partir de

@@ -36,7 +36,7 @@ dbConnect();
                             <div class="box">
                                 <div class="product full">
                                     <a href="StoresAfficher.php?IdType=<?php echo $Produit->IdType; ?>">
-                                        <img width="200px"src="../Images/Store/TypeStore<?= $Produit->IdType; ?>.png">
+                                        <img width="200px"src="../Images/Store/<?= $Produit->Photo; ?>">
                                     </a>
                                     <div class="description">
                                         <?= $Produit->NomType; 
