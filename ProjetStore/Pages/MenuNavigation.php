@@ -102,7 +102,7 @@ if (isset($_SESSION['User']['Statut'])) {
                         </li>
                     </ul>				
                 </li>             
-                <li><a href="#"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Contact</a></li>
+                <li><a href="contact.php"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Contact</a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Á Propos</a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;Conditions générales d'achats</a></li>
             </ul>

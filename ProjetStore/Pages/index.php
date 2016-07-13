@@ -38,7 +38,7 @@ dbConnect();
                                     </a>
                                     <div class="description">
                                         <?= $Produit->NomStore; ?>
-                                        <a href="#" class="price"><?= number_format($Produit->PrixStore, 2, ',', ' '); ?> €</a>
+                                        <a href="#" class="price"><?= number_format($Produit->PrixStore, 2, ',', ' '); ?> .-</a>
                                     </div>
                                     <a class="add addPanier" href="addpanier.php?IdStore=<?php echo $Produit->IdStore; ?>">
                                         add
