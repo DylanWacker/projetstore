@@ -24,6 +24,19 @@ dbConnect();
         }
 
     }
+
+    function afficher_nomcouleur(){ 
+var objMysere = document.getElementById('mystere'); 
+if(objMysere){ 
+objMysere.style.display = 'block'; 
+} 
+} 
+function cacher_nomcouleur(){ 
+var objMysere = document.getElementById('mystere'); 
+if(objMysere){ 
+objMysere.style.display = 'none'; 
+} 
+} 
 </script>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +99,7 @@ dbConnect();
                         ?>
                         <script>var LongeurTableauCouleur = <?= $LongeurTableauCouleur ?>;</script>
                         <?php foreach ($CouleurStore as $Couleur) { ?>
-                            <a ><img onclick="affich_cadre(this, LongeurTableauCouleur);"  style="margin-right: 2px;margin-left: 2px" src="../Images/Couleur/<?php echo $Couleur['IdCouleur']; ?>.jpg"  id="<?php echo $Couleur['IdCouleur']; ?>" width="50px" height="50px"></a> 
+                        <a ><img onmouseover=""onclick="affich_cadre(this, LongeurTableauCouleur);"  style="margin-right: 2px;margin-left: 2px" src="../Images/Couleur/<?php echo $Couleur['IdCouleur']; ?>.jpg"  id="<?php echo $Couleur['IdCouleur']; ?>" width="50px" height="50px"></a> 
 
                         <?php }; ?>
 
