@@ -264,3 +264,131 @@ footer {
           filter: alpha(opacity=9); }
         
         
+/*
+CHECKOUT
+*/
+.checkout .proceed, .checkout input[type=submit] {
+  border: none;
+  background: url("../Images/Icone/proceed.png") no-repeat;
+  background-position: 0 0;
+  width: 177px;
+  height: 47px;
+  display: block;
+  float: right;
+  text-align: center;
+  text-decoration: none;
+  line-height: 47px;
+  color: #FFF;
+  font-family: 'AllerRegular';
+  font-size: 16px;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.4);
+  margin-top: 15px; }
+.checkout .proceed:hover, .checkout input[type=submit] {
+  background-position: 0 -49px; }
+.checkout .title {
+  height: 80px;
+  border-top: 1px solid #e5e6e7;
+  border-bottom: 1px solid #e5e6e7; }
+  .checkout .title h2 {
+    height: 80px;
+    line-height: 80px;
+    font-family: 'AllerRegular';
+    font-size: 30px;
+    color: #323b49;
+    width: 464px;
+    float: left;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8); }
+.checkout .table {
+  background: #FFF;
+  border-bottom: 1px solid #e5e6e7; }
+  .checkout .table .rowtitle {
+    height: 37px;
+    line-height: 37px;
+    border-bottom: 1px solid #e5e6e7;
+    border-left: 1px solid #e5e6e7;
+    padding-left: 170px;
+    font-family: 'AllerBold';
+    color: #323b49;
+    font-size: 14px;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8); }
+    .checkout .table .rowtitle span {
+      float: left; }
+    .checkout .table .rowtitle span.name {
+      width: 338px;
+      display: block; }
+    .checkout .table .rowtitle span.price {
+      width: 130px;
+      display: block; }
+    .checkout .table .rowtitle span.quantity {
+      width: 130px;
+      display: block; }
+    .checkout .table .rowtitle span.subtotal {
+      width: 130px;
+      display: block; }
+    .checkout .table .rowtitle span.action {
+      width: 79px;
+      display: block;
+      border-right: 1px solid #e5e6e7;
+      border-left: 1px solid #e5e6e7;
+      text-align: center; }
+  .checkout .table .row.grey {
+    background: #fcfcfc; }
+  .checkout .table .row {
+    overflow: hidden;
+    background: #FFF;
+    height: 81px;
+    line-height: 81px;
+    border-bottom: 1px solid #e5e6e7;
+    border-left: 1px solid #e5e6e7; }
+    .checkout .table .row a.img {
+      width: 168px;
+      margin-top: 15px;
+      display: block;
+      float: left;
+      text-align: center; }
+    .checkout .table .row span {
+      float: left;
+      font-family: 'AllerRegular';
+      font-size: 12px;
+      color: #78c04f;
+      text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8); }
+    .checkout .table .row span.name {
+      width: 340px;
+      display: block; }
+    .checkout .table .row span.price {
+      width: 130px;
+      display: block; }
+    .checkout .table .row span.quantity {
+      width: 57px;
+      display: block;
+      text-align: center;
+      padding-right: 73px; }
+      .checkout .table .row span.quantity input {
+        height: 33px;
+        width: 20px;
+        border: 1px solid #c3c3c3;
+        background: #f9f9f9; }
+    .checkout .table .row span.subtotal {
+      width: 130px;
+      display: block; }
+    .checkout .table .row span.action {
+      width: 79px;
+      display: block;
+      border-right: 1px solid #e5e6e7;
+      border-left: 1px solid #e5e6e7;
+      text-align: center; }
+  .checkout .table .rowtotal {
+    height: 57px;
+    line-height: 57px;
+    border-right: 1px solid #e5e6e7;
+    border-left: 1px solid #e5e6e7;
+    font-family: 'AllerLightRegular';
+    color: #323b49;
+    font-size: 16px;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8);
+    padding-left: 796px; }
+    .checkout .table .rowtotal .total {
+      text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8);
+      font-family: 'AllerBold';
+      color: #323b49;
+      font-size: 16px; }

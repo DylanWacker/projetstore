@@ -35,7 +35,7 @@ dbConnect();
 <div class="checkout">
 	<div class="title">
 		<div class="wrap">
-		<h2 class="first">Shopping Cart</h2>
+		<h2 class="first">Panier</h2>
 		</div>
 	</div>
 	<form method="post" action="panier.php">
@@ -43,9 +43,9 @@ dbConnect();
 		<div class="wrap">
 
 			<div class="rowtitle">
-				<span class="name">Product name</span>
-				<span class="price">Price</span>
-				<span class="quantity">Quantity</span>
+				<span class="name">Nom</span>
+				<span class="price">Prix</span>
+				<span class="quantity">Quantité</span>
 				<span class="subtotal">Prix avec TVA</span>
 				<span class="action">Actions</span>
 			</div>
