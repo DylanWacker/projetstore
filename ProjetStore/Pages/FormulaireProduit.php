@@ -1,5 +1,5 @@
 <?php
-
+$IdStore=$Produit->IdStore;
 $Store = AfficherStoreByID($IdStore);
 $TypeCommande = AfficherTypeCommandeById($IdStore);
 $TypeStore = AfficherTypeStoreById($IdStore);
@@ -47,8 +47,10 @@ foreach ($CouleurStore as $Couleur) {
     echo'<option value="' . $Couleur['IdCouleur'] . '">' . $Couleur['NomCouleur'];
     echo'</option>';
 };
-echo'</SELECT></FORM></table>';
-echo'<button type="submit" class="btn btn-primary btn-block">Ajouter au panier</button>
+echo'</SELECT></FORM></table>
+
+      <button type="submit" class="btn btn-primary btn-block">Ajouter au panier</button>
+
 </form>
 </div>
 </div>

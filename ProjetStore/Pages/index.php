@@ -43,6 +43,10 @@ dbConnect();
                                     <a class="add addPanier" href="addpanier.php?IdStore=<?php echo $Produit->IdStore; ?>">
                                         add
                                     </a>
+                                     <?php
+
+    include 'FormulaireProduit.php';
+    ?>
                                 </div>
                             </div>
                         <?php endforeach ?>
@@ -50,7 +54,7 @@ dbConnect();
                 </div>
             </div>
 
-
+ 
 
         </section>
         <?php

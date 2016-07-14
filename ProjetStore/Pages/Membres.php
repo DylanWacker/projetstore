@@ -8,6 +8,7 @@ require '_header.php';
 include 'Mysql.php';
 include 'Fonction.php';
 dbConnect();
+$Pseudo= $_SESSION['User']['Pseudo'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,9 +16,7 @@ dbConnect();
     include 'Head.php';
     ?>
     <body>  
-        <?php
-        include './Header.php';
-        ?> 
+
         <!-- jQuery (Necessaire pour Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!-- Ajoute les fichiers bootstrap -->
@@ -30,6 +29,7 @@ dbConnect();
         </nav>
         <section>
             <article>
+                
                 <?php
                 if (VerifierConnection()) {
                     ?>
@@ -45,7 +45,7 @@ dbConnect();
                     echo '  </table>';
                 } else {
                     echo "connectez vous pour pouvoir acceder à cette page";
-                    echo('<br/> <a href="connexion.php"><input type="submit" value="se connecter"/></a> ');
+                    echo('<br/> <a href="connexion.php"><input class="btn btn-primary btn-block" type="submit" value="se connecter"/></a> ');
                 }
                 ?>
             </article>
