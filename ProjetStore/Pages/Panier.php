@@ -32,23 +32,22 @@ dbConnect();
 
     <section>
         <article >
-<div class="checkout">
-	<div class="title">
-		<div class="wrap">
-		<h2 class="first">Panier</h2>
-		</div>
-	</div>
-	<form method="post" action="panier.php">
-	<div class="table">
-		<div class="wrap">
+            		<h2>Panier</h2>
+<div class="wrapper">
+  
+  <div class="table">
+    
+    <div class="row header">
 
-			<div class="rowtitle">
-				<span class="name">Nom</span>
-				<span class="price">Prix</span>
-				<span class="quantity">Quantité</span>
-				<span class="subtotal">Prix avec TVA</span>
-				<span class="action">Actions</span>
-			</div>
+
+	<form method="post" action="panier.php">
+
+				<div class="cell">Nom </div>
+				<div class="cell">Prix </div>
+				<div class="cell">Quantité </div>
+				<div class="cell">Prix avec TVA </div>
+				<div class="cell">Actions </div>
+		  </div>
 
 			<?php
 			$ids = array_keys($_SESSION['panier']);
@@ -59,25 +58,26 @@ dbConnect();
 			}
 			foreach($products as $product):
 			?>
-			<div class="row">
-				<a href="#" class="img"> <img src="../Images/Store/Store<?= $product->IdStore; ?>.jpg" height="53"></a>
-				<span class="name"><?= $product->NomStore; ?></span>
-				<span class="price"><?= number_format($product->PrixStore,2,',',' '); ?> .-</span>
-                                <span class="quantity"><input type="number" min="0" max="100" name="panier[quantity][<?= $product->IdStore; ?>]" value="<?= $_SESSION['panier'][$product->IdStore]; ?>"></span>
-				<span class="subtotal"><?= number_format($product->PrixStore*$_SESSION['panier'][$product->IdStore],2,',',' '); ?> .-</span>
-				<span class="action">
-                                    <a href="panier.php?delPanier=<?= $product->IdStore; ?>" class="del"><img src="../Images/Icone/del.png"></a>
-				</span>
-			</div>
+                                <div class="row">
+				<div class="cell"><a href="#" > <img src="../Images/Store/Store<?= $product->IdStore; ?>.jpg" height="53"></a></div>
+				<div class="cell"><?= $product->NomStore; ?></div>
+				<div class="cell"><?= number_format($product->PrixStore,2,',',' '); ?> .-</div>
+                                <div class="cell"><input type="number" min="0" max="100" name="panier[quantity][<?= $product->IdStore; ?>]" value="<?= $_SESSION['panier'][$product->IdStore]; ?>"></div>
+				<div class="cell"><?= number_format($product->PrixStore*$_SESSION['panier'][$product->IdStore],2,',',' '); ?> .-</div>
+				<div class="cell">
+                                    <a href="panier.php?delPanier=<?= $product->IdStore; ?>" ><img src="../Images/Icone/del.png"></a>
+				</div>
+		
+    </div>
 			<?php endforeach; ?>
-			<div class="rowtotal">
-				Grand Total : <span class="total"><?= number_format($panier->total() ,2,',',' '); ?> .- </span>
-			</div>
+			
+				Grand Total : <div class="cell"><?= number_format($panier->total() ,2,',',' '); ?> .- </div>
+			
 			<input type="submit" value="Recalculer">
-		</div>
-	</div>
+	
 	</form>
 </div>
+    </div>
         </article>
     </section>
     <?php
