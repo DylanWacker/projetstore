@@ -103,7 +103,7 @@ $Include=FALSE;
         </section>
         <?php
         include 'Footer.php';
-        ?>
+        ?> 
     </body>
 
 </html>

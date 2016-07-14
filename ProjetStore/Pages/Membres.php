@@ -10,6 +10,7 @@ include 'Fonction.php';
 dbConnect();
 $Pseudo= $_SESSION['User']['Pseudo'];
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <?php
@@ -49,27 +50,12 @@ $Pseudo= $_SESSION['User']['Pseudo'];
                 }
                 ?>
             </article>
-            <span class="input input--minoru">
-					<input class="input__field input__field--yoko" type="text" id="input-16" />
-					<label class="input__label input__label--yoko" for="input-16">
-						<span class="input__label-content input__label-content--yoko">Street</span>
-					</label>
-				</span>
-				<span class="input input--minoru">
-					<input class="input__field input__field--yoko" type="text" id="input-17" />
-					<label class="input__label input__label--yoko" for="input-17">
-						<span class="input__label-content input__label-content--yoko">City</span>
-					</label>
-				</span>
-				<span class="input input--minoru">
-					<input class="input__field input__field--yoko" type="text" id="input-18" />
-					<label class="input__label input__label--yoko" for="input-18">
-						<span class="input__label-content input__label-content--yoko">Region</span>
-					</label>
-				</span>
+
+				
         </section>
         <?php
         include 'Footer.php';
         ?>
+        
     </body>
 </html>
