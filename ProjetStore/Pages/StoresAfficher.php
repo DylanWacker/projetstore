@@ -52,9 +52,7 @@ dbConnect();
                                         <?= $Produit->NomStore; ?> à partir de
                                         <a href="#" class="price"> <?= number_format($Produit->PrixStore, 2, ',', ' '); ?> </a>
                                     </div>
-                                    <a class="add addPanier" href="StoreOption.php?IdStore=<?php echo $Produit->IdStore; ?>">
-                                        add
-                                    </a>
+                                   
                                 </div>
                             </div>
                         <?php endforeach ?>
