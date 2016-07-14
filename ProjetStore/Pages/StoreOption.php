@@ -109,7 +109,6 @@ dbConnect();
                         <tr>   
                         <?php foreach ($CouleurStore as $Couleur) { ?>
                             <td><div style="display:none;"id="Text<?= $Couleur['IdCouleur']; ?>" class="Text<?=$Couleur['IdCouleur']; ?>"> <?= $Couleur['NomCouleur']; ?></div></td>
-                        
                         <?php }; ?>
                         </tr>
                         </table>
