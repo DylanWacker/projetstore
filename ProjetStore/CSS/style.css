@@ -64,6 +64,47 @@ footer {
 
 
 
+/****** Panier ******/
+.panier{
+
+}
+.panier .wrapper{
+  margin: 0 auto;
+  padding: 40px;
+  max-width: 100%;
+}
+.panier .wrapper .table{
+
+  width: 100%;
+ border-width:3px;
+ border-style:solid; 
+ border-color:#2980b9;
+ border-bottom: #2980b9 solid 2px;
+  display: table;
+
+}
+.panier .wrapper .table .row{
+   background: #f6f6f6;
+    display: table-row;
+    
+}
+.panier .wrapper .table .row.header{
+
+    font-weight: 600;
+    color: #ffffff;
+    background: #2980b9
+
+
+}
+.panier .wrapper .table .cell{
+  padding: 6px 12px;
+  display: table-cell;
+  border-bottom: #2980b9 solid 1px;
+
+    }
+
+
+
 /****** Login MODAL ******/
 .Loginmodal-container {
   padding: 30px;
@@ -264,40 +305,3 @@ footer {
           filter: alpha(opacity=9); }
         
         
-.wrapper{
-  margin: 0 auto;
-  padding: 40px;
-  max-width: 800px;
-}
-.table{
-  margin: 0 0 40px 0;
-  width: 100%;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  display: table;
-  @media screen and (max-width: 580px);
-    display: block;
-}
-.row{
-  display: table-row;
-  background: #f6f6f6;
-  &:nth-of-type(odd);
-    background: #e9e9e9;
-  &.header;
-    font-weight: 900;
-    color: #ffffff;
-    background: #ea6153;
-  &.green;
-    background: #27ae60;
-  &.blue;
-    background: #2980b9;
-  @media screen and (max-width: 580px);
-    padding: 8px 0;
-    display: block;
-}
-.cell{
-  padding: 6px 12px;
-  display: table-cell;
-  @media screen and (max-width: 580px);
-    padding: 2px 12px;
-    display: block;
-    }

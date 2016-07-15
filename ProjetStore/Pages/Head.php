@@ -5,9 +5,9 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Store</title>
    
-    <!-- Bootstrap -->
+
+    <link href="../CSS/style.css" rel="stylesheet">
     <link href="../CSS/menu.css" rel="stylesheet">
     <link href="../CSS/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="../CSS/style.css" rel="stylesheet">
   
   </head>
