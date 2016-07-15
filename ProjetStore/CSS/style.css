@@ -141,11 +141,49 @@ footer {
     border-bottom: #2980b9 solid 1px;
     background: #A9A9A9;
     display: table-cell;
-    
+
 }
 .PaiementMenu .cell.active{
     background: #2980b9;
 
+}
+/****** StoreOption ******/
+.StoreOption{
+
+}
+.StoreOption .wrapper{
+    margin: 0 auto;
+    padding: 40px;
+    max-width: 100%;
+}
+.StoreOption .wrapper .header{
+    font-weight: 600;
+    color: #ffffff;
+    background: #2980b9;
+}
+.StoreOption .wrapper .table{
+
+    width: 100%;
+    border-width:3px;
+    border-style:solid; 
+    border-color:#2980b9;
+    border-bottom: #2980b9 solid 2px;
+}
+.StoreOption .wrapper .table .right{
+
+}
+.StoreOption .wrapper .table .left{
+    float: left;
+    margin-top: 10px;
+}
+
+.StoreOption .wrapper .table .box {
+    display:none;
+    position:absolute;
+    border:2px solid #000;
+    width:100px;
+    height:100px;
+    background:black;
 }
 /****** Login MODAL ******/
 .Loginmodal-container {
