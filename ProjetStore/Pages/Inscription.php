@@ -68,32 +68,32 @@ dbConnect();
                                         } else {
                                             $InscriptionError = 'Insertion';
                                             $MessageErreur = "Une erreur s'est produite dans l'insertion des données utilisateurs";
-                                            include 'FormulaireProduitPHP.php';
+                                            include 'FormulaireInscriptionPHP.php';
                                         }
                                     } else {
                                         $InscriptionError = 'Pseudo';
                                         $MessageErreur = "Un membre possede deja ce pseudo";
-                                        include 'FormulaireProduitPHP.php';
+                                        include 'FormulaireInscriptionPHP.php';
                                     }
                                 } else {
                                     $InscriptionError = 'Mdp';
                                     $MessageErreur = "les mot de passe ne correspondent pas";
-                                    include 'FormulaireProduitPHP.php';
+                                    include 'FormulaireInscriptionPHP.php';
                                 }
                             } else {
                                 $InscriptionError = 'Email';
                                 $MessageErreur = "Email non valide";
-                                include 'FormulaireProduitPHP.php';
+                                include 'FormulaireInscriptionPHP.php';
                             }
                         } else {
                             $InscriptionError = 'Champs';
                             $MessageErreur = "Il faut remplir tous les champs";
-                            include 'FormulaireProduitPHP.php';
+                            include 'FormulaireInscriptionPHP.php';
                         }
                     } else {
                         $InscriptionError = 'Erreur';
                         $MessageErreur = "Une erreur s'est produite";
-                        include 'FormulaireProduitPHP.php';
+                        include 'FormulaireInscriptionPHP.php';
                     }
                 } else {
                     $InscriptionError = 'Interdit';

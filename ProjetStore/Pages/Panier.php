@@ -31,13 +31,21 @@ dbConnect();
 <body>
 
     <section>
+         <div class="PaiementMenu">
+                <center>
+                    <div class="cell active"> Panier</div>
+                    <div class="cell"> Informations</div>
+                    <div class="cell">Paiement</div>
+                    <div class="cell"> Confirmation</div>
+                </center>
+            </div>
         <article >
 
             <div class="panier">
 
                 <div class="wrapper">
                     <h2>Panier</h2>
-                    <form method="post" action="panier.php">
+                    <form method="post" action="panier.php">   
                         <div class="table">
 
                             <div class="row header">
@@ -74,6 +82,9 @@ dbConnect();
 
                         Grand Total :<?= number_format($panier->total(), 2, ',', ' '); ?> .- 
                         <input class="btn btn-primary" type="submit"  value="Recalculer">    
+                        </form>
+                    <form method="post" action="AchatInfo.php">
+                         <input class="btn btn-primary " type="submit"  value="Acheter">  
                     </form>
                 </div>
             </div>

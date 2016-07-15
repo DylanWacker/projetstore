@@ -94,12 +94,12 @@ function AfficherUser() {
 ;
 
 //--------------------------------------------------------------------------
-function AfficheInformationById($IdUser) {
-    //affiche les toutes informations des utilisateur grace a son Is
+function AfficheInformationById($IdClient) {
+    //affiche les toutes informations des utilisateur grace a son Id
     //--------------------------------------------------------------------------
     global $dbc;
-    $req = $dbc->prepare('SELECT * FROM   Utilisateurs  WHERE  IdUser = :IdUser');
-    $req->execute(array('IdUser' => $IdUser));
+    $req = $dbc->prepare('SELECT * FROM   client  WHERE  IdClient = :IdClient');
+    $req->execute(array('IdClient' => $IdClient));
     return $req->fetch(PDO::FETCH_ASSOC);
 }
 

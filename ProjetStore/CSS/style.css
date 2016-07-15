@@ -3,7 +3,7 @@ body {
     height: 100%;   
     display:block;
     background-color: #f5f5f5;
-    
+
 }
 
 header {
@@ -44,7 +44,7 @@ article {
 }
 
 nav {
-    
+
 }
 
 footer {
@@ -69,24 +69,24 @@ footer {
 
 }
 .panier .wrapper{
-  margin: 0 auto;
-  padding: 40px;
-  max-width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+    max-width: 100%;
 }
 .panier .wrapper .table{
 
-  width: 100%;
- border-width:3px;
- border-style:solid; 
- border-color:#2980b9;
- border-bottom: #2980b9 solid 2px;
-  display: table;
+    width: 100%;
+    border-width:3px;
+    border-style:solid; 
+    border-color:#2980b9;
+    border-bottom: #2980b9 solid 2px;
+    display: table;
 
 }
 .panier .wrapper .table .row{
-   background: #f6f6f6;
+    background: #f6f6f6;
     display: table-row;
-    
+
 }
 .panier .wrapper .table .row.header{
 
@@ -97,211 +97,253 @@ footer {
 
 }
 .panier .wrapper .table .cell{
-  padding: 6px 12px;
-  display: table-cell;
-  border-bottom: #2980b9 solid 1px;
+    padding: 6px 12px;
+    display: table-cell;
+    border-bottom: #2980b9 solid 1px;
 
-    }
+}
+
+/****** Achat ******/
+.Achat{
+
+}
+.Achat .wrapper{
+    margin: 0 auto;
+    padding: 40px;
+    max-width: 100%;
+}
+.Achat .wrapper .table{
+
+    width: 100%;
+    border-width:3px;
+    border-style:solid; 
+    border-color:#2980b9;
+    border-bottom: #2980b9 solid 2px;
 
 
+}
 
+.Achat .wrapper .header{
+
+    font-weight: 600;
+    color: #ffffff;
+    background: #2980b9;
+
+
+}
+
+/****** Menu Paiment ******/
+.PaiementMenu{
+
+}
+.PaiementMenu .cell{
+    padding: 6px 12px;
+    border-bottom: #2980b9 solid 1px;
+    background: #A9A9A9;
+    display: table-cell;
+    
+}
+.PaiementMenu .cell.active{
+    background: #2980b9;
+
+}
 /****** Login MODAL ******/
 .Loginmodal-container {
-  padding: 30px;
-  max-width: 350px;
-  width: 100% !important;
-  background-color: #F7F7F7;
-  margin: 0 auto;
-  border-radius: 2px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  font-family: roboto;
+    padding: 30px;
+    max-width: 350px;
+    width: 100% !important;
+    background-color: #F7F7F7;
+    margin: 0 auto;
+    border-radius: 2px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    font-family: roboto;
 }
 .Loginmodal-container h1 {
-  text-align: center;
-  font-size: 1.8em;
-  font-family: roboto;
+    text-align: center;
+    font-size: 1.8em;
+    font-family: roboto;
 }
 .Loginmodal-container input[type=submit] {
-  width: 100%;
-  display: block;
-  margin-bottom: 10px;
-  position: relative;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    position: relative;
 }
 .Loginmodal-container input[type=text], input[type=password] {
-  height: 44px;
-  font-size: 16px;
-  width: 100%;
+    height: 44px;
+    font-size: 16px;
+    width: 100%;
 }
 
 /****** Inscription MODAL ******/
 .Inscriptionmodal-container {
-  padding: 30px;
-  max-width: 350px;
-  width: 100% !important;
-  background-color: #F7F7F7;
-  margin: 0 auto;
-  border-radius: 2px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  font-family: roboto;
+    padding: 30px;
+    max-width: 350px;
+    width: 100% !important;
+    background-color: #F7F7F7;
+    margin: 0 auto;
+    border-radius: 2px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    font-family: roboto;
 }
 .Inscriptionmodal-container h1 {
-  text-align: center;
-  font-size: 1.8em;
-  font-family: roboto;
+    text-align: center;
+    font-size: 1.8em;
+    font-family: roboto;
 }
 .Inscriptionmodal-container input[type=submit] {
-  width: 100%;
-  display: block;
-  margin-bottom: 10px;
-  position: relative;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    position: relative;
 }
 .Inscriptionmodal-container input[type=text], input[type=password] {
-  height: 44px;
-  font-size: 16px;
-  width: 100%;
+    height: 44px;
+    font-size: 16px;
+    width: 100%;
 }
 
 /****** Produit MODAL ******/
 .Produitmodal-container {
-  padding: 30px;
-  max-width: 350px;
-  width: 100% !important;
-  background-color: #F7F7F7;
-  margin: 0 auto;
-  border-radius: 2px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  font-family: roboto;
+    padding: 30px;
+    max-width: 350px;
+    width: 100% !important;
+    background-color: #F7F7F7;
+    margin: 0 auto;
+    border-radius: 2px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    font-family: roboto;
 }
 .Produitmodal-container h1 {
-  text-align: center;
-  font-size: 1.8em;
-  font-family: roboto;
+    text-align: center;
+    font-size: 1.8em;
+    font-family: roboto;
 }
 .Produitnmodal-container input[type=submit] {
-  width: 100%;
-  display: block;
-  margin-bottom: 10px;
-  position: relative;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    position: relative;
 }
 .Produitmodal-container input[type=text], input[type=password] {
-  height: 44px;
-  font-size: 16px;
-  width: 100%;
+    height: 44px;
+    font-size: 16px;
+    width: 100%;
 }
 /****** Home ******/
 .home {
-  background: #f9f9f9; }
-  .home .row.last {
+    background: #f9f9f9; }
+.home .row.last {
     border-top: 0 none; }
-  .home .row {
+.home .row {
     border-top: 1px solid #e5e6e7;
     border-bottom: 1px solid #e5e6e7;
     height: 410px; }
-    .home .row .box.last {
-      border-right: 1px solid #e5e6e7; }
-    .home .row .box {
-      width: 300px;
-      height: 380px;
-      border-left: 1px solid #e5e6e7;
-      padding-top: 30px;
-      padding-left: 25px;
-      float: left; }
-      .home .row .box .product:hover {
-        -webkit-box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.2);
-        -moz-box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.2);
-        box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.2); }
-      .home .row .box .product {
-        background: url("../Images/Icone/box.png") no-repeat;
-        width: 263px;
-        height: 340px;
-        position: relative;
-        padding-left: 35px;
-        padding-right: 15px;
-        padding-top: 35px;
-        -webkit-transition-property: background;
-        -moz-transition-property: background;
-        -ms-transition-property: background;
-        -o-transition-property: background;
-        transition-property: background;
-        -webkit-transition-duration: 2s;
-        -moz-transition-duration: 2s;
-        -ms-transition-duration: 2s; 
-        -o-transition-duration: 2s;
-        transition-duration: 2s;
-        -webkit-transition-delay: 2s;
-        -moz-transition-delay: 2s;
-        -ms-transition-delay: 2s;
-        -o-transition-delay: 2s;
-        transition-delay: 2s; }
+.home .row .box.last {
+    border-right: 1px solid #e5e6e7; }
+.home .row .box {
+    width: 300px;
+    height: 380px;
+    border-left: 1px solid #e5e6e7;
+    padding-top: 30px;
+    padding-left: 25px;
+    float: left; }
+.home .row .box .product:hover {
+    -webkit-box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.2); }
+.home .row .box .product {
+    background: url("../Images/Icone/box.png") no-repeat;
+    width: 263px;
+    height: 340px;
+    position: relative;
+    padding-left: 35px;
+    padding-right: 15px;
+    padding-top: 35px;
+    -webkit-transition-property: background;
+    -moz-transition-property: background;
+    -ms-transition-property: background;
+    -o-transition-property: background;
+    transition-property: background;
+    -webkit-transition-duration: 2s;
+    -moz-transition-duration: 2s;
+    -ms-transition-duration: 2s; 
+    -o-transition-duration: 2s;
+    transition-duration: 2s;
+    -webkit-transition-delay: 2s;
+    -moz-transition-delay: 2s;
+    -ms-transition-delay: 2s;
+    -o-transition-delay: 2s;
+    transition-delay: 2s; }
 
-        .home .row .box .product .description {
-          font-family: 'AllerLightRegular';
-          font-size: 16px;
-          color: #39414d;
-          font-style: italic;
-          text-align: center;
-          padding-top: 70px;
-          text-shadow: 1px 1px 1px white; }
-          .home .row .box .product .description strong {
-            font-family: 'AllerRegular';
-            font-style: normal; }
-          .home .row .box .product .description a.price {
-            font-family: 'Helvetica';
-            font-size: 18px;
-            color: #74bc0e;
-            font-weight: bold;
-            font-style: normal;
-            text-decoration: none; }
-        .home .row .box .product .add {
-          background: url("../Images/Icone/sprites.png") no-repeat;
-          background-position: 0 0;
-          width: 43px;
-          height: 44px;
-          display: block;
-          text-indent: -9898px;
-          position: absolute;
-          bottom: 25px;
-          right: -13px;
-          -webkit-transition: opacity 0.2s ease-in; }
-        .home .row .box .product .add:hover {
-          background: url("../Images/Icone/sprites.png") no-repeat;
-          background-position: 0 0;
-          width: 43px;
-          height: 44px;
-          display: block;
-          text-indent: -9898px;
-          position: absolute;
-          bottom: 25px;
-          right: -13px;
-          opacity: 0.7;
-          -moz-opacity: 0.7;
-          filter: alpha(opacity=7); }
-        .home .row .box .product .valid {
-          background: url("../Images/Icone/sprites.png") no-repeat;
-          background-position: 0 -45px;
-          width: 43px;
-          height: 44px;
-          display: block;
-          text-indent: -9898px;
-          position: absolute;
-          bottom: 25px;
-          right: -13px;
-          -webkit-transition: opacity 0.2s ease-in; }
-        .home .row .box .product .valid:hover {
-          background: url("../Images/Icone/sprites.png") no-repeat;
-          background-position: 0 -90px;
-          width: 43px;
-          height: 44px;
-          display: block;
-          text-indent: -9898px;
-          position: absolute;
-          bottom: 25px;
-          right: -13px;
-          opacity: 0.9;
-          -moz-opacity: 0.9;
-          filter: alpha(opacity=9); }
-        
-        
+.home .row .box .product .description {
+    font-family: 'AllerLightRegular';
+    font-size: 16px;
+    color: #39414d;
+    font-style: italic;
+    text-align: center;
+    padding-top: 70px;
+    text-shadow: 1px 1px 1px white; }
+.home .row .box .product .description strong {
+    font-family: 'AllerRegular';
+    font-style: normal; }
+.home .row .box .product .description a.price {
+    font-family: 'Helvetica';
+    font-size: 18px;
+    color: #74bc0e;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none; }
+.home .row .box .product .add {
+    background: url("../Images/Icone/sprites.png") no-repeat;
+    background-position: 0 0;
+    width: 43px;
+    height: 44px;
+    display: block;
+    text-indent: -9898px;
+    position: absolute;
+    bottom: 25px;
+    right: -13px;
+    -webkit-transition: opacity 0.2s ease-in; }
+.home .row .box .product .add:hover {
+    background: url("../Images/Icone/sprites.png") no-repeat;
+    background-position: 0 0;
+    width: 43px;
+    height: 44px;
+    display: block;
+    text-indent: -9898px;
+    position: absolute;
+    bottom: 25px;
+    right: -13px;
+    opacity: 0.7;
+    -moz-opacity: 0.7;
+    filter: alpha(opacity=7); }
+.home .row .box .product .valid {
+    background: url("../Images/Icone/sprites.png") no-repeat;
+    background-position: 0 -45px;
+    width: 43px;
+    height: 44px;
+    display: block;
+    text-indent: -9898px;
+    position: absolute;
+    bottom: 25px;
+    right: -13px;
+    -webkit-transition: opacity 0.2s ease-in; }
+.home .row .box .product .valid:hover {
+    background: url("../Images/Icone/sprites.png") no-repeat;
+    background-position: 0 -90px;
+    width: 43px;
+    height: 44px;
+    display: block;
+    text-indent: -9898px;
+    position: absolute;
+    bottom: 25px;
+    right: -13px;
+    opacity: 0.9;
+    -moz-opacity: 0.9;
+    filter: alpha(opacity=9); }
+
+
