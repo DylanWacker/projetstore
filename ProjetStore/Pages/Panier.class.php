@@ -42,7 +42,7 @@ class panier{
 			$products = $this->DB->query('SELECT IdStore, PrixStore FROM store WHERE IdStore IN ('.implode(',',$ids).')');
 		}
 		foreach( $products as $product ) {
-			$total += $product->PrixStore * $_SESSION['panier'][$product->IdStore];
+			$total += $product->PrixStore * 1.24 * $_SESSION['panier'][$product->IdStore];
 		}
 		return $total;
 	}
