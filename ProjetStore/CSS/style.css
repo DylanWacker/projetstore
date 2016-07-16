@@ -185,6 +185,45 @@ footer {
     height:100px;
     background:black;
 }
+
+/****** connexion ******/
+.connexion{
+
+}
+.connexion .wrapper{
+    margin: 0 auto;
+    padding: 40px;
+    max-width: 100%;
+}
+.connexion .wrapper .header{
+    font-weight: 600;
+    color: #ffffff;
+    background: #2980b9;
+}
+.connexion .wrapper .table{
+
+    width: 100%;
+    border-width:3px;
+    border-style:solid; 
+    border-color:#2980b9;
+    border-bottom: #2980b9 solid 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.connexion .wrapper .table .row{
+    display: table-row;  
+}
+
+.connexion .wrapper .table .label{
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 24px;
+    line-height: 1.43;  
+    color:red;
+    
+
+}
+
 /****** Login MODAL ******/
 .Loginmodal-container {
     padding: 30px;

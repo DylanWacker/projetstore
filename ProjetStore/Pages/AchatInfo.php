@@ -120,7 +120,7 @@ $InscriptionError = "";
                         <button type="submit" class="btn btn-primary ">Suivant</button> 
                         </center> 
                         
-                         </form>'
+                         '
                                     ?> 
                                 </div>
                                 <?php

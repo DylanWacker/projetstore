@@ -8,6 +8,8 @@ require '_header.php';
 include 'Mysql.php';
 include 'Fonction.php';
 dbConnect();
+//ini variable
+$ConnexionLab="";
 $Include=FALSE;
                 if (empty($_SESSION['User']['IdClient'])) { //les membres connectes ne peuvent pas s'inscrire
                     //il faut que toutes les variables du formulaire existent 
@@ -87,17 +89,20 @@ $Include=FALSE;
             ?> 
         </nav>
         <section>
-            <h1>Connexion</h1>
+
             <article>
+                    <div class="connexion">
+
+                        <div class="wrapper">
+                        <div class="header">Connexion</div>
                 <?php
-               
-                    echo $ConnexionLab;
+
                     if ($Include = TRUE) {
-    include 'FormulaireComptePHP.php';
-}
-                    
-                
+    include 'FormulaireConnexionPHP.php';
+}           
                 ?>
+                        </div>
+                        </div>
             </article>
             
         </section>
