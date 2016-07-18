@@ -22,12 +22,12 @@ function dbConnect() {
 ;
 
 //--------------------------------------------------------------------------
-function InscriptionUser($Pseudo, $Nom, $Prenom, $Email, $Mdp, $Statut, $Adresse, $Npa, $Ville, $Telephone) {
+function InscriptionUser($Pseudo, $Nom, $Prenom, $Email, $Mdp, $Statut, $Adresse,$Numero, $Npa, $Localite, $Ville, $Pays, $Telephone) {
 //Inscription des utilisateurs
 //--------------------------------------------------------------------------
     global $dbc;
-    $req = $dbc->prepare('INSERT INTO client(Nom,Prenom,Pseudo,MotDePasse,Adresse,Npa,Ville,Telephone,Email,Statut,DateInscription) VALUES( :Nom,:Prenom,:Pseudo,:MotDePasse,:Adresse,:Npa,:Ville,:Telephone,:Email,:Statut, NOW() )');
-    return $req->execute(array('Nom' => $Nom, 'Prenom' => $Prenom, 'Pseudo' => $Pseudo, 'MotDePasse' => $Mdp, 'Adresse' => $Adresse, 'Npa' => $Npa, 'Ville' => $Ville, 'Telephone' => $Telephone, 'Email' => $Email, 'Statut' => $Statut));
+    $req = $dbc->prepare('INSERT INTO client(Nom,Prenom,Pseudo,MotDePasse,Adresse,Numero,Npa,Localite,Ville,Pays,Telephone,Email,Statut,DateInscription) VALUES( :Nom,:Prenom,:Pseudo,:MotDePasse,:Adresse,:Numero,:Npa,:Localite,:Ville,:Pays,:Telephone,:Email,:Statut, NOW() )');
+    return $req->execute(array('Nom' => $Nom, 'Prenom' => $Prenom, 'Pseudo' => $Pseudo, 'MotDePasse' => $Mdp, 'Adresse' => $Adresse, 'Numero' => $Numero, 'Npa' => $Npa,'Localite' => $Localite, 'Ville' => $Ville, 'Pays' => $Pays, 'Telephone' => $Telephone, 'Email' => $Email, 'Statut' => $Statut));
 }
 
 ;

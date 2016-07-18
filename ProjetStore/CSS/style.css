@@ -119,10 +119,13 @@ footer {
     border-style:solid; 
     border-color:#2980b9;
     border-bottom: #2980b9 solid 2px;
-
+    padding-top: 10px;
+    padding-bottom: 10px;
 
 }
-
+.Achat .wrapper .table .row{
+    display: table-row;  
+}
 .Achat .wrapper .header{
 
     font-weight: 600;
@@ -147,6 +150,7 @@ footer {
     background: #2980b9;
 
 }
+
 /****** StoreOption ******/
 .StoreOption{
 

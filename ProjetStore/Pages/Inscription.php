@@ -38,9 +38,9 @@ dbConnect();
                 $MessageErreur = "";
                 if (empty($_SESSION['User']['IdUser'])) { //les membres connectes ne peuvent pas s'inscrire
                     /* il faut que toutes les variables du formulaire existent */
-                    if (isset($_POST['Pseudo']) && isset($_POST['Mdp']) && isset($_POST['Mdp2']) && isset($_POST['Nom']) && isset($_POST['Prenom']) && isset($_POST['Email']) && isset($_POST['Adresse']) && isset($_POST['Npa']) && isset($_POST['Ville']) && isset($_POST['Telephone'])) {
+                    if (isset($_POST['Pseudo']) && isset($_POST['Mdp']) && isset($_POST['Mdp2']) && isset($_POST['Nom']) && isset($_POST['Prenom']) && isset($_POST['Email']) && isset($_POST['Adresse'])&& isset($_POST['Numero']) && isset($_POST['Npa'])&& isset($_POST['Localite']) && isset($_POST['Ville'])&& isset($_POST['Pays']) && isset($_POST['Telephone'])) {
                         /* il faut que tous les champs soient renseignes */
-                        if ($_POST['Pseudo'] != "" && $_POST['Mdp'] != "" && $_POST['Mdp2'] != "" && $_POST['Nom'] != "" && $_POST['Prenom'] != "" && $_POST['Email'] != "" && $_POST['Adresse'] != "" && $_POST['Npa'] != "" && $_POST['Ville'] != "" && $_POST['Telephone'] != "") {
+                        if ($_POST['Pseudo'] != "" && $_POST['Mdp'] != "" && $_POST['Mdp2'] != "" && $_POST['Nom'] != "" && $_POST['Prenom'] != "" && $_POST['Email'] != "" && $_POST['Adresse'] != ""&& $_POST['Numero'] != "" && $_POST['Npa'] != ""&& $_POST['Localite'] != "" && $_POST['Ville'] != "" && $_POST['Pays'] != "" && $_POST['Telephone'] != "") {
                             // dbConnect();
                             // on teste l'adresse email, si c'est bon, on continue, sinon, on affiche un message d'erreur 
                             if (preg_match('#^[\w.-]+@[\w.-]+\.[a-z]{2,6}$#i', $_POST['Email'])) {
@@ -58,11 +58,14 @@ dbConnect();
                                         $Prenom = $_POST['Prenom'];
                                         $Email = $_POST['Email'];
                                         $Adresse = $_POST['Adresse'];
+                                        $Numero = $_POST['Numero'];
                                         $Npa = $_POST['Npa'];
+                                        $Localite = $_POST['Localite'];
                                         $Ville = $_POST['Ville'];
+                                        $Pays = $_POST['Pays'];
                                         $Telephone = $_POST['Telephone'];
                                         $Statut = 'Utilisateur';
-                                        if (InscriptionUser($Pseudo, $Nom, $Prenom, $Email, $Mdp, $Statut, $Adresse, $Npa, $Ville, $Telephone)) {
+                                        if (InscriptionUser($Pseudo, $Nom, $Prenom, $Email, $Mdp, $Statut, $Adresse,$Numero, $Npa,$Localite, $Ville,$Pays, $Telephone)) {
                                             echo " Merci de votre inscription";
                                             echo('<br/> <a href="connexion.php"><input type="submit" value="se connecter"/></a> ');
                                         } else {

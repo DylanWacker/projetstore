@@ -46,16 +46,34 @@
                     } echo'" required name="Adresse" placeholder="Adresse" style="margin-bottom: 10px"/></td>
                             </tr> 
                             <tr>
+                                <td><input  id="Numero" type="text" value="';
+                    if (isset($_POST['Numero'])) {
+                        echo$_POST['Numero'];
+                    } echo'" required name="Numero" placeholder="Numéro" style="margin-bottom: 10px"/></td>
+                            </tr> 
+                            <tr>
                                 <td><input  id="text" type="text" value="';
                     if (isset($_POST['Npa'])) {
                         echo$_POST['Npa'];
                     } echo'" required name="Npa" placeholder="Npa" style="margin-bottom: 10px"/></td>
+                            </tr> 
+                            <tr>
+                                <td><input  id="Localite" type="text" value="';
+                    if (isset($_POST['Localite'])) {
+                        echo$_POST['Localite'];
+                    } echo'" required name="Localite" placeholder="Localité" style="margin-bottom: 10px"/></td>
                             </tr> 
                                <tr>
                                 <td><input  id="text" type="text" value="';
                     if (isset($_POST['Ville'])) {
                         echo$_POST['Ville'];
                     } echo'" required name="Ville" placeholder="Ville" style="margin-bottom: 10px"/></td>
+                            </tr> 
+                            <tr>
+                                <td><input  id="Pays" type="text" value="';
+                    if (isset($_POST['Pays'])) {
+                        echo$_POST['Pays'];
+                    } echo'" required name="Pays" placeholder="Pays" style="margin-bottom: 10px"/></td>
                             </tr> 
                                                <tr>
                                 

@@ -54,17 +54,29 @@ if (VerifierConnection()) {
  echo'" required name="Prenom" placeholder="Prenom" style="margin-bottom: 10px"/></td>
                             </tr>
                             <tr>
-                                <td><input  id="text" type="text" value="';
+                                <td><input  id="Adresse" type="text" value="';
  echo'" required name="Adresse" placeholder="Adresse" style="margin-bottom: 10px"/></td>
                             </tr> 
                             <tr>
-                                <td><input  id="text" type="text" value="';
+                                <td> <input  id="Numero" type="text" value="';
+ echo'" required name="Numero" placeholder="Numéro" style="margin-bottom: 10px"/></td>
+                            </tr>
+                            <tr>
+                                <td><input  id="Npa" type="text" value="';
  echo'" required name="Npa" placeholder="Npa" style="margin-bottom: 10px"/></td>
                             </tr> 
+                            <tr>
+                                <td> <input  id="Localite" type="text" value="';
+ echo'" required name="Localite" placeholder="Localité" style="margin-bottom: 10px"/></td>
+                            </tr>
                                <tr>
                                 <td><input  id="text" type="text" value="';
  echo'" required name="Ville" placeholder="Ville" style="margin-bottom: 10px"/></td>
                             </tr> 
+                            <tr>
+                                <td> <input  id="Pays" type="text" value="';
+ echo'" required name="Pays" placeholder="Pays" style="margin-bottom: 10px"/></td>
+                            </tr>
                                                <tr>
                                 
                                 <td><input ';
