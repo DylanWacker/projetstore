@@ -25,19 +25,15 @@ dbConnect();
 
     }
 
-    function afficher_nomcouleur(arg) {
-        var IdDeLaCouleur = arg.id;
-        var AfficherNomCouleur = document.getElementById("Text" + IdDeLaCouleur);
-        if (AfficherNomCouleur) {
-            AfficherNomCouleur.style.display = 'block';
-        }
+    function AfficherBox(arg) {
+        var IdCouleur = arg.id;
+        var elementCouleur = document.getElementById("description"+IdCouleur)
+        elementCouleur.style.display = 'block';
     }
-    function cacher_nomcouleur(arg) {
-        var IdDeLaCouleur = arg.id;
-        var AfficherNomCouleur = document.getElementById("Text" + IdDeLaCouleur);
-        if (AfficherNomCouleur) {
-            AfficherNomCouleur.style.display = 'none';
-        }
+    function CacherBox(arg) {
+         var IdCouleur = arg.id;
+        var elementCouleur = document.getElementById("description"+IdCouleur)
+        elementCouleur.style.display = 'none';
     }
 
 
@@ -95,28 +91,34 @@ dbConnect();
                                         //Liste couleurs
                                         echo 'Couleur:<br>';
                                         $LongeurTableauCouleur = count($CouleurStore);
+                                        
                                         ?>
                                         <script>var LongeurTableauCouleur = <?= $LongeurTableauCouleur ?>;</script>
-                                        <table>
-                                            <tr>
-                                                <?php foreach ($CouleurStore as $Couleur) { ?>
-                                                    <td><a ><img onMouseout="cacher_nomcouleur(this)" onMouseover="afficher_nomcouleur(this)"onclick="affich_cadre(this, LongeurTableauCouleur);"  style="margin-right: 2px;margin-left: 2px" src="../Images/Couleur/<?php echo $Couleur['IdCouleur']; ?>.jpg"  id="<?php echo $Couleur['IdCouleur']; ?>" width="50px" height="50px"></a></td>
 
-                                                <?php }; ?>
-                                            </tr>
-                                            <tr>
-                                                <?php foreach ($CouleurStore as $Couleur) { ?>
-                                                    <td><div style="display:none;"id="Text<?= $Couleur['IdCouleur']; ?>" class="Text<?= $Couleur['IdCouleur']; ?>"> <?= $Couleur['NomCouleur']; ?></div></td>
+                                        <div class="box">
+
+                                            <?php foreach ($CouleurStore as $Couleur) { ?>
+                                                <a ><img onMouseout="CacherBox(this)" onMouseover="AfficherBox(this)"onclick="affich_cadre(this, LongeurTableauCouleur);" src="../Images/Couleur/<?php echo $Couleur['IdCouleur']; ?>.jpg"  id="<?php echo $Couleur['IdCouleur']; ?>" width="50px" height="50px"></a>
+
+                                            <?php }; ?>
+                                            <?php foreach ($CouleurStore as $Couleur) { ?>
+                                                <div class="description" style="display: none;" id="description<?= $Couleur['IdCouleur']; ?>" class="Text<?= $Couleur['IdCouleur']; ?>"> <?= $Couleur['NomCouleur']; ?></div>
 
 
-                                                <?php }; ?>
-                                            </tr>
-                                        </table>
+                                            <?php }; ?>
+
+                                        </div>
                                         <a class="add addPanier" href="addpanier.php?IdStore=<?= $Store['IdStore'] ?>">Acheter</a>
                                     </div>
                                 </div>
                             </form>
                             </table>
+
+
+
+
+
+
 
                         <?php } ?>
                     </div>

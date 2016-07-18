@@ -251,7 +251,7 @@ function CompterNombreStoreParType($IdStore) {
 //Compter le nombre de store du type choisis
 //--------------------------------------------------------------------------
     global $dbc;
-    $req = $dbc->prepare('SELECT Count(IdType) FROM `typestore` natural join store WHERE IdStore = :IdStore;');
+    $req = $dbc->prepare('SELECT Count(IdType) FROM `store`where IdType = :IdStore;');
     $req->execute(array('IdStore' => $IdStore));
     return $req->fetch();
 }

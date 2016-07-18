@@ -15,7 +15,7 @@ header {
     display:block;  
     border:5px solid #999;
     border-radius: 10px 10px 0px 0px;
-    border-bottom: none;
+    border-bottom: none;  
 }
 
 
@@ -152,9 +152,22 @@ footer {
 }
 
 /****** StoreOption ******/
-.StoreOption{
-
+.StoreOption {
+   
 }
+.description {
+    display:none;
+    position:absolute;
+    border:2px solid #000;
+    width:100px;
+    height:100px;
+    background:black;
+}
+
+.box {
+    
+}
+
 .StoreOption .wrapper{
     margin: 0 auto;
     padding: 40px;
@@ -179,15 +192,6 @@ footer {
 .StoreOption .wrapper .table .left{
     float: left;
     margin-top: 10px;
-}
-
-.StoreOption .wrapper .table .box {
-    display:none;
-    position:absolute;
-    border:2px solid #000;
-    width:100px;
-    height:100px;
-    background:black;
 }
 
 /****** connexion ******/
