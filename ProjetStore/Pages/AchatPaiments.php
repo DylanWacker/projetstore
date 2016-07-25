@@ -52,7 +52,6 @@ print_r($_SESSION);
                         $i = 0;
                         foreach ($articles as $article):
                             $i++;
-                            print_r($article);
                             ?>
                             <input type="hidden" name="item_name_<?= $i ?>" value="<?= $article->NomStore ?>">
                             <input type="hidden" name="amount_<?= $i ?>" value="<?= 1* $article->PrixStore * 1.24?>">
