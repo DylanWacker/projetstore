@@ -24,9 +24,6 @@ dbConnect();
         }
 
     }
-
-
-
 </script>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,9 +43,6 @@ dbConnect();
         </nav>
         <section>
             <article >
-
-
-
                 <div class="StoreOption">
                     <div class="wrapper">
                         <?php
@@ -60,7 +54,9 @@ dbConnect();
                             $TypeCommande = AfficherTypeCommandeById($IdStore);
                             $TypeStore = AfficherTypeStoreById($IdStore);
                             $CouleurStore = AfficherCouleurStoreById($IdStore);
+                            $Produit = $DB->query('SELECT * FROM store WHERE IdStore='.$IdStore.'');
                             ?>
+                            
                             <div class="header"> <?php echo $Store['NomStore']; ?> </div>
                             <form enctype="multipart/form-data" action="addpanier.php?IdStore=' . $Store['IdStore'] . '" method="post">
                                 <div class="table">
@@ -69,8 +65,8 @@ dbConnect();
                                     </div>
                                     <div class="right">
                                         <?php
-                                        echo 'Prix: ' . $Store['PrixStore'] . '.-<br>';
-                                        echo 'Poids: ' . $Store['PoidStore'] . 'Kg<br>';
+                                        echo 'Prix: ' .$Produit[0]->PrixStore. '.-<br>';
+                                        echo 'Poids: ' . $Produit[0]->PoidStore . 'Kg<br>';
 
                                         //Liste Commande
                                         echo 'Commande:<br> <FORM><select name="Commandes" >';
@@ -103,11 +99,8 @@ dbConnect();
                                                     <img onclick="affich_cadre(this, LongeurTableauCouleur);" src="../Images/Couleur/<?php echo $Couleur['IdCouleur']; ?>.jpg"  id="<?php echo $Couleur['IdCouleur']; ?>" width="50px" height="50px">
                                                 </a>
                                             <?php }; ?>
-
-
-
                                         </div>
-                                        <a class="add addPanier" href="addpanier.php?IdStore=<?= $Store['IdStore'] ?>">Acheter</a>
+                                        <a type="button" class="add addPanier btn btn-warning" href="addpanier.php?IdStore=<?php echo $Produit[0]->IdStore; ?>"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Ajouter au panier</a> 
                                     </div>
                                 </div>
                             </form>

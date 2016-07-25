@@ -56,7 +56,7 @@ dbConnect();
                                 </div>
                             </div>
                         <?php endforeach ?>
-                        <i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Ajouter au panier</button> 
+                       
                     </div>
                 </div>
             </div>
