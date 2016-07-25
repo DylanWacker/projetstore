@@ -75,7 +75,6 @@ dbConnect();
                                     <div class="cell">
                                         <a href="panier.php?delPanier=<?= $product->IdStore; ?>" ><img src="../Images/Icone/del.png"></a>
                                     </div>
-
                                 </div>  
                             <?php endforeach; ?>
                         </div>

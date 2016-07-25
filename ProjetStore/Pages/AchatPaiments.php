@@ -8,7 +8,8 @@ require '_header.php';
 include 'Mysql.php';
 include 'Fonction.php';
 dbConnect();
-$PaimentPrix=$_SESSION['PaimentPrix'];
+$PaimentPrix = $_SESSION['PaimentPrix'];
+print_r($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,24 +36,30 @@ $PaimentPrix=$_SESSION['PaimentPrix'];
                     <div class="cell"> Confirmation</div>
                 </center>
                 <article>
-     
-<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="Store@gmail.com">
-<input type="hidden" name="item_name" value="Mon sotre">
-<input type="hidden" name="currency_code" value="CHF">
-<input type="hidden" name="amount" value="<?= $PaimentPrix ?>">
-<input type="image" src="http://www.paypal.com/fr_XC/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
-                    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="business" value="Store@gmail.com">
-<input type="hidden" name="item_name" value="Mon sotre">
-<input type="hidden" name="currency_code" value="CHF">
-<input type="hidden" name="amount" value="<?= $PaimentPrix ?>">
-<input type="image" src="http://www.paypal.com/fr_XC/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-</form>
 
+                    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                        <input type="hidden" name="cmd" value="_cart">
+                        <input type="hidden" name="upload" value="1">
+                        <input type="hidden" name="business" value="youremail@mail.com">
+                        <input type="hidden" name="currency_code" value="CHF">
+                        <?php
+                         $ids = array_keys($_SESSION['panier']);
+                            if (empty($ids)) {
+                                $articles = array();
+                            } else {
+                                $articles = $DB->query('SELECT * FROM store WHERE IdStore IN (' . implode(',', $ids) . ')');
+                            }
+                        $i = 0;
+                        foreach ($articles as $article):
+                            $i++;
+                            print_r($article);
+                            ?>
+                            <input type="hidden" name="item_name_<?= $i ?>" value="<?= $article->NomStore ?>">
+                            <input type="hidden" name="amount_<?= $i ?>" value="<?= 1* $article->PrixStore * 1.24?>">
+                        <?php endforeach; ?>
+
+                        <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+                    </form>
 
                 </article>
         </section>
