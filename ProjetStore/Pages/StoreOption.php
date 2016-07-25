@@ -61,19 +61,29 @@ dbConnect();
                             <form enctype="multipart/form-data" action="addpanier.php?IdStore=' . $Store['IdStore'] . '" method="post">
                                 <div class="table">
                                     <div class="left">
-                                        <img src="../Images/Store/Store<?= $Store['IdStore']; ?>.jpg" width="200px" height="200px">
+                                        <img src="../Images/Store/Store<?= $Store['IdStore']; ?>.jpg" width="300px" height="300px">
                                     </div>
                                     <div class="right">
                                         <?php
                                         echo 'Prix: ' .$Produit[0]->PrixStore. '.-<br>';
                                         echo 'Poids: ' . $Produit[0]->PoidStore . 'Kg<br>';
-
+                                        
+                                        //Taille des stores
+                                        $TailleDeBoucle = ($Produit[0]->TailleMax - $Produit[0]->TailleMin)/5;
+                                        echo 'Taille:<br> <FORM><select name="Tailles" >';
+                                        for ($i = 0; $i <= $TailleDeBoucle;$i++ ) {
+                                            echo'<option value="' . ($Produit[0]->TailleMin+($i*5)) . '">' . ($Produit[0]->TailleMin+($i*5))." cm";
+                                            echo'</option>';
+                                        };                                       
+                                        echo'</select><br/>';
+                                        
                                         //Liste Commande
                                         echo 'Commande:<br> <FORM><select name="Commandes" >';
                                         foreach ($TypeCommande as $Commande) {
                                             echo'<option value="' . $Commande['IdTypeCommande'] . '">' . $Commande['Commande'];
                                             echo'</option>';
                                         };
+                                        
                                         echo'</select>'
                                         . '</form><br>';
                                         //Liste couleurs
@@ -100,6 +110,7 @@ dbConnect();
                                                 </a>
                                             <?php }; ?>
                                         </div>
+                                        <br/>
                                         <a type="button" class="add addPanier btn btn-warning" href="addpanier.php?IdStore=<?php echo $Produit[0]->IdStore; ?>"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Ajouter au panier</a> 
                                     </div>
                                 </div>
