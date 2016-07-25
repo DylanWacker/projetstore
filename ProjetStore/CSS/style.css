@@ -184,14 +184,17 @@ footer {
     border-width:3px;
     border-style:solid; 
     border-color:#2980b9;
-    border-bottom: #2980b9 solid 2px;
+    border-bottom: #2980b9 solid 2px; 
+    padding-bottom: 10px;
+    padding-left: 10px;
 }
 .StoreOption .wrapper .table .right{
-
+    padding-top: 10px;
 }
 .StoreOption .wrapper .table .left{
     float: left;
-    margin-top: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
 }
 
 /****** connexion ******/
