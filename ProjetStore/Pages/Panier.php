@@ -92,6 +92,7 @@ dbConnect();
     </section>
     <?php
     include 'Footer.php';
+    $_SESSION['PaimentPrix']= number_format($panier->total(), 2, '.', ' ');
     ?>
 </body>
 </html>
