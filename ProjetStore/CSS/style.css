@@ -155,18 +155,7 @@ footer {
 .StoreOption {
    
 }
-.StoreOption .wrapper .table .description {
-    display:none;
-    position:absolute;
-    border:2px solid #000;
-    width:100px;
-    height:100px;
-    background:black;
-}
 
-.StoreOption .wrapper .table .box {
-    cursor: pointer ;
-}
 
 .StoreOption .wrapper{
     margin: 0 auto;
@@ -187,6 +176,18 @@ footer {
     border-bottom: #2980b9 solid 2px; 
     padding-bottom: 10px;
     padding-left: 10px;
+}
+.StoreOption .wrapper .table .description {
+    display:none;
+    position:absolute;
+    border:2px solid #000;
+    width:100px;
+    height:100px;
+    background:black;
+}
+
+.StoreOption .wrapper .table .box {
+    cursor: pointer ;
 }
 .StoreOption .wrapper .table .right{
     padding-top: 10px;

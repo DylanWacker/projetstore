@@ -8,7 +8,6 @@ require '_header.php';
 include 'Mysql.php';
 include 'Fonction.php';
 dbConnect();
-$PaimentPrix = $_SESSION['PaimentPrix'];
 print_r($_SESSION);
 ?>
 <!DOCTYPE html>

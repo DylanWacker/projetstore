@@ -8,6 +8,12 @@ require '_header.php';
 include 'Mysql.php';
 include 'Fonction.php';
 dbConnect();
+$Totale=number_format($panier->total(), 2, '.', ' ');
+if ($Totale<=0){
+    $BouttonActive='disabled="disabled"';
+}  else {
+    $BouttonActive='';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,7 +89,7 @@ dbConnect();
                         <input class="btn btn-primary" type="submit"  value="Recalculer">    
                         </form>
                     <form method="post" action="AchatInfo.php">
-                         <input class="btn btn-primary " type="submit"  value="Acheter">  
+                         <input class="btn btn-primary " type="submit"  <?= $BouttonActive; ?> value="Acheter">  
                     </form>
                 </div>
             </div>
@@ -91,7 +97,6 @@ dbConnect();
     </section>
     <?php
     include 'Footer.php';
-    $_SESSION['PaimentPrix']= number_format($panier->total(), 2, '.', ' ');
     ?>
 </body>
 </html>
