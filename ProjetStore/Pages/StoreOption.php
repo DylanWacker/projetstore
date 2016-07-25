@@ -9,7 +9,7 @@ include 'Mysql.php';
 include 'Fonction.php';
 dbConnect();
 ?>
-<script language="javascript">
+<script type="text/javascript">
     function affich_cadre(arg, LongeurTableauCouleur) {
 
         for (i = 1; i <= LongeurTableauCouleur; i++) {
@@ -25,16 +25,6 @@ dbConnect();
 
     }
 
-    function AfficherBox(arg) {
-        var IdCouleur = arg.id;
-        var elementCouleur = document.getElementById("description"+IdCouleur)
-        elementCouleur.style.display = 'block';
-    }
-    function CacherBox(arg) {
-         var IdCouleur = arg.id;
-        var elementCouleur = document.getElementById("description"+IdCouleur)
-        elementCouleur.style.display = 'none';
-    }
 
 
 </script>
@@ -56,6 +46,8 @@ dbConnect();
         </nav>
         <section>
             <article >
+
+
 
                 <div class="StoreOption">
                     <div class="wrapper">
@@ -91,38 +83,36 @@ dbConnect();
                                         //Liste couleurs
                                         echo 'Couleur:<br>';
                                         $LongeurTableauCouleur = count($CouleurStore);
-                                        
                                         ?>
                                         <script>var LongeurTableauCouleur = <?= $LongeurTableauCouleur ?>;</script>
+                                        <script type="text/javascript">
+                                            // Afficher la box sous les couleurs
+                                            $(window).load(function () {
+                                                $('a[data-toggle="test123"]').tooltip({
+                                                    animated: 'fade',
+                                                    placement: 'top',
+                                                    html: true
+                                                });
+                                            });
 
+                                        </script>
                                         <div class="box">
 
                                             <?php foreach ($CouleurStore as $Couleur) { ?>
-                                                <a ><img onMouseout="CacherBox(this)" onMouseover="AfficherBox(this)"onclick="affich_cadre(this, LongeurTableauCouleur);" src="../Images/Couleur/<?php echo $Couleur['IdCouleur']; ?>.jpg"  id="<?php echo $Couleur['IdCouleur']; ?>" width="50px" height="50px"></a>
-
+                                                <a data-toggle="test123"title="<?php echo $Couleur['NomCouleur']; ?><br/><img src='../Images/Couleur/<?php echo $Couleur['IdCouleur']; ?>.jpg' width='30px' />">
+                                                    <img onclick="affich_cadre(this, LongeurTableauCouleur);" src="../Images/Couleur/<?php echo $Couleur['IdCouleur']; ?>.jpg"  id="<?php echo $Couleur['IdCouleur']; ?>" width="50px" height="50px">
+                                                </a>
                                             <?php }; ?>
-                                            <?php foreach ($CouleurStore as $Couleur) { ?>
-                                                <div class="description" style="display: none;" id="description<?= $Couleur['IdCouleur']; ?>" class="Text<?= $Couleur['IdCouleur']; ?>"> <?= $Couleur['NomCouleur']; ?></div>
 
 
-                                            <?php }; ?>
 
                                         </div>
                                         <a class="add addPanier" href="addpanier.php?IdStore=<?= $Store['IdStore'] ?>">Acheter</a>
                                     </div>
                                 </div>
                             </form>
-                            </table>
-
-
-
-
-
-
-
                         <?php } ?>
                     </div>
-                </div>
             </article >
         </section>
 
