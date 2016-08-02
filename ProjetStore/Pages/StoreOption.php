@@ -17,9 +17,9 @@ dbConnect();
                 arg.style.border = '#00FF00 2px solid';
 
             } else {
-                var element = document.getElementById(i);
+                ElementCouleur = document.getElementById(i);
 
-                element.style.border = '0';
+                ElementCouleur.style.border = '0';
             }
         }
 
@@ -104,11 +104,14 @@ dbConnect();
                                         </script>
                                         <div class="box">
 
-                                            <?php foreach ($CouleurStore as $Couleur) { ?>
+                                            <?php 
+                                            $NombrePourIdCouleur = 1;
+                                            foreach ($CouleurStore as $Couleur) { ?>
+                                                
                                                 <a data-toggle="test123"title="<?php echo $Couleur['NomCouleur']; ?><br/><img src='../Images/Couleur/<?php echo $Couleur['IdCouleur']; ?>.jpg' width='40px' height='30px' />">
-                                                    <img onclick="affich_cadre(this, LongeurTableauCouleur);" src="../Images/Couleur/<?php echo $Couleur['IdCouleur']; ?>.jpg"  id="<?php echo $Couleur['IdCouleur']; ?>" width="50px" height="50px">
+                                                    <img onclick="affich_cadre(this, LongeurTableauCouleur);" src="../Images/Couleur/<?php echo $Couleur['IdCouleur']; ?>.jpg"  id="<?php echo $NombrePourIdCouleur; ?>" width="50px" height="50px">
                                                 </a>
-                                            <?php }; ?>
+                                            <?php $NombrePourIdCouleur++; }; ?>
                                         </div>
                                         <br/>
                                         <a type="button" class="add addPanier btn btn-warning" href="addpanier.php?IdStore=<?php echo $Produit[0]->IdStore; ?>"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Ajouter au panier</a> 
