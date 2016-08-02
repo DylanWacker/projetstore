@@ -29,32 +29,32 @@ dbConnect();
                <div class="home">
                 <div class="row">
                     <div class="wrap">
-                        <?php $Produits = $DB->query('SELECT * FROM store'); ?>
-                        <?php foreach ($Produits as $Produit): ?>
+                        <?php $Produits = $DB->query('SELECT * FROM typestore');  
+                        ?>
+                        
+                        <?php foreach ($Produits as $Produit): ?> 
                             <div class="box">
                                 <div class="product full">
-                                    <a href="#">
-                                        <img width="200px"src="../Images/Store/Store<?= $Produit->IdStore; ?>.jpg">
+                                    <a href="StoresAfficher.php?IdType=<?php echo $Produit->IdType; ?>">
+                                        <img width="200px"src="../Images/Store/<?= $Produit->Photo; ?>">
                                     </a>
                                     <div class="description">
-                                        <?= $Produit->NomStore; ?>
-                                        <a href="#" class="price"><?= number_format($Produit->PrixStore, 2, ',', ' '); ?> .-</a>
+                                        <?= $Produit->NomType; 
+                                         $NombreStore = CompterNombreStoreParType($Produit->IdType);
+                                        ?>
+                                       
+                                        <?= ": ".$NombreStore[0]; ?>
                                     </div>
-                                    <a class="add addPanier" href="addpanier.php?IdStore=<?php echo $Produit->IdStore; ?>">
-                                        add
                                     </a>
-                                     <?php
-
-    include 'FormulaireProduit.php';
-    ?>
                                 </div>
                             </div>
+                        
                         <?php endforeach ?>
                     </div>
                 </div>
             </div>
 
- 
+
 
         </section>
         <?php
