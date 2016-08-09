@@ -9,22 +9,6 @@ include 'Mysql.php';
 include 'Fonction.php';
 dbConnect();
 ?>
-<script type="text/javascript">
-    function affich_cadre(arg, LongeurTableauCouleur) {
-
-        for (i = 1; i <= LongeurTableauCouleur; i++) {
-            if (i == arg.id) {
-                arg.style.border = '#00FF00 2px solid';
-
-            } else {
-                ElementCouleur = document.getElementById(i);
-
-                ElementCouleur.style.border = '0';
-            }
-        }
-
-    }
-</script>
 <!DOCTYPE html>
 <html lang="en">
     <?php
@@ -67,7 +51,7 @@ dbConnect();
                                     <div class="right">      
 
                                         <?php
-                                        echo 'Prix: ' . $Produit[0]->PrixStore . '.-<br>';
+                                        echo 'Prix de base: ' . $Produit[0]->PrixStore . '.-<br>';
                                         echo 'Poids: ' . $Produit[0]->PoidStore . 'Kg<br>';
 
                                         //Taille des stores
@@ -94,29 +78,40 @@ dbConnect();
                                         ?>
                                         <script>var LongeurTableauCouleur = <?= $LongeurTableauCouleur ?>;</script>
                                         <script type="text/javascript">
-                                            // Afficher la box sous les couleurs
+                                            //variable
+                                            var CouleurSelect = "0";
+                                            var TailleMin = '<?= $Produit[0]->TailleMin; ?>';
+                                            var PrixTotal = "";
+                                            var PrixStore = '<?= $Produit[0]->PrixStore; ?>'
+                                            var PrixTaille = "0";
                                             $(window).load(function () {
-                                                $('a[data-toggle="test123"]').tooltip({
+                                                $('a[data-toggle="couleur"]').tooltip({
                                                     animated: 'fade',
                                                     placement: 'top',
                                                     html: true
                                                 });
                                             });
-                                            var TailleMin = '<?= $Produit[0]->TailleMin; ?>'
+                                            //afficher le cadre couleur
 
-                                            $('#formulaire').change(function(){
-                                                //Taille
-                                                 var ElementSelectionner = document.getElementById("Tailles");
-                                                var choix = ElementSelectionner.selectedIndex;
-                                                var valeur = ElementSelectionner.options[choix].value;
-                                                var texte = ElementSelectionner.options[choix].text;
-                                                var PrixTaille = (valeur - TailleMin) * 2;
-                                                alert(PrixTaille);
-                                                //totale
-                                           var PrixStore = '<?= $Produit[0]->PrixStore; ?>'
-                                                var PrixTotal = parseInt(PrixStore) + parseInt(PrixTaille);
-                                                alert(PrixTotal);
-                                        });
+                                            function affich_cadre(arg, LongeurTableauCouleur) {
+
+                                                for (i = 1; i <= LongeurTableauCouleur; i++) {
+                                                    if (i == arg.id) {
+                                                        arg.style.border = '#00FF00 2px solid';
+                                                        CouleurSelect = arg.name;
+                                                        PrixTotal = parseInt(PrixStore) + parseInt(PrixTaille) + parseInt(CouleurSelect);
+                                                        document.all.PrixTot.innerHTML = PrixTotal;
+
+
+                                                    } else {
+                                                        ElementCouleur = document.getElementById(i);
+
+                                                        ElementCouleur.style.border = '0';
+                                                    }
+                                                }
+
+                                            }
+
                                         </script>
                                         <div class="box">
 
@@ -125,19 +120,37 @@ dbConnect();
                                             foreach ($CouleurStore as $Couleur) {
                                                 ?>
 
-                                                <a data-toggle="test123"title="<?php echo $Couleur['NomCouleur']; ?><br/><img src='../Images/Couleur/<?php echo $Couleur['IdCouleur']; ?>.jpg' width='40px' height='30px' />">
-                                                    <img onclick="affich_cadre(this, LongeurTableauCouleur);" src="../Images/Couleur/<?php echo $Couleur['IdCouleur']; ?>.jpg"  id="<?php echo $NombrePourIdCouleur; ?>" width="50px" height="50px">
+                                                <a data-toggle="couleur" title="<?php echo $Couleur['NomCouleur']; ?><br/><img src='../Images/Couleur/<?php echo $Couleur['IdCouleur']; ?>.jpg' width='40px' height='30px' />">
+                                                    <img onclick="affich_cadre(this, LongeurTableauCouleur);" src="../Images/Couleur/<?php echo $Couleur['IdCouleur']; ?>.jpg"  id="<?php echo $NombrePourIdCouleur; ?>" name="<?php echo $Couleur['PrixCouleur'] ?>" width="50px" height="50px">
                                                 </a>
-                                                <?php $NombrePourIdCouleur++;
+                                                <?php
+                                                $NombrePourIdCouleur++;
                                             };
                                             ?>
                                         </div>
+                                        <script  type="text/javascript">
+                                            //Actualise a chaque changement
+                                            $('#formulaire').change(function actu() {
+                                                //Taille 
+                                                var ElementSelectionner = document.getElementById("Tailles");
+                                                var choix = ElementSelectionner.selectedIndex;
+                                                var valeur = ElementSelectionner.options[choix].value;
+                                                var texte = ElementSelectionner.options[choix].text;
+                                                PrixTaille = (valeur - TailleMin) * 2;
+                                                //totale
+                                                PrixStore = '<?= $Produit[0]->PrixStore; ?>'
+                                                PrixTotal = parseInt(PrixStore) + parseInt(PrixTaille) + parseInt(CouleurSelect);
+                                                document.all.PrixTot.innerHTML = PrixTotal;
+                                            });
+
+                                        </script>
+                                        Prix: <label id="PrixTot"><?= $Produit[0]->PrixStore; ?></label>.-
                                         <br/>
                                         <a type="button" class="add addPanier btn btn-warning" href="addpanier.php?IdStore=<?php echo $Produit[0]->IdStore; ?>"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Ajouter au panier</a> 
                                     </div>
                                 </div>
                             </form>
-<?php } ?>
+                        <?php } ?>
                     </div>
             </article >
         </section>
