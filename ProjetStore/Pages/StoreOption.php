@@ -36,6 +36,7 @@ dbConnect();
         <!-- Ajoute les fichiers bootstrap -->
         <script src="../js/bootstrap.min.js"></script>
         <script src="../js/MenuNavigation.js"></script>
+
         <nav>
             <?php
             include './MenuNavigation.php';
@@ -54,36 +55,37 @@ dbConnect();
                             $TypeCommande = AfficherTypeCommandeById($IdStore);
                             $TypeStore = AfficherTypeStoreById($IdStore);
                             $CouleurStore = AfficherCouleurStoreById($IdStore);
-                            $Produit = $DB->query('SELECT * FROM store WHERE IdStore='.$IdStore.'');
+                            $Produit = $DB->query('SELECT * FROM store WHERE IdStore=' . $IdStore . '');
                             ?>
-                            
+
                             <div class="header"> <?php echo $Store['NomStore']; ?> </div>
-                            <form enctype="multipart/form-data" action="addpanier.php?IdStore=' . $Store['IdStore'] . '" method="post">
+                            <form enctype="multipart/form-data"  id="formulaire" action="addpanier.php?IdStore=' . $Store['IdStore'] . '" method="post">
                                 <div class="table">
                                     <div class="left">
                                         <img src="../Images/Store/Store<?= $Store['IdStore']; ?>.jpg" width="300px" height="300px">
                                     </div>
-                                    <div class="right">
+                                    <div class="right">      
+
                                         <?php
-                                        echo 'Prix: ' .$Produit[0]->PrixStore. '.-<br>';
+                                        echo 'Prix: ' . $Produit[0]->PrixStore . '.-<br>';
                                         echo 'Poids: ' . $Produit[0]->PoidStore . 'Kg<br>';
-                                        
+
                                         //Taille des stores
-                                        $TailleDeBoucle = ($Produit[0]->TailleMax - $Produit[0]->TailleMin)/5;
-                                        echo 'Taille:<br> <FORM><select name="Tailles" >';
-                                        for ($i = 0; $i <= $TailleDeBoucle;$i++ ) {
-                                            echo'<option value="' . ($Produit[0]->TailleMin+($i*5)) . '">' . ($Produit[0]->TailleMin+($i*5))." cm";
+                                        $TailleDeBoucle = ($Produit[0]->TailleMax - $Produit[0]->TailleMin) / 5;
+                                        echo 'Taille:<br> <FORM><select  name="Tailles" id="Tailles" >';
+                                        for ($i = 0; $i <= $TailleDeBoucle; $i++) {
+                                            echo'<option value="' . ($Produit[0]->TailleMin + ($i * 5)) . '">' . ($Produit[0]->TailleMin + ($i * 5)) . " cm";
                                             echo'</option>';
-                                        };                                       
+                                        };
                                         echo'</select><br/>';
-                                        
+
                                         //Liste Commande
                                         echo 'Commande:<br> <FORM><select name="Commandes" >';
                                         foreach ($TypeCommande as $Commande) {
                                             echo'<option value="' . $Commande['IdTypeCommande'] . '">' . $Commande['Commande'];
                                             echo'</option>';
                                         };
-                                        
+
                                         echo'</select>'
                                         . '</form><br>';
                                         //Liste couleurs
@@ -100,25 +102,42 @@ dbConnect();
                                                     html: true
                                                 });
                                             });
+                                            var TailleMin = '<?= $Produit[0]->TailleMin; ?>'
 
+                                            $('#formulaire').change(function(){
+                                                //Taille
+                                                 var ElementSelectionner = document.getElementById("Tailles");
+                                                var choix = ElementSelectionner.selectedIndex;
+                                                var valeur = ElementSelectionner.options[choix].value;
+                                                var texte = ElementSelectionner.options[choix].text;
+                                                var PrixTaille = (valeur - TailleMin) * 2;
+                                                alert(PrixTaille);
+                                                //totale
+                                           var PrixStore = '<?= $Produit[0]->PrixStore; ?>'
+                                                var PrixTotal = parseInt(PrixStore) + parseInt(PrixTaille);
+                                                alert(PrixTotal);
+                                        });
                                         </script>
                                         <div class="box">
 
-                                            <?php 
+                                            <?php
                                             $NombrePourIdCouleur = 1;
-                                            foreach ($CouleurStore as $Couleur) { ?>
-                                                
+                                            foreach ($CouleurStore as $Couleur) {
+                                                ?>
+
                                                 <a data-toggle="test123"title="<?php echo $Couleur['NomCouleur']; ?><br/><img src='../Images/Couleur/<?php echo $Couleur['IdCouleur']; ?>.jpg' width='40px' height='30px' />">
                                                     <img onclick="affich_cadre(this, LongeurTableauCouleur);" src="../Images/Couleur/<?php echo $Couleur['IdCouleur']; ?>.jpg"  id="<?php echo $NombrePourIdCouleur; ?>" width="50px" height="50px">
                                                 </a>
-                                            <?php $NombrePourIdCouleur++; }; ?>
+                                                <?php $NombrePourIdCouleur++;
+                                            };
+                                            ?>
                                         </div>
                                         <br/>
                                         <a type="button" class="add addPanier btn btn-warning" href="addpanier.php?IdStore=<?php echo $Produit[0]->IdStore; ?>"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Ajouter au panier</a> 
                                     </div>
                                 </div>
                             </form>
-                        <?php } ?>
+<?php } ?>
                     </div>
             </article >
         </section>
