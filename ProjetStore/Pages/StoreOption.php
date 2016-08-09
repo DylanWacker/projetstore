@@ -64,9 +64,9 @@ dbConnect();
                                         echo'</select><br/>';
 
                                         //Liste Commande
-                                        echo 'Commande:<br> <FORM><select name="Commandes" >';
+                                        echo 'Commande:<br> <FORM><select id="Commandes" name="Commandes" >';
                                         foreach ($TypeCommande as $Commande) {
-                                            echo'<option value="' . $Commande['IdTypeCommande'] . '">' . $Commande['Commande'];
+                                            echo'<option id="' . $Commande['PrixCommande'] . '" value="' . $Commande['IdTypeCommande'] . '">' . $Commande['Commande'];
                                             echo'</option>';
                                         };
 
@@ -84,6 +84,7 @@ dbConnect();
                                             var PrixTotal = "";
                                             var PrixStore = '<?= $Produit[0]->PrixStore; ?>'
                                             var PrixTaille = "0";
+                                            var PrixCommande = "0";
                                             $(window).load(function () {
                                                 $('a[data-toggle="couleur"]').tooltip({
                                                     animated: 'fade',
@@ -99,7 +100,7 @@ dbConnect();
                                                     if (i == arg.id) {
                                                         arg.style.border = '#00FF00 2px solid';
                                                         CouleurSelect = arg.name;
-                                                        PrixTotal = parseInt(PrixStore) + parseInt(PrixTaille) + parseInt(CouleurSelect);
+                                                        PrixTotal = parseInt(PrixStore) + parseInt(PrixTaille) + parseInt(CouleurSelect) + parseInt(PrixCommande);
                                                         document.all.PrixTot.innerHTML = PrixTotal;
 
 
@@ -131,15 +132,19 @@ dbConnect();
                                         <script  type="text/javascript">
                                             //Actualise a chaque changement
                                             $('#formulaire').change(function actu() {
-                                                //Taille 
+                                                //Tailles 
                                                 var ElementSelectionner = document.getElementById("Tailles");
-                                                var choix = ElementSelectionner.selectedIndex;
-                                                var valeur = ElementSelectionner.options[choix].value;
-                                                var texte = ElementSelectionner.options[choix].text;
-                                                PrixTaille = (valeur - TailleMin) * 2;
+                                                var choixTailles = ElementSelectionner.selectedIndex;
+                                                var valeurTailles = ElementSelectionner.options[choixTailles].value;
+                                                PrixTaille = (valeurTailles - TailleMin) * 2;
+                                                //Commandes
+                                                var ElementSelectionner = document.getElementById("Commandes");
+                                                var choixCommandes = ElementSelectionner.selectedIndex;
+                                                var valeurCommandes = ElementSelectionner.options[choixCommandes].value;
+                                                PrixCommande = ElementSelectionner.options[choixCommandes].id;
                                                 //totale
                                                 PrixStore = '<?= $Produit[0]->PrixStore; ?>'
-                                                PrixTotal = parseInt(PrixStore) + parseInt(PrixTaille) + parseInt(CouleurSelect);
+                                                PrixTotal = parseInt(PrixStore) + parseInt(PrixTaille) + parseInt(CouleurSelect) + parseInt(PrixCommande);
                                                 document.all.PrixTot.innerHTML = PrixTotal;
                                             });
 

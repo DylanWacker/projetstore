@@ -226,7 +226,7 @@ function AfficherTypeCommandeById($IdStore) {
 //Affiche le type de commande des stores
 //--------------------------------------------------------------------------
     global $dbc;
-    $req = $dbc->prepare('SELECT tc.IdTypeCommande, tc.Commande FROM store s  join typecommande tc  WHERE s.IdStore = :IdStore');
+    $req = $dbc->prepare('SELECT tc.IdTypeCommande, tc.Commande, tc.PrixCommande FROM store s join typecommande tc WHERE s.IdStore = :IdStore');
     $req->execute(array('IdStore' => $IdStore));
     return $req->fetchall(PDO::FETCH_ASSOC);
 }
