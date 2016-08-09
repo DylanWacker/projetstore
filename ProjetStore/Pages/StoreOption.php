@@ -58,7 +58,7 @@ dbConnect();
                             ?>
                             
                             <div class="header"> <?php echo $Store['NomStore']; ?> </div>
-                            <form enctype="multipart/form-data" action="addpanier.php?IdStore=' . $Store['IdStore'] . '" method="post">
+                            <form enctype="multipart/form-data" action="addpanier.php?IdStore=' . $Store['IdStore'] . '" method="post" id="formulaire">
                                 <div class="table">
                                     <div class="left">
                                         <img src="../Images/Store/Store<?= $Store['IdStore']; ?>.jpg" width="300px" height="300px">
@@ -100,7 +100,9 @@ dbConnect();
                                                     html: true
                                                 });
                                             });
-
+                                        $('#formulaire').change(function(){
+                                         alert("Salut");
+                                        });
                                         </script>
                                         <div class="box">
 
