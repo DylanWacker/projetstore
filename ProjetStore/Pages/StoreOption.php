@@ -79,7 +79,8 @@ dbConnect();
                                         <script>var LongeurTableauCouleur = <?= $LongeurTableauCouleur ?>;</script>
                                         <script type="text/javascript">
                                             //variable
-                                            var CouleurSelect = "0";
+                                            var PrixCouleur = "0";
+                                            var IdCouleur = "0";
                                             var TailleMin = '<?= $Produit[0]->TailleMin; ?>';
                                             var PrixTotal = "";
                                             var PrixStore = '<?= $Produit[0]->PrixStore; ?>'
@@ -99,10 +100,10 @@ dbConnect();
                                                 for (i = 1; i <= LongeurTableauCouleur; i++) {
                                                     if (i == arg.id) {
                                                         arg.style.border = '#00FF00 2px solid';
-                                                        CouleurSelect = arg.name;
-                                                        PrixTotal = parseInt(PrixStore) + parseInt(PrixTaille) + parseInt(CouleurSelect) + parseInt(PrixCommande);
+                                                        PrixCouleur = arg.name;
+                                                        IdCouleur = arg.id;
+                                                        PrixTotal = parseInt(PrixStore) + parseInt(PrixTaille) + parseInt(PrixCouleur) + parseInt(PrixCommande);
                                                         document.all.PrixTot.innerHTML = PrixTotal;
-
 
                                                     } else {
                                                         ElementCouleur = document.getElementById(i);
@@ -144,14 +145,15 @@ dbConnect();
                                                 PrixCommande = ElementSelectionner.options[choixCommandes].id;
                                                 //totale
                                                 PrixStore = '<?= $Produit[0]->PrixStore; ?>'
-                                                PrixTotal = parseInt(PrixStore) + parseInt(PrixTaille) + parseInt(CouleurSelect) + parseInt(PrixCommande);
+                                                PrixTotal = parseInt(PrixStore) + parseInt(PrixTaille) + parseInt(PrixCouleur) + parseInt(PrixCommande);
                                                 document.all.PrixTot.innerHTML = PrixTotal;
+
                                             });
 
                                         </script>
                                         Prix: <label id="PrixTot"><?= $Produit[0]->PrixStore; ?></label>.-
                                         <br/>
-                                        <a type="button" class="add addPanier btn btn-warning" href="addpanier.php?IdStore=<?php echo $Produit[0]->IdStore; ?>"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Ajouter au panier</a> 
+                                        <a type="button" id="ButtonPanier"  class="add addPanier btn btn-warning" href="addpanier.php?IdStore=<?php echo $Produit[0]->IdStore; ?>"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Ajouter au panier</a> 
                                     </div>
                                 </div>
                             </form>
