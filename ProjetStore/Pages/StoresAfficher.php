@@ -35,7 +35,7 @@ dbConnect();
                             $Produits = $DB->query('SELECT * FROM store');
     
                         } else {
-                            $Produits = $DB->query('SELECT * FROM store WHERE IdStore = '.$_GET['IdType']);                            
+                            $Produits = $DB->query('SELECT * FROM store WHERE IdType = '.$_GET['IdType']);                            
                         }
                         
                         
