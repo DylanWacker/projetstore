@@ -34,7 +34,7 @@ class panier{
 	}
 
 	public function total(){
-		$total = 0;
+		/*$total = 0;
 		$ids = array_keys($_SESSION['panier']);
 		if(empty($ids)){
 			$products = array();
@@ -44,7 +44,7 @@ class panier{
 		foreach( $products as $product ) {
 			$total += $product->PrixStore * 1.24 * $_SESSION['panier'][$product->IdStore];
 		}
-		return $total;
+		return $total;*/
 	}
 
 	public function add($product_id){

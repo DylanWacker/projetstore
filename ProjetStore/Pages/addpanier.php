@@ -8,16 +8,22 @@ require '_header.php';
 include 'Mysql.php';
 include 'Fonction.php';
 dbConnect();
+//print_r($_POST);
 $json = array('error' => true);
-if(isset($_GET['IdStore'])){
-	$product = $DB->query('SELECT IdStore FROM store WHERE IdStore=:IdStore', array('IdStore' => $_GET['IdStore']));
+if(isset($_POST['idStore'])){
+	$product = $DB->query('SELECT IdStore FROM store WHERE IdStore=:IdStore', array('IdStore' => $_POST['idStore']));
 	if(empty($product)){
 		$json['message'] = "Ce produit n'existe pas";
 	}else{
-		$panier->add($product[0]->IdStore);
-		$json['error']  = false;
-		$json['total']  = number_format($panier->total(),2,',',' ');
-		$json['count']  = $panier->count();
+            if(isset($_SESSION['panier'][$_POST['idStore']][$_POST['taille']][$_POST['couleur']][$_POST['commande']])){
+                $_SESSION['panier'][$_POST['idStore']][$_POST['taille']][$_POST['couleur']][$_POST['commande']] += $_POST['quantite'];
+            }else{
+                $_SESSION['panier'][$_POST['idStore']][$_POST['taille']][$_POST['couleur']][$_POST['commande']] = $_POST['quantite'];
+            }
+                    
+	
+                    
+                 $json = $_SESSION['panier']; 
 		$json['message'] = 'Le produit a bien été ajouté à votre panier';
 	}
 }else{

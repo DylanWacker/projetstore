@@ -1,7 +1,7 @@
 (function($){
 	$('.addPanier').click(function(event){
 		event.preventDefault();
-		$.get($(this).attr('href'),function(data){
+		$.post("addpanier.php",$( "#formulaire" ).serialize(), function(data){
 			if(data.error){
 				alert(data.message);
 			}else{
