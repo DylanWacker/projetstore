@@ -100,9 +100,9 @@ if ($Totale <= 0) {
                                                 echo '<div class="cell"><a href="#" > <img src="../Images/Store/Store' . $idStore . '.jpg" height="53"></a></div>';
                                                 echo '<div class="cell"> ' . $Store[0]->NomStore . '</div>';
                                                 echo '<div class="cell"> ' . $PrixStore. '.- </div>';
-                                                echo '<div class="cell"> ' . $idTaille . '</div>';
-                                                echo '<div class="cell"> ' . $Commande[0]->Commande . '</div>';
-                                                echo '<div class="cell"> ' . $Couleur[0]->NomCouleur . '(' . $Couleur[0]->PrixCouleur .')</div>';
+                                                echo '<div class="cell"> ' . $idTaille . ' cm(<span style="font-size:12pt;font-weight: bold;">' . $PrixTaille .'.-</span>)</div>';
+                                                echo '<div class="cell"> ' . $Commande[0]->Commande . '(<span style="font-size:12pt;font-weight: bold;">' . $Commande[0]->PrixCommande .'.-</span>)</div>';
+                                                echo '<div class="cell"> ' . $Couleur[0]->NomCouleur . '(<span style="font-size:12pt;font-weight: bold;">' . $Couleur[0]->PrixCouleur .'.-</span>)</div>';
                                                 echo'<div class="cell"><input type="number" min="0" max="100" name="quantite" value="' . $commande . '"></div>';
                                                 echo '<div class="cell">' . ($PrixCommande + $PrixTaille + $PrixCouleur + $PrixStore) * $commande . '.-</div>';
                                                 //echo 'commande:'.$idCommande; 
