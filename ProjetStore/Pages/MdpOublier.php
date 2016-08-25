@@ -45,7 +45,7 @@ dbConnect();
                     die();
                     ?>
                     <SCRIPT LANGUAGE = "JavaScript">
-                        //   document.location.href = "index.php"
+                        //   document.location.href = "../index.php"
                     </SCRIPT>  
                     <?php
                     exit();

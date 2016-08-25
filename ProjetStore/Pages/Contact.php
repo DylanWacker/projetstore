@@ -45,7 +45,7 @@ dbConnect();
          </tr>
          </table> 
          <textarea rows="4" cols="50"  id="message" required name="Message" placeholder="Message" style="margin-bottom: 10px"></textarea>
-         <button type="submit" class="btn btn-primary btn-block">Envoyer</button></form><form method="post" action="index.php" enctype="multipart/form-data"><button type="submit" class="btn btn-danger btn-block">Annuler</button></form>
+         <button type="submit" class="btn btn-primary btn-block">Envoyer</button></form><form method="post" action="../index.php" enctype="multipart/form-data"><button type="submit" class="btn btn-danger btn-block">Annuler</button></form>
         
         </section></center>
         <?php

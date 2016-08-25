@@ -15,7 +15,7 @@ $_SESSION = array();
 session_destroy();
 
 /* on renvoie sur la page d'accueil */
-header('Location: index.php');
+header('Location: ../index.php');
 }
 else {
     echo "Vous n'avez pas le droit d'acceder a cette page";

@@ -13,7 +13,7 @@ require '_header.php'
 <div id="header">
 	<div class="wrap">
 		<div class="menu">
-				<a href="index.php" class="logo">Shoppi</a>
+				<a href="../index.php" class="logo">Shoppi</a>
 				<h1>The best online store, for real.</h1>
 				<ul class="panier">
 					<li class="caddie"><a href="panier.php">Caddie</a></li>
